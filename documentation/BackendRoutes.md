@@ -24,5 +24,5 @@
 | /api/posts/id                  |      PUT          |
 | /api/posts/id                  |      DELETE       |
 | /api/posts/id/comments         |      POST         |
-| /api/posts/id/comments/id      |      PUT          |
-| /api/posts/id/comments/id      |      DELETE       |
+| /api/posts/comments/id         |      PUT          |
+| /api/posts/comments/id         |      DELETE       |
