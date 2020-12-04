@@ -1,5 +1,6 @@
 from .db import db
 from .user_to_group import users_to_groups
+from .moderator import moderators
 
 
 class Group(db.Model):
@@ -12,6 +13,7 @@ class Group(db.Model):
     private = db.Column(db.Boolean, default=False)
 
     users = db.relationship('User', secondary=users_to_groups, back_populates='groups')
+    moderators = db.relationship('User', secondary=moderators, back_populates='groups')
 
     def to_dict(self):
         return {
@@ -20,5 +22,6 @@ class Group(db.Model):
             "name": self.name,
             "description": self.description,
             "private": self.private,
-            "users": self.users
+            "users": self.users,
+            "moderators": self.moderators
         }

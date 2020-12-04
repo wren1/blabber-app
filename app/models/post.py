@@ -1,4 +1,5 @@
 from .db import db
+from .like import likes
 
 
 class Post(db.Model):
@@ -12,6 +13,8 @@ class Post(db.Model):
     created_on = db.Column(db.String(255), nullable=False)
     last_modified = db.Column(db.String(255), nullable=False)
 
+    users_liked = db.relationship('User', secondary=likes, back_populates='likes')
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -20,5 +23,6 @@ class Post(db.Model):
             "title": self.title,
             "content": self.content,
             "created_on": self.created_on,
-            "last_modified": self.last_modified
+            "last_modified": self.last_modified,
+            "users_liked": self.users_liked
         }
