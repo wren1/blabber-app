@@ -1,12 +1,11 @@
 
 
-|               PATH             |       ACTION      |
+|        PATH                    |     ACTION        |
 |--------------------------------|-------------------|
 | /api/users/id/posts            |      GET          |
 | /api/users/id/friends          |      GET          |
 | /api/users/id/groups           |      GET          |
 | /api/users/id/invites          |      GET          |
-| /api/users/id/likes            |      GET          |
 | /api/users/id/profile          |      PUT          |
 | /api/groups                    |      POST         |
 | /api/groups/id/members         |      GET          |
@@ -18,6 +17,7 @@
 | /api/groups/id/moderator       |      DELETE       |
 | /api/invites                   |      POST         |
 | /api/invites                   |      DELETE       |
+| /api/posts/users/id            |      GET          |
 | /api/posts                     |      POST         |
 | /api/posts/id                  |      GET          |
 | /api/posts/id                  |      PUT          |
