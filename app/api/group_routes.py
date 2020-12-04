@@ -76,33 +76,60 @@ def join_group(id):
 # get group and check if current user is authorized to view it
 @group_routes.route('/<int:id>', strict_slashes=False)
 @login_required
-def users(id):
+def get_group(id):
     user_id = current_user.get_id()
     user = User.query.get(user_id)
     group = Group.query.get(id)
-    if group.private == False or user in group.users:
+    if group.private is False or user in group.users:
         return group.to_dict()
     return {"msg": "Sorry, this group is private."}
 
 
-# get
-@group_routes.route('/')
+# edit the title, dexcription, or private status of a group
+@group_routes.route('/<int:id>', methods=['PUT'], strict_slashes=False)
 @login_required
-def users():
+def edit_group(id):
     user_id = current_user.get_id()
-    users = User.query.all()
+    user = User.query.get(user_id)
+    group = Group.query.get(id)
+    form = NewGroupForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if check_mod(user, group) and check_mod(user, group):
+        group.name = form.data['name']
+        group.description = form.data['description']
+        group.private = form.data['private']
 
 
-@group_routes.route('/')
+# delete a group if current user is the owner of it
+@group_routes.route('/<int:id>', methods=['DELETE'], strict_slashes=False)
 @login_required
-def users():
+def delete_group(id):
     user_id = current_user.get_id()
-    users = User.query.all()
+    group = Group.query.get(id)
+    if group.user_id == user_id:
+        db.session.delete(group)
+        db.session.commit()
 
 
-# get
-@group_routes.route('/')
+# add a new moderator to the group
+@group_routes.route('/<int:id>/moderators', methods=['POST'], strict_slashes=False)
 @login_required
-def users():
+def new_mod(id):
     user_id = current_user.get_id()
-    users = User.query.all()
+    user = User.query.get(user_id)
+    group = Group.query.get(id)
+    if check_mod(user, group):
+        group.moderators.append(user)
+        db.session.commit()
+
+
+# remove a moderator from a group
+@group_routes.route('/<int:group_id>/moderators/<int:user_id>', methods=['DELETE'], strict_slashes=False)
+@login_required
+def remove_mod(group_id, user_id):
+    current_user_id = current_user.get_id()
+    user = User.query.get(user_id)
+    group = Group.query.get(group_id)
+    if user_id == current_user_id or current_user_id == group.user_id:
+        group.moderators.delete(user)
+        db.session.commit()

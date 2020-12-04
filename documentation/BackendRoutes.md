@@ -14,8 +14,8 @@
 | /api/groups/id                 |      GET          |
 | /api/groups/id                 |      PUT          |
 | /api/groups/id                 |      DELETE       |
-| /api/groups/id/moderator       |      POST         |
-| /api/groups/id/moderator       |      DELETE       |
+| /api/groups/id/moderators      |      POST         |
+| /api/groups/id/moderators/id   |      DELETE       |
 | /api/invites                   |      POST         |
 | /api/invites                   |      DELETE       |
 | /api/posts/users/id            |      GET          |
