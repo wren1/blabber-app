@@ -7,6 +7,13 @@ from app.api.auth_routes import validation_errors_to_error_messages
 group_routes = Blueprint('groups', __name__)
 
 
+# check if a user is the owner or moderator of a group
+def check_mod(user, group):
+    if user in group.users or user.id == group.user_id:
+        return True
+    return False
+
+
 # create a new group
 @group_routes.route('/', methods=['POST'], strict_slashes=False)
 @login_required
@@ -32,36 +39,50 @@ def new_group():
 
 
 # get all members of a group
-@group_routes.route('/<int:id>/members', strict_slashes=False)
+@group_routes.route('/<int:id>/users', strict_slashes=False)
 @login_required
 def group_members(id):
-    member_ids = Group.query.get(id).users
-    members = User.query.filter(id.in_(member_ids)).all()
+    members = Group.query.get(id).users
     return members.to_dict()
 
 
-# get
-@group_routes.route('/')
+# remove a user from a group if current user is group owner or a mod
+@group_routes.route('/<int:group_id>/users/<int:user_id>', methods=['DELETE'], strict_slashes=False)
 @login_required
-def users():
-    user_id = current_user.get_id()
-    users = User.query.all()
+def remove_member(group_id, user_id):
+    current_user_id = current_user.get_id()
+    current_user = User.query.get(current_user_id)
+    group = Group.query.get(group_id)
+    if check_mod(current_user, group):
+        user = User.query.get(user_id)
+        group.users.remove(user)
+        db.session.commit()
+        return {"user": user.to_dict(), "group": group.to_dict()}
+    return {"msg": "Sorry, you aren't authorized to do that."}
 
 
-# get
-@group_routes.route('/')
+# current member joins a group
+@group_routes.route('/<int:id>/users', methods=['POST'], strict_slashes=False)
 @login_required
-def users():
+def join_group(id):
     user_id = current_user.get_id()
-    users = User.query.all()
+    user = User.query.get(user_id)
+    group = Group.query.get(id)
+    group.users.append(user)
+    db.session.commit()
+    return {"user": user.to_dict(), "group": group.to_dict()}
 
 
-# get
-@group_routes.route('/')
+# get group and check if current user is authorized to view it
+@group_routes.route('/<int:id>', strict_slashes=False)
 @login_required
-def users():
+def users(id):
     user_id = current_user.get_id()
-    users = User.query.all()
+    user = User.query.get(user_id)
+    group = Group.query.get(id)
+    if group.private == False or user in group.users:
+        return group.to_dict()
+    return {"msg": "Sorry, this group is private."}
 
 
 # get

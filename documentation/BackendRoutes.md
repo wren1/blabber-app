@@ -8,8 +8,9 @@
 | /api/users/id/invites          |      GET          |
 | /api/users/id/profile          |      PUT          |
 | /api/groups                    |      POST         |
-| /api/groups/id/members         |      GET          |
-| /api/groups/id/members         |      DELETE       |
+| /api/groups/id/users           |      GET          |
+| /api/groups/id/users/id        |      DELETE       |
+| /api/groups/id/users           |      POST         |
 | /api/groups/id                 |      GET          |
 | /api/groups/id                 |      PUT          |
 | /api/groups/id                 |      DELETE       |

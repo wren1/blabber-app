@@ -41,3 +41,5 @@
         - moderators can remove themselves from being moderators
 8. Live Chat
     * Chat rooms for groups and user to user
+
+if user has been removed from a group, block them from joining again
