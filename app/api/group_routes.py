@@ -85,7 +85,7 @@ def get_group(id):
     return {"msg": "Sorry, this group is private."}
 
 
-# edit the title, dexcription, or private status of a group
+# edit the title, description, or private status of a group
 @group_routes.route('/<int:id>', methods=['PUT'], strict_slashes=False)
 @login_required
 def edit_group(id):

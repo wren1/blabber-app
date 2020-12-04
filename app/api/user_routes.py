@@ -24,7 +24,11 @@ def user(id):
 @user_routes.route('/<int:id>/posts', strict_slashes=False)
 @login_required
 def user_posts(id):
-    posts = Post.query.filter().all()
+    user = User.query.get(id)
+    user_ids = [friend.id for friend in user.friends]
+    user_ids.append(id)
+    group_ids = [group.id for group in user.groups]
+    posts = Post.query.filter((Post.user_id.in_(user_ids)) | (Post.group_id.in_(group_ids))).order_by(Post.created_on).all()
 
 
 # get all users that are the current user's friends
