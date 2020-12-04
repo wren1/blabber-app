@@ -10,7 +10,7 @@ class Group(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
-    private = db.Column(db.Boolean, default=False)
+    private = db.Column(db.Boolean, nullable=False)
 
     users = db.relationship('User', secondary=users_to_groups, back_populates='groups')
     moderators = db.relationship('User', secondary=moderators, back_populates='groups')
