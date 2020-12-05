@@ -16,8 +16,10 @@
 | /api/groups/id                 |      DELETE       |
 | /api/groups/id/moderators      |      POST         |
 | /api/groups/id/moderators/id   |      DELETE       |
-| /api/invites                   |      POST         |
-| /api/invites                   |      DELETE       |
+| /api/invites/users/id/friend   |      POST         |
+| /api/invites/users/id/group/id |      POST         |
+| /api/invites/users/id/group/id |      DELETE       |
+| /api/invites/users/id/friend   |      DELETE       |
 | /api/posts/users/id            |      GET          |
 | /api/posts                     |      POST         |
 | /api/posts/id                  |      GET          |
