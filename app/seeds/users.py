@@ -18,3 +18,17 @@ def seed_users():
 def undo_users():
     db.session.execute('TRUNCATE users;')
     db.session.commit()
+
+
+# id
+# username
+# email
+# hashed_password
+# name
+# description
+# icon_url
+
+# groups
+# friends
+# # like
+# groups_moderating
