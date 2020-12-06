@@ -5,7 +5,7 @@ from wtforms.fields import (
 from wtforms.validators import DataRequired, ValidationError
 
 
-class NewGroupForm(FlaskForm):
+class EditGroupForm(FlaskForm):
     name = StringField("name", validators=[
                         DataRequired("Please provide a title.")])
     description = TextAreaField("description", validators=[

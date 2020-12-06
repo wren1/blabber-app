@@ -5,7 +5,7 @@ from wtforms.fields import (
 from wtforms.validators import DataRequired, ValidationError
 
 
-class NewPostForm(FlaskForm):
+class NewCommentForm(FlaskForm):
     user_id = IntegerField("user_id", validators=[DataRequired()])
     content = TextAreaField("content", validators=[
                             DataRequired("Please provide your comment.")])

@@ -13,7 +13,7 @@ class Post(db.Model):
     created_on = db.Column(db.String(255), nullable=False)
     last_modified = db.Column(db.String(255), nullable=False)
 
-    users_liked = db.relationship('User', secondary=likes, back_populates='likes')
+    users = db.relationship('User', secondary=likes)
 
     def to_dict(self):
         return {
@@ -24,5 +24,5 @@ class Post(db.Model):
             "content": self.content,
             "created_on": self.created_on,
             "last_modified": self.last_modified,
-            "users_liked": self.users_liked
+            "users_liked": [user.id for user in self.users]
         }

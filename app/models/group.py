@@ -13,7 +13,7 @@ class Group(db.Model):
     private = db.Column(db.Boolean, nullable=False)
 
     users = db.relationship('User', secondary=users_to_groups, back_populates='groups')
-    moderators = db.relationship('User', secondary=moderators, back_populates='groups')
+    moderators = db.relationship('User', secondary=moderators)
 
     def to_dict(self):
         return {

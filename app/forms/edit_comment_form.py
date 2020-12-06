@@ -3,8 +3,6 @@ from wtforms.fields import (
     StringField, IntegerField
 )
 from wtforms.validators import DataRequired, ValidationError
-from flask_login import current_user
-from app.models import Tag
 
 
 def tag_exists(form, field):
@@ -16,6 +14,6 @@ def tag_exists(form, field):
         raise ValidationError("Tag name already present.")
 
 
-class TagForm(FlaskForm):
+class EditCommentForm(FlaskForm):
     name = StringField("name", [DataRequired()])
     user_id = IntegerField("user_id",  [DataRequired(), tag_exists])

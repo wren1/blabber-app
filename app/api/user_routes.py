@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, session, request
 from flask_login import login_required, current_user
 from app.models import User, Post, Group, Invite, Comment
 
@@ -13,7 +13,7 @@ def users():
 
 
 @user_routes.route('/<int:id>', strict_slashes=False)
-@login_required
+# @login_required
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
@@ -22,7 +22,7 @@ def user(id):
 # get all posts associated with that user to show on their front page,
 # including followed group posts and friend's posts
 @user_routes.route('/<int:id>/posts', strict_slashes=False)
-@login_required
+# @login_required
 def user_posts(id):
     user = User.query.get(id)
     user_ids = [friend.id for friend in user.friends]
@@ -34,16 +34,16 @@ def user_posts(id):
 
 # get all users that are the current user's friends
 @user_routes.route('/<int:id>/friends', strict_slashes=False)
-@login_required
+# @login_required
 def user_friends(id):
-    user = User.query.get(id)
-    friends = User.query.filter(User.id.in_(user.friends)).all()
+    # user = User.query.get(id)
+    friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id)).all()
     return friends.to_dict()
 
 
 # get all groups current user is in
 @user_routes.route('/<int:id>/groups', strict_slashes=False)
-@login_required
+# @login_required
 def user_groups(id):
     user = User.query.get(id)
     groups = Group.query.filter(Group.id.in_(user.groups)).all()
@@ -51,9 +51,9 @@ def user_groups(id):
 
 
 # get all invites to and from current user
-@user_routes.route('/<int:id>/posts', strict_slashes=False)
-@login_required
-def user_posts(id):
+@user_routes.route('/<int:id>/invites', strict_slashes=False)
+# @login_required
+def user_invites(id):
     received_invites = Invite.query.filter(Invite.invitee_id == id).all()
     sent_invites = Invite.query.filter(Invite.inviter_id == id).all()
     # send info about invites too!!

@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify, request, Response
+from flask import Blueprint, jsonify, session, request, Response
 from flask_login import login_required, current_user
-from app.models import User, Post, Group, Invite, Comment
+from app.models import User, Post, Group, Invite, Comment, db
 from app.forms import NewGroupForm, EditGroupForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -8,25 +8,32 @@ invite_routes = Blueprint('invites', __name__)
 
 
 # current user accepts friend request
-@group_routes.route('/users/<int:id>/friends/accept', methods=['DELETE'], strict_slashes=False)
-@login_required
-def respond_to_invite(id):
-    current_user_id = current_user.get_id()
+@invite_routes.route('/users/<int:id>/friends/accept', methods=['DELETE'], strict_slashes=False)
+# @login_required
+def accept_friend_request(id):
+    # current_user_id = current_user.get_id()
+    current_user_id = 1
     invite = Invite.query.filter(Invite.invitee_id == current_user_id,
                                  Invitee.inviter_id == id, Invite.type == 'friend').first()
-    current_user = User.query.get(current_user_id)
-    inviter = User.query.get(id)
-    current_user.friends.append(inviter)
+    # current_user = User.query.get(current_user_id)
+    # inviter = User.query.get(id)
+    # current_user.friends.append(inviter)
+    friends = Friend(
+        user_one_id=id,
+        user_two_id=current_user_id
+    )
+    db.session.add(friends)
     db.session.delete(invite)
     db.session.commit()
     return inviter.to_dict()
 
 
 # current user declines friend request
-@group_routes.route('/users/<int:id>/friends/decline', methods=['DELETE'], strict_slashes=False)
-@login_required
-def respond_to_invite(id):
-    current_user_id = current_user.get_id()
+@invite_routes.route('/users/<int:id>/friends/decline', methods=['DELETE'], strict_slashes=False)
+# @login_required
+def decline_friend_request(id):
+    # current_user_id = current_user.get_id()
+    current_user_id = 1
     invite = Invite.query.filter(Invite.invitee_id == current_user_id,
                                  Invitee.inviter_id == id, Invite.type == 'friend').first()
     db.session.delete(invite)
@@ -35,10 +42,11 @@ def respond_to_invite(id):
 
 
 # current user accepts group invite
-@group_routes.route('/users/<int:user_id>/groups/<int:group_id>/accept', methods=['DELETE'], strict_slashes=False)
-@login_required
-def respond_to_invite(user_id, group_id):
-    current_user_id = current_user.get_id()
+@invite_routes.route('/users/<int:user_id>/groups/<int:group_id>/accept', methods=['DELETE'], strict_slashes=False)
+# @login_required
+def accept_group_invite(user_id, group_id):
+    # current_user_id = current_user.get_id()
+    current_user_id = 1
     invite = Invite.query.filter(Invite.invitee_id == current_user_id,
                                  Invitee.inviter_id == user_id, Invite.type == 'group').first()
     current_user = User.query.get(current_user_id)
@@ -51,22 +59,23 @@ def respond_to_invite(user_id, group_id):
 
 
 # current user declines group invite
-@group_routes.route('/users/<int:user_id>/groups/<int:group_id>/decline', methods=['DELETE'], strict_slashes=False)
-@login_required
-def respond_to_invite(user_id, group_id):
-    user_id = current_user.get_id()
-    current_user_id = current_user.get_id()
+@invite_routes.route('/users/<int:user_id>/groups/<int:group_id>/decline', methods=['DELETE'], strict_slashes=False)
+# @login_required
+def decline_group_invite(user_id, group_id):
+    # current_user_id = current_user.get_id()
+    current_user_id = 1
     invite = Invite.query.filter(Invite.invitee_id == current_user_id,
-                                 Invitee.inviter_id == id, Invite.type == 'friend').first()
+                                 Invite.inviter_id == user_id, Invite.type == 'friend').first()
     db.session.delete(invite)
     return {"msg": "Invite declined."}
 
 
 # current user invites another user to join a group or become friends
-@group_routes.route('/users/<int:id>/friends', methods=['POST'], strict_slashes=False)
-@login_required
-def make_invite(id):
-    current_user_id = current_user.get_id()
+@invite_routes.route('/users/<int:id>/friends', methods=['POST'], strict_slashes=False)
+# @login_required
+def make_friend_request(id):
+    # current_user_id = current_user.get_id()
+    current_user_id = 1
     invite = Invite(
         inviter_id=current_user_id,
         invitee_id=user_id,
@@ -78,10 +87,11 @@ def make_invite(id):
 
 
 # current user invites another user to join a group or become friends
-@group_routes.route('/users/<int:user_id>/groups/<int:group_id>', methods=['POST'], strict_slashes=False)
-@login_required
-def make_invite(user_id, group_id):
-    current_user_id = current_user.get_id()
+@invite_routes.route('/users/<int:user_id>/groups/<int:group_id>', methods=['POST'], strict_slashes=False)
+# @login_required
+def make_group_invite(user_id, group_id):
+    # current_user_id = current_user.get_id()
+    current_user_id = 1
     invite = Invite(
         inviter_id=current_user_id,
         invitee_id=user_id,
