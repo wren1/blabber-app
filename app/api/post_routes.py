@@ -75,9 +75,11 @@ def get_comments(id):
     # user_id = current_user.get_id()
     user_id = 1
     post = Post.query.get(id)
-    return post.to_dict()
+    comments = Comment.query.filter(Comment.post_id == id).order_by(Comment.created_on).all()
+    return {"post": post.to_dict(), "comments": [comment.to_dict() for comment in comments]}
 
 
+# unlike a post
 @post_routes.route('/<int:id>/like', methods=['DELETE'], strict_slashes=False)
 # @login_required
 def unlike_post(id):
@@ -90,6 +92,7 @@ def unlike_post(id):
     return post.to_dict()
 
 
+# like a post
 @post_routes.route('/<int:id>/like', methods=['POST'], strict_slashes=False)
 # @login_required
 def like_post(id):
@@ -109,7 +112,6 @@ def edit_post(id):
     user_id = 1
     user = User.query.get(user_id)
     form = EditPostForm()
-    form['user_id'].data = user_id
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -127,7 +129,7 @@ def edit_post(id):
 # @login_required
 def delete_post(id):
     post = Post.query.get(id)
-    db.session.delete(note)
+    db.session.delete(post)
     db.session.commit()
     return post.to_dict()
 
@@ -153,7 +155,7 @@ def make_comment(id):
         )
         db.session.add(comment)
         db.session.commit()
-        return post.to_dict()
+        return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 
@@ -164,7 +166,6 @@ def edit_comment(id):
     # user_id = current_user.get_id()
     user_id = 1
     form = EditCommentForm()
-    form['user_id'].data = user_id
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():

@@ -14,6 +14,7 @@ class Post(db.Model):
     last_modified = db.Column(db.String(255), nullable=False)
 
     users = db.relationship('User', secondary=likes)
+    comments = db.relationship('Comment', back_populates='post', cascade='all, delete')
 
     def to_dict(self):
         return {
@@ -24,5 +25,6 @@ class Post(db.Model):
             "content": self.content,
             "created_on": self.created_on,
             "last_modified": self.last_modified,
-            "users_liked": [user.id for user in self.users]
+            "users_liked": [user.id for user in self.users],
+            "comments": [comment.id for comment in self.comments]
         }

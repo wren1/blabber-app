@@ -11,6 +11,8 @@ class Comment(db.Model):
     created_on = db.Column(db.String(255), nullable=False)
     last_modified = db.Column(db.String(255), nullable=False)
 
+    post = db.relationship('Post', back_populates='comments')
+
     def to_dict(self):
         return {
             "id": self.id,
