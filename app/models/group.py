@@ -22,6 +22,6 @@ class Group(db.Model):
             "name": self.name,
             "description": self.description,
             "private": self.private,
-            "users": self.users,
-            "moderators": self.moderators
+            "users": [user.id for user in self.users],
+            "moderators": [user.id for user in self.moderators]
         }

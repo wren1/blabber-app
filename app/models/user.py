@@ -41,7 +41,7 @@ class User(db.Model, UserMixin):
           "name": self.name,
           "description": self.description,
           "icon_url": self.icon_url,
-          "groups": self.groups,
-          "likes": self.likes,
-          "groups_moderating": self.groups_moderating
+          "groups": [group.id for group in self.groups],
+          "likes": [post.id for post in self.likes],
+          "groups_moderating": [group.id for group in self.groups_moderating]
         }

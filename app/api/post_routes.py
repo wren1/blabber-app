@@ -85,7 +85,7 @@ def unlike_post(id):
     user_id = 1
     user = User.query.get(user_id)
     post = Post.query.get(id)
-    user.likes.delete(id)
+    user.likes.remove(post)
     db.session.commit()
     return post.to_dict()
 
