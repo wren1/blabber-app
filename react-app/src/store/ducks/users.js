@@ -1,8 +1,3 @@
-
-// get all user's friends
-// get user
-// get all users in group
-
 export const GET_FRIENDS = 'blabber/users/friends';
 export const GET_USER = 'blabber/users/user';
 export const GET_GROUP_MEMBERS = 'blabber/users/groupMembers';
@@ -22,7 +17,7 @@ export const loadUser = () => async (dispatch) => {
 }
 
 export const loadGroupMembers = () => async (dispatch) => {
-    
+
 }
 
 

@@ -1,13 +1,7 @@
-
-// get comments related to post
-// make comment on post
-// edit comment
-// delete comment
-
-export const GET_COMMENTS = 'babble/comments/get';
-export const NEW_COMMENT = 'babble/comments/new';
-export const EDIT_COMMENT = 'babble/comments/edit';
-export const DELETE_COMMENT = 'babble/comments/delete';
+export const GET_COMMENTS = 'blabber/comments/get';
+export const NEW_COMMENT = 'blabber/comments/new';
+export const EDIT_COMMENT = 'blabber/comments/edit';
+export const DELETE_COMMENT = 'blabber/comments/delete';
 
 export const getComments = (comments) => ({ type: GET_COMMENTS, comments })
 export const newComment = (comment) => ({ type: NEW_COMMENT, comment })
