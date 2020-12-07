@@ -15,7 +15,7 @@ class Group(db.Model):
     users = db.relationship('User', secondary=users_to_groups, back_populates='groups')
     moderators = db.relationship('User', secondary=moderators)
 
-    invites = db.relationship('Invite', back_populates='groups')
+    invites = db.relationship('Invite', back_populates='group')
 
     def to_dict(self):
         return {

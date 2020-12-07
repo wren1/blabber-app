@@ -12,7 +12,7 @@ class Invite(db.Model):
 
     users_invited = db.relationship('User', back_populates='received_invites', foreign_keys=[invitee_id])
     users_inviting = db.relationship('User', back_populates='sent_invites', foreign_keys=[inviter_id])
-    groups = db.relationship('Group', back_populates='invites')
+    group = db.relationship('Group', back_populates='invites')
 
     def to_dict(self):
         return {
