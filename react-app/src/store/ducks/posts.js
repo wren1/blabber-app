@@ -33,31 +33,31 @@ export const loadPosts = () => async (dispatch) => {
 
 }
 
-export const loadPosts = () => async (dispatch) => {
+export const loadUserPosts = () => async (dispatch) => {
 
 }
 
-export const loadPosts = () => async (dispatch) => {
+export const createPost = () => async (dispatch) => {
 
 }
 
-export const loadPosts = () => async (dispatch) => {
+export const createGroupPost = () => async (dispatch) => {
 
 }
 
-export const loadPosts = () => async (dispatch) => {
+export const updatePost = () => async (dispatch) => {
 
 }
 
-export const loadPosts = () => async (dispatch) => {
+export const removePost = () => async (dispatch) => {
 
 }
 
-export const loadPosts = () => async (dispatch) => {
+export const like = () => async (dispatch) => {
 
 }
 
-export const loadPosts = () => async (dispatch) => {
+export const unlike = () => async (dispatch) => {
 
 }
 
