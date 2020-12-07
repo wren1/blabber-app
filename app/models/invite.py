@@ -10,6 +10,10 @@ class Invite(db.Model):
     group_id = db.Column(db.Integer, db.ForeignKey('groups.id'))
     type = db.Column(db.String(255), nullable=False)
 
+    users_invited = db.relationship('User', back_populates='received_invites', foreign_keys=[invitee_id])
+    users_inviting = db.relationship('User', back_populates='sent_invites', foreign_keys=[inviter_id])
+    groups = db.relationship('Group', back_populates='invites')
+
     def to_dict(self):
         return {
             "id": self.id,

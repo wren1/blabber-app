@@ -21,6 +21,8 @@ class User(db.Model, UserMixin):
     # friends = db.relationship('User', secondary=friends, back_populates='users')
     likes = db.relationship('Post', secondary=likes)
     groups_moderating = db.relationship('Group', secondary=moderators)
+    received_invites = db.relationship('Invite', foreign_keys='Invite.invitee_id', back_populates='users_invited')
+    sent_invites = db.relationship('Invite', foreign_keys='Invite.inviter_id', back_populates='users_inviting')
 
     @property
     def password(self):
@@ -43,5 +45,7 @@ class User(db.Model, UserMixin):
           "icon_url": self.icon_url,
           "groups": [group.id for group in self.groups],
           "likes": [post.id for post in self.likes],
-          "groups_moderating": [group.id for group in self.groups_moderating]
+          "groups_moderating": [group.id for group in self.groups_moderating],
+          "received_invites": [invite.id for invite in self.received_invites],
+          "sent_invites": [invite.id for invite in self.sent_invites]
         }

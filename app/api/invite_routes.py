@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request, Response
 from flask_login import login_required, current_user
-from app.models import User, Post, Group, Invite, Comment, db
+from app.models import User, Post, Group, Invite, Comment, db, Friend
 from app.forms import NewGroupForm, EditGroupForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -12,9 +12,9 @@ invite_routes = Blueprint('invites', __name__)
 # @login_required
 def accept_friend_request(id):
     # current_user_id = current_user.get_id()
-    current_user_id = 1
+    current_user_id = 3
     invite = Invite.query.filter(Invite.invitee_id == current_user_id,
-                                 Invitee.inviter_id == id, Invite.type == 'friend').first()
+                                 Invite.inviter_id == id, Invite.type == 'friend').first()
     # current_user = User.query.get(current_user_id)
     # inviter = User.query.get(id)
     # current_user.friends.append(inviter)
@@ -25,7 +25,7 @@ def accept_friend_request(id):
     db.session.add(friends)
     db.session.delete(invite)
     db.session.commit()
-    return inviter.to_dict()
+    return invite.to_dict()
 
 
 # current user declines friend request
@@ -33,9 +33,9 @@ def accept_friend_request(id):
 # @login_required
 def decline_friend_request(id):
     # current_user_id = current_user.get_id()
-    current_user_id = 1
+    current_user_id = 3
     invite = Invite.query.filter(Invite.invitee_id == current_user_id,
-                                 Invitee.inviter_id == id, Invite.type == 'friend').first()
+                                 Invite.inviter_id == id, Invite.type == 'friend').first()
     db.session.delete(invite)
     db.session.commit()
     return {"msg": "Friend request declined."}
@@ -46,11 +46,11 @@ def decline_friend_request(id):
 # @login_required
 def accept_group_invite(user_id, group_id):
     # current_user_id = current_user.get_id()
-    current_user_id = 1
-    invite = Invite.query.filter(Invite.invitee_id == current_user_id,
-                                 Invitee.inviter_id == user_id, Invite.type == 'group').first()
+    current_user_id = 2
+    invite = Invite.query.filter(Invite.invitee_id == current_user_id, Invite.group_id == group_id,
+                                 Invite.inviter_id == user_id, Invite.type == 'group').first()
     current_user = User.query.get(current_user_id)
-    inviter = User.query.get(id)
+    # inviter = User.query.get(id)
     group = Group.query.get(group_id)
     current_user.groups.append(group)
     db.session.delete(invite)
@@ -63,17 +63,18 @@ def accept_group_invite(user_id, group_id):
 # @login_required
 def decline_group_invite(user_id, group_id):
     # current_user_id = current_user.get_id()
-    current_user_id = 1
-    invite = Invite.query.filter(Invite.invitee_id == current_user_id,
-                                 Invite.inviter_id == user_id, Invite.type == 'friend').first()
+    current_user_id = 3
+    invite = Invite.query.filter(Invite.invitee_id == current_user_id, Invite.group_id == group_id,
+                                 Invite.inviter_id == user_id, Invite.type == 'group').first()
     db.session.delete(invite)
-    return {"msg": "Invite declined."}
+    db.session.commit()
+    return invite.to_dict()
 
 
-# current user invites another user to join a group or become friends
-@invite_routes.route('/users/<int:id>/friends', methods=['POST'], strict_slashes=False)
+# current user invites another user to become friends
+@invite_routes.route('/users/<int:user_id>/friends', methods=['POST'], strict_slashes=False)
 # @login_required
-def make_friend_request(id):
+def make_friend_request(user_id):
     # current_user_id = current_user.get_id()
     current_user_id = 1
     invite = Invite(
@@ -86,7 +87,7 @@ def make_friend_request(id):
     return invite.to_dict()
 
 
-# current user invites another user to join a group or become friends
+# current user invites another user to join a group
 @invite_routes.route('/users/<int:user_id>/groups/<int:group_id>', methods=['POST'], strict_slashes=False)
 # @login_required
 def make_group_invite(user_id, group_id):
