@@ -16,7 +16,11 @@ def users():
 # @login_required
 def user(id):
     user = User.query.get(id)
-    return user.to_dict()
+    friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id))
+    friends = [friend.id for friend in friends]
+    user = user.to_dict()
+    return {**user, "friends": friends}
+
 
 
 # get all posts associated with that user to show on their front page,
