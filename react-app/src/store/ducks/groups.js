@@ -17,3 +17,66 @@ export const joinGroup = () => ({type: JOIN_GROUP });
 export const leaveGroup = () => ({type: LEAVE_GROUP });
 export const deleteMod = () => ({type: DELETE_MOD });
 export const newMod = () => ({type:  NEW_MOD });
+
+
+export const loadGroup = () => async (dispatch) => {
+
+}
+
+export const loadUserGroups = () => async (dispatch) => {
+
+}
+
+export const createGroup = () => async (dispatch) => {
+
+}
+
+export const removeGroup = () => async (dispatch) => {
+
+}
+
+export const updateGroup = () => async (dispatch) => {
+
+}
+
+export const addMember = () => async (dispatch) => {
+
+}
+
+export const removeMember = () => async (dispatch) => {
+
+}
+
+export const addMod = () => async (dispatch) => {
+
+}
+
+export const removeMod = () => async (dispatch) => {
+
+}
+
+
+export default function groups(state = {}, action) {
+    switch (action.type) {
+        case GET_GROUP:
+            return {};
+        case GET_USER_GROUPS:
+            return {};
+        case NEW_GROUP:
+            return {};
+        case DELETE_GROUP:
+            return {};
+        case EDIT_GROUP:
+            return {};
+        case JOIN_GROUP:
+            return {};
+        case LEAVE_GROUP:
+            return {};
+        case DELETE_MOD:
+            return {};
+        case NEW_MOD:
+            return {};
+        default:
+            return state;
+    }
+}
