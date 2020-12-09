@@ -28,8 +28,14 @@ export const loadFriends = (userId) => async (dispatch) => {
     }
 }
 
-export const loadGroupMembers = () => async (dispatch) => {
-
+export const loadGroupMembers = (groupId) => async (dispatch) => {
+    const res = await fetch(`/groups/${groupId}/users`);
+    if (res.ok) {
+        const { members } = await res.json();
+        dispatch(getGroupMembers(members))
+    } else {
+        console.error(res)
+    }
 }
 
 
