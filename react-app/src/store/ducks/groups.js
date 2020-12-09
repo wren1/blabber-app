@@ -14,68 +14,172 @@ export const newGroup = (group) => ({type: NEW_GROUP, group });
 export const deleteGroup = (groupId) => ({type: DELETE_GROUP, groupId });
 export const editGroup = (group) => ({type: EDIT_GROUP, group });
 export const joinGroup = (group) => ({type: JOIN_GROUP, group });
-export const leaveGroup = (groupId) => ({type: LEAVE_GROUP, groupId });
+export const leaveGroup = (groupId, userId) => ({type: LEAVE_GROUP, groupId, userId });
 export const deleteMod = (groupId, modId) => ({type: DELETE_MOD, groupId, modId });
-export const newMod = (modId) => ({type:  NEW_MOD, modId });
+export const newMod = (groupId, modId) => ({type:  NEW_MOD, groupId, modId });
 
 
-export const loadGroup = () => async (dispatch) => {
-
+export const loadGroup = (groupId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${groupId}`)
+    if (res.ok) {
+        const { group } = await res.json();
+        dispatch(getGroup(group))
+    } else {
+        console.error(res)
+    }
 }
 
-export const loadUserGroups = () => async (dispatch) => {
-
+export const loadUserGroups = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/users/${userId}/groups`)
+    if (res.ok) {
+        const { group } = await res.json();
+        dispatch(getUserGroups(groups))
+    } else {
+        console.error(res)
+    }
 }
 
-export const createGroup = () => async (dispatch) => {
-
+export const createGroup = (group) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${group}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ group })
+    })
+    if (res.ok) {
+        const { group } = await res.json();
+        dispatch(newGroup(group))
+    } else {
+        console.error(res)
+    }
 }
 
-export const removeGroup = () => async (dispatch) => {
-
+export const removeGroup = (groupId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${group}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ group })
+    })
+    if (res.ok) {
+        const { group } = await res.json();
+        dispatch(getGroup(group.id))
+    } else {
+        console.error(res)
+    }
 }
 
-export const updateGroup = () => async (dispatch) => {
-
+export const updateGroup = (group) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${group.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ group })
+    })
+    if (res.ok) {
+        const { group } = await res.json();
+        dispatch(editGroup(group))
+    } else {
+        console.error(res)
+    }
 }
 
-export const addMember = () => async (dispatch) => {
-
+export const addMember = (groupId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${groupId}/users`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if (res.ok) {
+        const { user, group } = await res.json();
+        // add group to member's list if
+        dispatch(joinGroup(group))
+    } else {
+        console.error(res)
+    }
 }
 
-export const removeMember = () => async (dispatch) => {
-
+export const removeMember = (groupId, userId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${groupId}/users/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if (res.ok) {
+        const { user, group } = await res.json();
+        // edit user so it doesn't show they're in that group
+        dispatch(leaveGroup(group.id, user.id))
+    } else {
+        console.error(res)
+    }
 }
 
-export const addMod = () => async (dispatch) => {
-
+export const addMod = (groupId, userId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${groupId}/moderators/${userId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if (res.ok) {
+        const { group } = await res.json();
+        dispatch(newMod(group.id, userId))
+    } else {
+        console.error(res)
+    }
 }
 
-export const removeMod = () => async (dispatch) => {
-
+export const removeMod = (groupId, userId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${groupId}/moderators/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if (res.ok) {
+        const { group } = await res.json();
+        dispatch(deleteMod(groupId, userId))
+    } else {
+        console.error(res)
+    }
 }
 
 
 export default function groups(state = {}, action) {
+    let newState = { ...state }
     switch (action.type) {
         case GET_GROUP:
-            return {};
+            newState[`"${action.group.id}"`] = group;
+            return newState;
         case GET_USER_GROUPS:
-            return {};
+            action.groups.forEach(group => newSate[`"${group.id}"`] = group);
+            return newState;
         case NEW_GROUP:
-            return {};
+            newState[`"${action.group.id}"`] = group;
+            return newState;
         case DELETE_GROUP:
-            return {};
+            delete newState[`"${action.group.id}"`];
+            return newState;
         case EDIT_GROUP:
-            return {};
+            newState[`"${action.group.id}"`] = group;
+            return newState;
         case JOIN_GROUP:
-            return {};
+            newState[`"${action.group.id}"`] = group;
+            return newState;
         case LEAVE_GROUP:
-            return {};
+            newState[`"${action.group.id}"`] = group;
+            return newState;
         case DELETE_MOD:
-            return {};
+            newState[`"${action.group.id}"`] = group;
+            return newState;
         case NEW_MOD:
-            return {};
+            newState[`"${action.group.id}"`] = group;
+            return newState;
         default:
             return state;
     }

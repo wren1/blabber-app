@@ -38,13 +38,13 @@ export default function users(state = {}, action) {
     switch (action.type) {
         case GET_FRIENDS:
             action.friends.forEach(friend => newState[`"${friend.id}"`] = friend)
-            return { ...newState };
+            return newState;
         case GET_USER:
             newState[`"${action.user.id}"`] = user;
-            return { ...newState };
+            return newState;
         case GET_GROUP_MEMBERS:
             action.members.forEach(member => newState[`"${member.id}"`] = member)
-            return { ...newState };
+            return newState;
         default:
             return state;
     }
