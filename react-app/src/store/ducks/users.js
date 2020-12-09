@@ -40,7 +40,7 @@ export default function users(state = {}, action) {
             action.friends.forEach(friend => newState[`"${friend.id}"`] = friend)
             return newState;
         case GET_USER:
-            newState[`"${action.user.id}"`] = user;
+            newState[`"${action.user.id}"`] = action.user;
             return newState;
         case GET_GROUP_MEMBERS:
             action.members.forEach(member => newState[`"${member.id}"`] = member)

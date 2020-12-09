@@ -29,7 +29,7 @@ export const createComment = (postId, comment) => async (dispatch) => {
     })
     if (res.ok) {
         const { comment } = await res.json();
-        dispatch(newComment(post))
+        dispatch(newComment(comment))
     } else {
         console.error(res)
     }
@@ -71,13 +71,13 @@ export default function comments(state = {}, action) {
     let newState = { ...state };
     switch (action.type) {
         case GET_COMMENTS:
-            action.comments.forEach(commnet => newState[`"${comment.id}"`] = comment);
+            action.comments.forEach(comment => newState[`"${comment.id}"`] = comment);
             return newState;
         case NEW_COMMENT:
-            newState[`"${action.comment.id}"`] = comment;
+            newState[`"${action.comment.id}"`] = action.comment;
             return newState;
         case EDIT_COMMENT:
-            newState[`"${action.comment.id}"`] = comment;
+            newState[`"${action.comment.id}"`] = action.comment;
             return newState;
         case DELETE_COMMENT:
             delete newState[`"${action.comment.id}"`]

@@ -116,12 +116,11 @@ export const removePost = (postId) => async (dispatch) => {
 }
 
 export const like = (postId) => async (dispatch) => {
-    const res = await fetch(`/api/posts/${post.id}/likes`, {
+    const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ post })
+        }
     })
     if (res.ok) {
         const { post } = await res.json();
@@ -133,7 +132,7 @@ export const like = (postId) => async (dispatch) => {
 }
 
 export const unlike = (postId) => async (dispatch) => {
-    const res = await fetch(`/api/posts/${post.id}/likes`, {
+    const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -157,13 +156,13 @@ export default function posts(state = {}, action) {
             action.posts.forEach(post => newState[`"${post.id}"`] = post);
             return newState;
         case NEW_POST:
-            newState[`"${action.post.id}"`] = post;
+            newState[`"${action.post.id}"`] = action.post;
             return newState;
         case NEW_GROUP_POST:
-            newState[`"${action.post.id}"`] = post;
+            newState[`"${action.post.id}"`] = action.post;
             return newState;
         case EDIT_POST:
-            newState[`"${action.post.id}"`] = post;
+            newState[`"${action.post.id}"`] = action.post;
             return newState;
         case DELETE_POST:
             delete newState[`"${action.postId}"`]

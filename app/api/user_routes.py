@@ -6,21 +6,19 @@ user_routes = Blueprint('users', __name__)
 
 
 @user_routes.route('/')
-@login_required
+# @login_required
 def users():
-    users = User.query.all()
-    return {"users": [user.to_dict() for user in users]}
+    # id = current_user.get_id()
+    id = 1
+    user = User.query.get(id)
+    return user.to_dict()
 
 
 @user_routes.route('/<int:id>', strict_slashes=False)
 # @login_required
 def user(id):
     user = User.query.get(id)
-    friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id))
-    friends = [friend.id for friend in friends]
-    user = user.to_dict()
-    return {**user, "friends": friends}
-
+    return user.to_dict()
 
 
 # get all posts associated with that user to show on their front page,

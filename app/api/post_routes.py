@@ -17,6 +17,14 @@ def get_user_posts(id):
     return {"posts": [post.to_dict() for post in posts]}
 
 
+# get all posts within group
+@post_routes.route('/groups/<int:id>', strict_slashes=False)
+# @login_required
+def get_group_posts(id):
+    posts = Post.query.filter(Post.group_id == id).all()
+    return {"posts": [post.to_dict() for post in posts]}
+
+
 # make a new post on user page
 @post_routes.route('/', methods=['POST'], strict_slashes=False)
 # @login_required
@@ -80,7 +88,7 @@ def get_comments(id):
 
 
 # unlike a post
-@post_routes.route('/<int:id>/like', methods=['DELETE'], strict_slashes=False)
+@post_routes.route('/<int:id>/likes', methods=['DELETE'], strict_slashes=False)
 # @login_required
 def unlike_post(id):
     # user_id = current_user.get_id()
@@ -88,18 +96,20 @@ def unlike_post(id):
     user = User.query.get(user_id)
     post = Post.query.get(id)
     user.likes.remove(post)
+    # check if user already doen't like post
     db.session.commit()
     return post.to_dict()
 
 
 # like a post
-@post_routes.route('/<int:id>/like', methods=['POST'], strict_slashes=False)
+@post_routes.route('/<int:id>/likes', methods=['POST'], strict_slashes=False)
 # @login_required
 def like_post(id):
     # user_id = current_user.get_id()
     user_id = 1
     user = User.query.get(user_id)
     post = Post.query.get(id)
+    #  check if user likes post already
     user.likes.append(post)
     db.session.commit()
     return post.to_dict()
@@ -128,6 +138,7 @@ def edit_post(id):
 @post_routes.route('/<int:id>', methods=['DELETE'], strict_slashes=False)
 # @login_required
 def delete_post(id):
+    # check for owner of post or mod of group post is in
     post = Post.query.get(id)
     db.session.delete(post)
     db.session.commit()

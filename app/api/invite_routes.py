@@ -12,7 +12,7 @@ invite_routes = Blueprint('invites', __name__)
 # @login_required
 def accept_friend_request(id):
     # current_user_id = current_user.get_id()
-    current_user_id = 3
+    current_user_id = 1
     invite = Invite.query.filter(Invite.invitee_id == current_user_id,
                                  Invite.inviter_id == id, Invite.type == 'friend').first()
     # current_user = User.query.get(current_user_id)
@@ -38,7 +38,7 @@ def decline_friend_request(id):
                                  Invite.inviter_id == id, Invite.type == 'friend').first()
     db.session.delete(invite)
     db.session.commit()
-    return {"msg": "Friend request declined."}
+    return invite.to_dict()
 
 
 # current user accepts group invite
@@ -55,7 +55,7 @@ def accept_group_invite(user_id, group_id):
     current_user.groups.append(group)
     db.session.delete(invite)
     db.session.commit()
-    return group.to_dict()
+    return invite.to_dict()
 
 
 # current user declines group invite
@@ -76,7 +76,7 @@ def decline_group_invite(user_id, group_id):
 # @login_required
 def make_friend_request(user_id):
     # current_user_id = current_user.get_id()
-    current_user_id = 1
+    current_user_id = 4
     invite = Invite(
         inviter_id=current_user_id,
         invitee_id=user_id,

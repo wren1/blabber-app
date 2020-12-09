@@ -18,6 +18,11 @@ class Friend(db.Model):
     user_one_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     user_two_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
+    user_two_friends = db.relationship(
+        'User', back_populates='friendship_a', foreign_keys=[user_one_id])
+    user_one_friends = db.relationship(
+        'User', back_populates='friendship_b', foreign_keys=[user_two_id])
+
     def to_dict(self):
         return {
             "id": self.id,

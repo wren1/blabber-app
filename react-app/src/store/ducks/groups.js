@@ -56,12 +56,11 @@ export const createGroup = (group) => async (dispatch) => {
 }
 
 export const removeGroup = (groupId) => async (dispatch) => {
-    const res = await fetch(`/api/groups/${group}`, {
+    const res = await fetch(`/api/groups/${groupId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ group })
+        }
     })
     if (res.ok) {
         const { group } = await res.json();
@@ -154,32 +153,32 @@ export default function groups(state = {}, action) {
     let newState = { ...state }
     switch (action.type) {
         case GET_GROUP:
-            newState[`"${action.group.id}"`] = group;
+            newState[`"${action.group.id}"`] = action.group;
             return newState;
         case GET_USER_GROUPS:
             newState = {};
-            action.groups.forEach(group => newSate[`"${group.id}"`] = group);
+            action.groups.forEach(group => newState[`"${group.id}"`] = group);
             return newState;
         case NEW_GROUP:
-            newState[`"${action.group.id}"`] = group;
+            newState[`"${action.group.id}"`] = action.group;
             return newState;
         case DELETE_GROUP:
             delete newState[`"${action.group.id}"`];
             return newState;
         case EDIT_GROUP:
-            newState[`"${action.group.id}"`] = group;
+            newState[`"${action.group.id}"`] = action.group;
             return newState;
         case JOIN_GROUP:
-            newState[`"${action.group.id}"`] = group;
+            newState[`"${action.group.id}"`] = action.group;
             return newState;
         case LEAVE_GROUP:
-            newState[`"${action.group.id}"`] = group;
+            newState[`"${action.group.id}"`] = action.group;
             return newState;
         case DELETE_MOD:
-            newState[`"${action.group.id}"`] = group;
+            newState[`"${action.group.id}"`] = action.group;
             return newState;
         case NEW_MOD:
-            newState[`"${action.group.id}"`] = group;
+            newState[`"${action.group.id}"`] = action.group;
             return newState;
         default:
             return state;

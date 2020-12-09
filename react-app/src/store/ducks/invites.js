@@ -41,7 +41,7 @@ export const sendFriendRequest = (userId) => async (dispatch) => {
     }
 }
 
-export const acceptFriendRequest = () => async (dispatch) => {
+export const acceptFriendRequest = (userId) => async (dispatch) => {
     const res = await fetch(`/api/invites/users/${userId}/friends/accept`, {
         method: 'DELETE',
         headers: {
@@ -112,7 +112,7 @@ export const declineGroupInvite = (userId, groupId) => async (dispatch) => {
     })
     if (res.ok) {
         const { invite } = await res.json();
-        dispatch(delineInvite(invite.id))
+        dispatch(declineInvite(invite.id))
     } else {
         console.error(res)
     }

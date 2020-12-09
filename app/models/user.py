@@ -24,6 +24,11 @@ class User(db.Model, UserMixin):
     received_invites = db.relationship('Invite', foreign_keys='Invite.invitee_id', back_populates='users_invited')
     sent_invites = db.relationship('Invite', foreign_keys='Invite.inviter_id', back_populates='users_inviting')
 
+    friendship_a = db.relationship(
+        'Friend', foreign_keys='Friend.user_one_id', back_populates='user_two_friends')
+    friendship_b = db.relationship(
+        'Friend', foreign_keys='Friend.user_two_id', back_populates='user_one_friends')
+
     @property
     def password(self):
         return self.hashed_password
@@ -47,5 +52,6 @@ class User(db.Model, UserMixin):
           "likes": [post.id for post in self.likes],
           "groups_moderating": [group.id for group in self.groups_moderating],
           "received_invites": [invite.id for invite in self.received_invites],
-          "sent_invites": [invite.id for invite in self.sent_invites]
+          "sent_invites": [invite.id for invite in self.sent_invites],
+          "friends": [friend.user_two_id for friend in self.friendship_a] + [friend.user_one_id for friend in self.friendship_b]
         }
