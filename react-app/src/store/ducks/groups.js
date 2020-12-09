@@ -157,6 +157,7 @@ export default function groups(state = {}, action) {
             newState[`"${action.group.id}"`] = group;
             return newState;
         case GET_USER_GROUPS:
+            newState = {};
             action.groups.forEach(group => newSate[`"${group.id}"`] = group);
             return newState;
         case NEW_GROUP:
