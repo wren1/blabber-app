@@ -6,17 +6,17 @@ export const EDIT_GROUP = 'blabber/groups/edit';
 export const JOIN_GROUP = 'blabber/groups/join';
 export const LEAVE_GROUP = 'blabber/groups/leave';
 export const DELETE_MOD = 'blabber/group/mods/delete';
-export const NEW_MOD = 'blabber/groups/mods/neGET_GROUP w'
+export const NEW_MOD = 'blabber/groups/mods/neew'
 
-export const getGroup = () => ({type: GET_GROUP });
-export const getUserGroups = () => ({type: GET_USER_GROUPS });
-export const newGroup = () => ({type: NEW_GROUP });
-export const deleteGroup = () => ({type: DELETE_GROUP });
-export const editGroup = () => ({type: EDIT_GROUP });
-export const joinGroup = () => ({type: JOIN_GROUP });
-export const leaveGroup = () => ({type: LEAVE_GROUP });
-export const deleteMod = () => ({type: DELETE_MOD });
-export const newMod = () => ({type:  NEW_MOD });
+export const getGroup = (group) => ({type: GET_GROUP, group });
+export const getUserGroups = (groups) => ({type: GET_USER_GROUPS, groups });
+export const newGroup = (group) => ({type: NEW_GROUP, group });
+export const deleteGroup = (groupId) => ({type: DELETE_GROUP, groupId });
+export const editGroup = (group) => ({type: EDIT_GROUP, group });
+export const joinGroup = (group) => ({type: JOIN_GROUP, group });
+export const leaveGroup = (groupId) => ({type: LEAVE_GROUP, groupId });
+export const deleteMod = (groupId, modId) => ({type: DELETE_MOD, groupId, modId });
+export const newMod = (modId) => ({type:  NEW_MOD, modId });
 
 
 export const loadGroup = () => async (dispatch) => {

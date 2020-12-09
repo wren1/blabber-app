@@ -26,7 +26,7 @@ export const removeComment = () => async (dispatch) => {
 }
 
 
-export default function comments(state = {}, state) {
+export default function comments(state = {}, action) {
     switch (action.type) {
         case GET_COMMENTS:
             return {};

@@ -1,6 +1,6 @@
 export const GET_INVITES = 'blabber/invites/get';
 export const SEND_FRIEND_REQUEST = 'blabber/invites/friends/send';
-export const ACCEPT_FRIEND_s = 'blabber/invites/friends/accept';
+export const ACCEPT_FRIEND_REQUEST = 'blabber/invites/friends/accept';
 export const DECLINE_FRIEND_REQUEST = 'blabber/invites/friends/decline';
 export const SEND_GROUP_INVITE = 'blabber/invites/groups/send';
 export const ACCEPT_GROUP_INVITE = 'blabber/invites/groups/accept';

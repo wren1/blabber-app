@@ -3,17 +3,29 @@ export const GET_USER = 'blabber/users/user';
 export const GET_GROUP_MEMBERS = 'blabber/users/groupMembers';
 
 
-export const getFriends = (friends) => ({ type: GET_FRIENDS, friends })
 export const getUser = (user) => ({ type: GET_USER, user })
+export const getFriends = (friends) => ({ type: GET_FRIENDS, friends })
 export const getGroupMembers = (members) => ({ type: GET_GROUP_MEMBERS, members })
 
 
-export const loadFriends = () => async (dispatch) => {
-
+export const loadUser = () => async (dispatch) => {
+    const res = await fetch(`/api/users`)
+    if (res.ok) {
+        const { user } = await res.json();
+        dispatch(getUser(user))
+    } else {
+        console.error(res)
+    }
 }
 
-export const loadUser = () => async (dispatch) => {
-
+export const loadFriends = (userId) => async (dispatch) => {
+    const res = await fetch(`/${userId}/friends`);
+    if (res.ok) {
+        const { friends } = await res.json();
+        dispatch(getFriends(friends))
+    } else {
+        console.error(res)
+    }
 }
 
 export const loadGroupMembers = () => async (dispatch) => {
@@ -22,13 +34,17 @@ export const loadGroupMembers = () => async (dispatch) => {
 
 
 export default function users(state = {}, action) {
+    let newState = { ...state }
     switch (action.type) {
         case GET_FRIENDS:
-            return {};
+            action.friends.forEach(friend => newState[`"${friend.id}"`] = friend)
+            return { ...newState };
         case GET_USER:
-            return {};
+            newState[`"${action.user.id}"`] = user;
+            return { ...newState };
         case GET_GROUP_MEMBERS:
-            return {};
+            action.members.forEach(member => newState[`"${member.id}"`] = member)
+            return { ...newState };
         default:
             return state;
     }
