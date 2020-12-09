@@ -7,9 +7,12 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import Main from './components/Main';
 import { authenticate } from "./services/auth";
+import { setCurrentUser } from './store/ducks/currentUser';
 
 function App() {
+  const dispatch = useDispatch();
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -19,6 +22,7 @@ function App() {
       console.log(user)
       if (!user.errors) {
         setAuthenticated(true);
+        dispatch(setCurrentUser(user))
       }
       setLoaded(true);
     })();
@@ -46,8 +50,8 @@ function App() {
       <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
         <User />
       </ProtectedRoute>
-      <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <h1>My Home Page</h1>
+      <ProtectedRoute path="/" exact={true} authenticated={authenticated} 
+        setAuthenticated={setAuthenticated} component={Main}>
       </ProtectedRoute>
     </BrowserRouter>
   );
