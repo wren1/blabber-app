@@ -14,8 +14,12 @@ post_routes = Blueprint('posts', __name__)
 # @login_required
 def get_user_posts(id):
     posts = Post.query.filter(Post.user_id == id).all()
+    group_ids = [post.group_id for post in posts]
+    groups = Group.query.filter(Group.id.in_(group_ids)).all()
     return {
-        "posts": [post.to_dict() for post in posts]}
+        "posts": [post.to_dict() for post in posts],
+        "groups": [group.to_dict() for group in groups]
+        }
 
 
 # # get all posts user has made
@@ -30,8 +34,21 @@ def get_user_posts(id):
 @post_routes.route('/groups/<int:id>', strict_slashes=False)
 # @login_required
 def get_group_posts(id):
-    posts = Post.query.filter(Post.group_id == id).all()
-    return {"posts": [post.to_dict() for post in posts]}
+    group = Group.query.get(id)
+    # user_id = current_user.get_id()
+    user_id = 3
+    group_members = [member.id for member in group.users]
+    if group.private is False or user_id in group_members:
+        posts = Post.query.filter(Post.group_id == id).order_by(Post.last_modified).all()
+        user_ids = [post.user_id for post in posts]
+        users = User.query.filter(User.id.in_(user_ids)).all()
+        return {
+            "group": group.to_dict(),
+            "posts": [post.to_dict() for post in posts],
+            "users": [user.to_dict() for user in users]
+            }
+    else:
+        return {"msg": "Group is private."}
 
 
 # make a new post on user page
