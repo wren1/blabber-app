@@ -9,6 +9,7 @@ import SignupPage from './components/SignupPage/SignupPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import SearchPage from './components/SearchPage/SearchPage';
 import GroupPage from './components/GroupPage/GroupPage';
+import ActivityPage from './components/ActivityPage/ActivityPage';
 // import LikesPage from './components/LikesPage/LikesPage';
 import FriendsPage from './components/FriendsPage/FriendsPage';
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -62,6 +63,9 @@ function App() {
       </ProtectedRoute>
       <ProtectedRoute path="/search" exact={true} authenticated={authenticated}>
         <SearchPage />
+      </ProtectedRoute>
+      <ProtectedRoute path="/notifications" exact={true} authenticated={authenticated}>
+        <ActivityPage />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated} 
         setAuthenticated={setAuthenticated} component={Main}>

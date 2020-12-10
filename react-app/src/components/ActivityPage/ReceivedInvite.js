@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const ProfileOption = ({ user }) => {
+const ReceivedInvite = ({ invite }) => {
 
     return (
-        <div className='profilenav__dropdown-option'>
-
+        <div className='invites-list__item'>
+            
         </div>
     )
 }
 
-export default ProfileOption;
+export default ReceivedInvite;

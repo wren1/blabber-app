@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const FriendsOption = () => {
+const FriendsOption = ({ user }) => {
 
     return (
-        <div>
+        <div className='profilenav__dropdown-option'>
 
         </div>
     )

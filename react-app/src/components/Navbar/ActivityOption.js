@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const ActivityOption = () => {
+const ActivityOption = ({ user }) => {
+    const invites = useSelector(state => state.invites.received)
 
     return (
-        <div>
+        <div className='profilenav__dropdown-option'>
 
         </div>
     )

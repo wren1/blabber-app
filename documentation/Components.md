@@ -65,6 +65,12 @@
     * NewGroupForm
     * Footer
 
+* ActivityPage
+    * ReceivedInvitesList
+        - ReceivedInvite
+    * SentInvitesList
+        - SentInvite
+
 * LoginPage
     * LoginForm
     * Footer
