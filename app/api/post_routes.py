@@ -14,7 +14,16 @@ post_routes = Blueprint('posts', __name__)
 # @login_required
 def get_user_posts(id):
     posts = Post.query.filter(Post.user_id == id).all()
-    return {"posts": [post.to_dict() for post in posts]}
+    return {
+        "posts": [post.to_dict() for post in posts]}
+
+
+# # get all posts user has made
+# @post_routes.route('/users/<int:id>', strict_slashes=False)
+# # @login_required
+# def get_user_posts(id):
+#     posts = Post.query.filter(Post.user_id == id).all()
+#     return {"posts": [post.to_dict() for post in posts]}
 
 
 # get all posts within group

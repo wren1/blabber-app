@@ -1,3 +1,7 @@
+import { getUsers } from './users';
+import { getUserGroups } from './groups';
+
+
 export const GET_POSTS = 'blabber/posts/get';
 // export const GET_USER_POSTS = 'blabber/posts/get/user';
 // export const GET_GROUP_POSTS = 'blabber/posts/get/group'
@@ -22,14 +26,18 @@ export const unlikePost = (postId) => ({ type: UNLIKE_POST, postId })
 
 export const loadPosts = () => async (dispatch, getState) => {
     const { currentUser } = getState();
-    const res = await fetch(`/api/users/${currentUser.id}/posts`);
-    if (res.ok) {
-        const { posts } = await res.json();
-        dispatch(getPosts(posts))
-    } else {
-        console.error(res)
+    if (currentUser) {
+        const res = await fetch(`/api/users/${currentUser.id}/posts`);
+        if (res.ok) {
+            const { posts, users, groups } = await res.json();
+            console.log('users: ', users)
+            dispatch(getPosts(posts))
+            dispatch(getUsers(users))
+            dispatch(getUserGroups(groups))
+        } else {
+            console.error(res)
+        }
     }
-
 }
 
 export const loadUserPosts = (userId) => async (dispatch) => {

@@ -33,7 +33,23 @@ def user_posts(id):
     print(user_ids)
     group_ids = [group.id for group in user.groups]
     posts = Post.query.filter((Post.user_id.in_(user_ids)) | (Post.group_id.in_(group_ids))).order_by(Post.created_on).all()
-    return {"posts": [post.to_dict() for post in posts]}
+    # return {"posts": [post.to_dict() for post in posts]}
+    # user = User.query.get(id)
+    # # friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id))
+    # user_ids = user.friends.append(id)
+    # # user_ids.append(id)
+    # print(user_ids)
+    # user_group_ids = [group.id for group in user.groups]
+    # posts = Post.query.filter((Post.user_id.in_(user_ids)) | (Post.group_id.in_(user_group_ids))).order_by(Post.created_on).all()
+    # user_ids = [post.user_id for post in posts]
+    # group_ids = [post.group_id for post in posts]
+    users = User.query.filter(User.id.in_(user_ids)).all()
+    groups = Group.query.filter(Group.id.in_(group_ids)).all()
+    return {
+        "posts": [post.to_dict() for post in posts],
+        "groups": [group.to_dict() for group in groups],
+        "users": [user.to_dict() for user in users]
+    }
 
 
 # get all users that are the user's friends

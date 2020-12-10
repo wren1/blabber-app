@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     (async() => {
       const user = await authenticate();
-      console.log(user)
+      // console.log(user)
       if (!user.errors) {
         setAuthenticated(true);
         dispatch(setCurrentUser(user))
@@ -27,6 +27,16 @@ function App() {
       setLoaded(true);
     })();
   }, []);
+
+  // useEffect(() => {
+  //   (async() => {
+  //     if (authenticated) {
+  //       dispatch(setCurrentUser(user))
+  //     } else {
+  //       dispatch(setCurrentUser(null))
+  //     }
+  //   })()
+  // }, [authenticated])
 
   if (!loaded) {
     return null;

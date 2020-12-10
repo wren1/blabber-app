@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
 import { loadPosts } from '../store/ducks/posts';
-import { setCurrentUser } from '../store/ducks/currentUser';
+import { loadInvites } from '../store/ducks/invites';
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -10,6 +10,7 @@ const Main = () => {
     useEffect(() => {
         (async () => {
             await dispatch(loadPosts())
+            await dispatch(loadInvites())
         })();
     }, []);
 

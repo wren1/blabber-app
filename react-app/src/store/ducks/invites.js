@@ -20,6 +20,7 @@ export const loadInvites = () => async (dispatch, useState) => {
     const res = await fetch(`/api/users/${currentUser.id}/invites`)
     if (res.ok) {
         const { received_invites, sent_invites } = await res.json();
+        console.log('received: ', received_invites, 'sent: ', sent_invites)
         dispatch(getInvites(sent_invites, received_invites))
     } else {
         console.error(res)
@@ -119,11 +120,11 @@ export const declineGroupInvite = (userId, groupId) => async (dispatch) => {
 }
 
 
-export default function invites(state = {}, action) {
+export default function invites(state = { received: {}, sent: {} }, action) {
     let newState = { ...state }
     switch (action.type) {
         case GET_INVITES:
-            newState = {};
+            newState = { received: {}, sent: {} };
             action.received.forEach(invite => newState.received[`"${invite.id}"`] = invite);
             action.sent.forEach(invite => newState.sent[`"${invite.id}"`] = invite);
             return newState;
