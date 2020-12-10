@@ -39,7 +39,5 @@
     * Group owner can set members to be moderators
         - moderator can edit group information, remove regular members, and delete posts
         - moderators can remove themselves from being moderators
-8. Live Chat
-    * Chat rooms for groups and user to user
 
 if user has been removed from a group, block them from joining again

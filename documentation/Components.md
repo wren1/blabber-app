@@ -44,7 +44,10 @@
     * Sidebar
     * GroupPageHeader
         - GroupHeader
-        - GroupDetails
+        - GroupDetails -> option to edit + members list
+        - EditGroupForm
+    * MembersList
+        - Member -> option to add as mod or remove depending on authority
     * GroupFeed
         - Posts
 
@@ -54,6 +57,10 @@
         - UserInfo
     * ProfileFeed
         - Posts
+
+* NewGroupPage
+    * NewGroupForm
+    * Footer
 
 * LoginPage
     * LoginForm
