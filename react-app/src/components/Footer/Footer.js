@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 const Footer = () => {
 
     return (
-        <div>
+        <div className='footer'>
 
         </div>
     )

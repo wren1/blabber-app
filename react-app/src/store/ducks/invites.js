@@ -35,7 +35,7 @@ export const sendFriendRequest = (userId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { invite } = await res.json();
+        const invite = await res.json();
         dispatch(sendInvite(invite))
     } else {
         console.error(res)
@@ -50,7 +50,7 @@ export const acceptFriendRequest = (userId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { invite } = await res.json();
+        const invite = await res.json();
         // add friends
         dispatch(acceptInvite(invite.id))
     } else {
@@ -66,7 +66,7 @@ export const declineFriendRequest = (userId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { invite } = await res.json();
+        const invite = await res.json();
         dispatch(declineInvite(invite.id))
     } else {
         console.error(res)
@@ -81,7 +81,7 @@ export const sendGroupInvite = (userId, groupId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { invite } = await res.json();
+        const invite = await res.json();
         dispatch(sendInvite(invite))
     } else {
         console.error(res)
@@ -96,7 +96,7 @@ export const acceptGroupInvite = (userId, groupId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { invite } = await res.json();
+        const invite = await res.json();
         // add group
         dispatch(acceptInvite(invite.id))
     } else {
@@ -112,7 +112,7 @@ export const declineGroupInvite = (userId, groupId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { invite } = await res.json();
+        const invite = await res.json();
         dispatch(declineInvite(invite.id))
     } else {
         console.error(res)

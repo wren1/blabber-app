@@ -6,16 +6,16 @@ user_routes = Blueprint('users', __name__)
 
 
 @user_routes.route('/')
-# @login_required
+@login_required
 def users():
-    # id = current_user.get_id()
-    id = 1
+    id = current_user.get_id()
+    # id = 1
     user = User.query.get(id)
     return user.to_dict()
 
 
 @user_routes.route('/<int:id>', strict_slashes=False)
-# @login_required
+@login_required
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
@@ -24,7 +24,7 @@ def user(id):
 # get all posts associated with that user to show on their front page,
 # including followed group posts and friend's posts
 @user_routes.route('/<int:id>/posts', strict_slashes=False)
-# @login_required
+@login_required
 def user_posts(id):
     user = User.query.get(id)
     friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id))
@@ -54,7 +54,7 @@ def user_posts(id):
 
 # get all users that are the user's friends
 @user_routes.route('/<int:id>/friends', strict_slashes=False)
-# @login_required
+@login_required
 def user_friends(id):
     # user = User.query.get(id)
     friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id)).all()
@@ -63,7 +63,7 @@ def user_friends(id):
 
 # get all groups user is in
 @user_routes.route('/<int:id>/groups', strict_slashes=False)
-# @login_required
+@login_required
 def user_groups(id):
     user = User.query.get(id)
     return {"groups": [group.to_dict() for group in user.groups]}
@@ -71,7 +71,7 @@ def user_groups(id):
 
 # get all invites to and from user
 @user_routes.route('/<int:id>/invites', strict_slashes=False)
-# @login_required
+@login_required
 def user_invites(id):
     user = User.query.get(id)
     received = user.received_invites

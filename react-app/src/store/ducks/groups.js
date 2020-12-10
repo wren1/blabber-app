@@ -22,7 +22,7 @@ export const newMod = (groupId, modId) => ({type:  NEW_MOD, groupId, modId });
 export const loadGroup = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}`)
     if (res.ok) {
-        const { group } = await res.json();
+        const group = await res.json();
         dispatch(getGroup(group))
     } else {
         console.error(res)
@@ -32,7 +32,7 @@ export const loadGroup = (groupId) => async (dispatch) => {
 export const loadUserGroups = (userId) => async (dispatch) => {
     const res = await fetch(`/api/users/${userId}/groups`)
     if (res.ok) {
-        const { group } = await res.json();
+        const { groups } = await res.json();
         dispatch(getUserGroups(groups))
     } else {
         console.error(res)
@@ -48,7 +48,7 @@ export const createGroup = (group) => async (dispatch) => {
         body: JSON.stringify({ group })
     })
     if (res.ok) {
-        const { group } = await res.json();
+        const group = await res.json();
         dispatch(newGroup(group))
     } else {
         console.error(res)
@@ -63,7 +63,7 @@ export const removeGroup = (groupId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { group } = await res.json();
+        const group = await res.json();
         dispatch(getGroup(group.id))
     } else {
         console.error(res)
@@ -79,7 +79,7 @@ export const updateGroup = (group) => async (dispatch) => {
         body: JSON.stringify({ group })
     })
     if (res.ok) {
-        const { group } = await res.json();
+        const group = await res.json();
         dispatch(editGroup(group))
     } else {
         console.error(res)
@@ -126,7 +126,7 @@ export const addMod = (groupId, userId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { group } = await res.json();
+        const group = await res.json();
         dispatch(newMod(group.id, userId))
     } else {
         console.error(res)
@@ -141,7 +141,7 @@ export const removeMod = (groupId, userId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { group } = await res.json();
+        const group = await res.json();
         dispatch(deleteMod(groupId, userId))
     } else {
         console.error(res)

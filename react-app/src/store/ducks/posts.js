@@ -43,8 +43,9 @@ export const loadPosts = () => async (dispatch, getState) => {
 export const loadUserPosts = (userId) => async (dispatch) => {
     const res = await fetch(`/api/posts/users/${userId}`);
     if (res.ok) {
-        const { posts } = await res.json();
+        const { posts, groups } = await res.json();
         dispatch(getPosts(posts))
+        dispatch(getUserGroups(groups))
     } else {
         console.error(res)
     }
@@ -69,7 +70,7 @@ export const createPost = (post) => async (dispatch) => {
         body: JSON.stringify({ post })
     })
     if (res.ok) {
-        const { post } = await res.json();
+        const post = await res.json();
         dispatch(newPost(post))
     } else {
         console.error(res)
@@ -85,7 +86,7 @@ export const createGroupPost = (groupId, post) => async (dispatch) => {
         body: JSON.stringify({ post })
     })
     if (res.ok) {
-        const { post } = await res.json();
+        const post = await res.json();
         dispatch(newPost(post))
     } else {
         console.error(res)
@@ -101,7 +102,7 @@ export const updatePost = (post) => async (dispatch) => {
         body: JSON.stringify({ post })
     })
     if (res.ok) {
-        const { post } = await res.json();
+        const post = await res.json();
         dispatch(editPost(post))
     } else {
         console.error(res)
@@ -116,7 +117,7 @@ export const removePost = (postId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { post } = await res.json();
+        const post = await res.json();
         dispatch(deletePost(postId))
     } else {
         console.error(res)
@@ -131,7 +132,7 @@ export const like = (postId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { post } = await res.json();
+        const post = await res.json();
         // edit likes
         dispatch(likePost(postId))
     } else {
@@ -147,7 +148,7 @@ export const unlike = (postId) => async (dispatch) => {
         }
     })
     if (res.ok) {
-        const { post } = await res.json();
+        const post = await res.json();
         // edit likes
         dispatch(unlikePost(postId))
     } else {

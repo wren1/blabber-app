@@ -10,7 +10,7 @@ export const getUsers = (users) => ({ type: GET_USERS, users })
 export const loadUser = (id) => async (dispatch) => {
     const res = await fetch(`/api/users/${id}`)
     if (res.ok) {
-        const { user } = await res.json();
+        const user = await res.json();
         dispatch(getUser(user))
     } else {
         console.error(res)

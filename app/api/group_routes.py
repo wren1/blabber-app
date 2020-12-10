@@ -16,10 +16,10 @@ def check_mod(user, group):
 
 # create a new group
 @group_routes.route('/', methods=['POST'], strict_slashes=False)
-# @login_required
+@login_required
 def new_group():
-    # user_id = current_user.get_id()
-    user_id = 1
+    user_id = current_user.get_id()
+    # user_id = 1
     user = User.query.get(user_id)
     form = NewGroupForm()
     form['user_id'].data = user_id
@@ -41,7 +41,7 @@ def new_group():
 
 # get all members of a group
 @group_routes.route('/<int:id>/users', strict_slashes=False)
-# @login_required
+@login_required
 def group_members(id):
     group = Group.query.get(id)
     return {"members": [user.to_dict() for user in group.users]}
@@ -49,10 +49,10 @@ def group_members(id):
 
 # remove a user from a group if current user is group owner or a mod
 @group_routes.route('/<int:group_id>/users/<int:user_id>', methods=['DELETE'], strict_slashes=False)
-# @login_required
+@login_required
 def remove_member(group_id, user_id):
-    # current_user_id = current_user.get_id()
-    current_user_id = 2
+    current_user_id = current_user.get_id()
+    # current_user_id = 2
     current_user = User.query.get(current_user_id)
     group = Group.query.get(group_id)
     if check_mod(current_user, group) or current_user_id == user_id:
@@ -65,10 +65,10 @@ def remove_member(group_id, user_id):
 
 # current member joins a group
 @group_routes.route('/<int:id>/users', methods=['POST'], strict_slashes=False)
-# @login_required
+@login_required
 def join_group(id):
-    # user_id = current_user.get_id()
-    user_id = 1
+    user_id = current_user.get_id()
+    # user_id = 1
     user = User.query.get(user_id)
     group = Group.query.get(id)
     group.users.append(user)
@@ -78,10 +78,10 @@ def join_group(id):
 
 # get group and check if current user is authorized to view it
 @group_routes.route('/<int:id>', strict_slashes=False)
-# @login_required
+@login_required
 def get_group(id):
-    # user_id = current_user.get_id()
-    user_id = 3
+    user_id = current_user.get_id()
+    # user_id = 3
     user = User.query.get(user_id)
     group = Group.query.get(id)
     if group.private is False or user in group.users:
@@ -91,10 +91,10 @@ def get_group(id):
 
 # edit the name, description, or private status of a group
 @group_routes.route('/<int:id>', methods=['PUT'], strict_slashes=False)
-# @login_required
+@login_required
 def edit_group(id):
-    # user_id = current_user.get_id()
-    user_id = 1
+    user_id = current_user.get_id()
+    # user_id = 1
     user = User.query.get(user_id)
     group = Group.query.get(id)
     form = EditGroupForm()
@@ -110,10 +110,10 @@ def edit_group(id):
 
 # delete a group if current user is the owner of it
 @group_routes.route('/<int:id>', methods=['DELETE'], strict_slashes=False)
-# @login_required
+@login_required
 def delete_group(id):
-    # user_id = current_user.get_id()
-    user_id = 1
+    user_id = current_user.get_id()
+    # user_id = 1
     group = Group.query.get(id)
     if group.owner_id == user_id:
         db.session.delete(group)
@@ -124,10 +124,10 @@ def delete_group(id):
 
 # add a new moderator to the group
 @group_routes.route('/<int:group_id>/moderators/<int:user_id>', methods=['POST'], strict_slashes=False)
-# @login_required
+@login_required
 def new_mod(group_id, user_id):
-    # current_user_id = current_user.get_id()
-    current_user_id = 1
+    current_user_id = current_user.get_id()
+    # current_user_id = 1
     current_user = User.query.get(current_user_id)
     user = User.query.get(user_id)
     group = Group.query.get(group_id)
@@ -140,10 +140,10 @@ def new_mod(group_id, user_id):
 
 # remove a moderator from a group
 @group_routes.route('/<int:group_id>/moderators/<int:user_id>', methods=['DELETE'], strict_slashes=False)
-# @login_required
+@login_required
 def remove_mod(group_id, user_id):
-    # current_user_id = current_user.get_id()
-    current_user_id = 1
+    current_user_id = current_user.get_id()
+    # current_user_id = 1
     user = User.query.get(user_id)
     group = Group.query.get(group_id)
     if user_id == current_user_id or current_user_id == group.owner_id:

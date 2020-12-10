@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const UserInfo = () => {
+const UserInfo = ({ user }) => {
 
     return (
-        <div>
-
+        <div className='profile__user-info'>
+            {!user ? null : user.username}
         </div>
     )
 }
