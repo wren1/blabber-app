@@ -57,6 +57,10 @@
     * ProfileFeed
         - Posts
 
+* FriendsPage
+    * FriendsList
+        - Friend
+
 * NewGroupPage
     * NewGroupForm
     * Footer
