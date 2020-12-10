@@ -17,7 +17,7 @@
                 - SignoutOption -> logs user out
     * Feed
         - MakePostBlock
-            - PostFormModal
+            - NewPostForm
         - Posts
             - Post
                 - PostHeader
@@ -31,13 +31,12 @@
         - links to github and such
 
 * SearchPage
-* Sidebar
+    * Sidebar
     * NavBar
     * SearchPageHeader -> filter options + search query & result #
     * SearchResults (groups and/or users)
-        - SearchResult
-            - GroupSearchResult
-            - UserSearchResult
+        - GroupSearchResult
+        - UserSearchResult
     * Footer
 
 * GroupPage

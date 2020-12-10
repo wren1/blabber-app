@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const Navbar = () => {
+const ActivityOption = () => {
 
     return (
         <div>
@@ -12,4 +12,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default ActivityOption;

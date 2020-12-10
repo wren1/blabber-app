@@ -28,23 +28,13 @@ function App() {
     })();
   }, []);
 
-  // useEffect(() => {
-  //   (async() => {
-  //     if (authenticated) {
-  //       dispatch(setCurrentUser(user))
-  //     } else {
-  //       dispatch(setCurrentUser(null))
-  //     }
-  //   })()
-  // }, [authenticated])
-
   if (!loaded) {
     return null;
   }
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
+      {/* <NavBar setAuthenticated={setAuthenticated} /> */}
       <Route path="/login" exact={true}>
         <LoginForm
           authenticated={authenticated}
