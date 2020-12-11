@@ -7,17 +7,17 @@ search_routes = Blueprint('search', __name__)
 
 
 @search_routes.route('/groups/<query>')
-# @login_required
+@login_required
 def search_groups(query):
     groups = Group.query.filter(Group.name.ilike(f'%{query}%')).all()
-    return {"groups": [group.to_dict() for group in groups]}
+    return {"results": [group.to_dict() for group in groups]}
 
 
 @search_routes.route('/users/<query>')
-# @login_required
+@login_required
 def search_users(query):
     users = User.query.filter(User.username.ilike(f'%{query}%')).all()
-    return {"users": [user.to_dict() for user in users]}
+    return {"results": [user.to_dict() for user in users]}
 
 
 @search_routes.route('/<query>')
@@ -26,6 +26,5 @@ def search_all(query):
     groups = Group.query.filter(Group.name.ilike(f'%{query}%')).all()
     users = User.query.filter(User.username.ilike(f'%{query}%')).all()
     return {
-        "groups": [group.to_dict() for group in groups],
-        "users": [user.to_dict() for user in users]
+        "results": [group.to_dict() for group in groups] + [user.to_dict() for user in users]
     }
