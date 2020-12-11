@@ -2,6 +2,8 @@
 */
 html, body {
     background-color: #D9F6F7;
+    height: 100%;
+    overflow: 
 }
 .main {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -9,10 +11,10 @@ html, body {
 }
 .sidebar {
     background-color: #3E4347;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
-    height: 110%;
+    height: 100vh;
     width: 200px;
     color: #FAFAFA;
 }
@@ -22,9 +24,10 @@ html, body {
     cursor: pointer;
     margin: 10px 20px;
 }
+
 .sidebar-logo {
     width: 100%;
-    height: 150px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,12 +83,15 @@ html, body {
 }
 
 .posts {
-
+    /* width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; */
 }
 .post {
-    min-width: 300px;
+    min-width: 800px;
     width: 60%;
-    min-height: 100px;
+    min-height: 125px;
     background-color: #FAFAFA;
     border-radius: 8px;
     overflow: hidden;
@@ -136,4 +142,72 @@ html, body {
 .invites-list {
 }
 .invites-list__item {
+}
+
+.searchpage {
+}
+.searchpage__header {
+    position: relative;
+    box-sizing: border-box;
+    left: 200px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #3E4347;
+    padding: 20px;
+}
+.searchpage__header-title {
+    font-size: 50px;
+}
+.searchpage__header-res {
+    align-self: flex-end;
+    margin: 0px 10px;
+}
+.searchresults {
+    position: relative;
+    left: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.searchresult {
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    min-width: 500px;
+    width: 60%;
+    overflow: hidden;
+    margin: 10px 0px;
+    padding: 20px;
+    display: flex;
+}
+.searchresult-group {
+
+}
+.searchresult-user {
+
+}
+
+
+.profile {
+
+}
+.profile__header {
+
+}
+.profile__feed {
+    display: flex;
+    justify-content: center;
+}
+.profile__user-info {
+
+}
+
+.small-logo {
+    width: 80px;
+    height: 80px;
+}
+.big-logo {
+    width: 150px;
+    height: 150px;
 }

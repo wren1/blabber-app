@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import ProfileSideBar from './ProfileSideBar';
+import ProfileHeader from './ProfileHeader';
 import ProfileFeed from './ProfileFeed';
 
 import { loadUserPosts } from '../../store/ducks/posts';
@@ -11,6 +11,7 @@ import { loadUser } from '../../store/ducks/users';
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
+    // let { userId } = useParams();
     let { userId } = useParams();
     
     const user = useSelector(state => state.users[`"${userId}"`]);
@@ -26,7 +27,7 @@ const ProfilePage = () => {
 
     return (
         <div className='profile'>
-            <ProfileSideBar user={user} />
+            <ProfileHeader user={user} />
             <ProfileFeed />
         </div>
     )

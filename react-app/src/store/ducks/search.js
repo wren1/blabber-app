@@ -57,10 +57,12 @@ export default function(state = { query: null, category: null, results: {} }, ac
             return newState;
         case SEARCH_RES:
             newState.results = {};
-            action.results.forEach(result => {
-                result.owner_id ? newState.results[`"group${result.id}"`] = result : 
-                newState.results[`"user${result.id}"`] = result
-            })
+            newState.results = action.results
+            // action.results.forEach(result => {
+            //     result.owner_id ? newState.results[`"group${result.id}"`] = result : 
+            //     newState.results[`"user${result.id}"`] = result
+                // newState.results.push(result)
+            // })
             return newState;
         default:
             return state;

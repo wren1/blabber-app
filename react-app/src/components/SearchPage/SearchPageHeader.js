@@ -3,11 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const SearchPageHeader = () => {
+const SearchPageHeader = ({ query, results }) => {
 
+    
     return (
-        <div>
-
+        <div className='searchpage__header'>
+            <div className='searchpage__header-title'>
+                " {query} "
+            </div>
+            <div className='searchpage__header-res'>
+                {results.length} Results
+            </div>
         </div>
     )
 }

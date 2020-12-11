@@ -7,11 +7,17 @@ import Posts from '../Posts/Posts';
 
 const ProfileFeed = () => {
 
-    const posts = useSelector(state => state.posts);
+    const allPosts = useSelector(state => state.posts);
+    if (!allPosts) return null;
+    let posts = [];
+    for (let post in allPosts) {
+        posts.push(allPosts[post])
+    }
+    console.log('usrer page posts: ', posts)
 
     return (
         <div className='profile__feed'>
-            {!posts ? null : <Posts posts={posts} />}
+            <Posts posts={posts} />
         </div>
     )
 }

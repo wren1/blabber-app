@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const GroupSearchResult = () => {
+const GroupSearchResult = ({ group }) => {
+
 
     return (
-        <div>
-
+        <div className='searchresult-group searchresult'>
+            <div>{group.name}</div>
+            <div>{group.description}</div>
+            <div>{group.users.length}</div>
         </div>
     )
 }

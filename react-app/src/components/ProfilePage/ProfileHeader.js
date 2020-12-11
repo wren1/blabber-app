@@ -4,17 +4,21 @@ import { useParams } from 'react-router-dom';
 
 import HomeButton from '../Sidebar/HomeButton';
 import UserInfo from './UserInfo';
+import UserIcon from '../UserIcon';
 
 
-const ProfileSideBar = ({ user }) => {
+const ProfileHeader = ({ user }) => {
     // const user = useSelector(state => state.users[`"${userId}"`]);
+    console.log('P H: ', user)
+    if (!user) return null;
 
     return (
-        <div className='profile__sidebar' >
+        <div className='profile_header' >
+            <UserIcon user={user} />
             <HomeButton />
             <UserInfo user={user} />
         </div>
     )
 }
 
-export default ProfileSideBar;
+export default ProfileHeader;

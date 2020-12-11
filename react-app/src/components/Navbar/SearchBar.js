@@ -12,12 +12,12 @@ const SearchBar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        URLSearchParams.set('query', query)
-        history.push(`/search`)
-        // (async () => {
-        //     await dispatch(searchAll(query))
-        //     history.push(`/search`)
-        // })()
+        // console.log('history: ', history)
+        let q = encodeURIComponent(query);
+        (async () => {
+            await dispatch(searchAll(query))
+        })()
+        history.push(`/search?query=${q}`)
     }
 
     return (
