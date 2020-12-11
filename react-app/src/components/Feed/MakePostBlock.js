@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 const MakePostBlock = () => {
 
     return (
-        <div>
+        <div className='feed__makepost'>
 
         </div>
     )

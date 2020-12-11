@@ -110,7 +110,12 @@ def get_comments(id):
     # user_id = 1
     post = Post.query.get(id)
     comments = Comment.query.filter(Comment.post_id == id).order_by(Comment.created_on).all()
-    return {"post": post.to_dict(), "comments": [comment.to_dict() for comment in comments]}
+    user_ids = [comment.user_id for comment in comments]
+    users = User.query.filter(User.id.in_(user_ids)).all()
+    return {"post": post.to_dict(), 
+            "comments": [comment.to_dict() for comment in comments],
+            "users": [user.to_dict() for user in users]
+            }
 
 
 # unlike a post

@@ -6,8 +6,8 @@ import { useParams } from 'react-router-dom';
 const HomeButton = () => {
 
     return (
-        <div>
-
+        <div className='sidebar-logo'>
+            <img src={require('../../images/wh.png')} className='home-logo' />
         </div>
     )
 }

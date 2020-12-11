@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 const SignoutOption = () => {
 
     return (
-        <div>
+        <div className='profilenav__dropdown-option'>
 
         </div>
     )

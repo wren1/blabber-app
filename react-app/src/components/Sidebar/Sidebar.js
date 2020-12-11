@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { loadUserGroups } from '../../store/ducks/groups';
 
 import GroupsList from './GroupsList';
+import HomeButton from './HomeButton';
 
 
 const Sidebar = () => {
@@ -30,6 +31,7 @@ const Sidebar = () => {
 
     return (
         <div className='sidebar'>
+            <HomeButton />
             <GroupsList groups={groups} />
         </div>
     )

@@ -6,9 +6,9 @@ import { useParams } from 'react-router-dom';
 const SearchBar = () => {
 
     return (
-        <div>
-
-        </div>
+        <form className='search'>
+            <input className='searchbar' />
+        </form>
     )
 }
 

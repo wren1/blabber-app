@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const PostHeader = () => {
+const PostHeader = ({ post, user }) => {
+
 
     return (
-        <div>
-
+        <div className='post-header'>
+            <div>{user.username}</div>
+            <div>{post.title}</div>
         </div>
     )
 }

@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const PostContent = () => {
+const PostContent = ({ post }) => {
 
     return (
-        <div>
-
+        <div className='post-content'>
+            {post.content}
         </div>
     )
 }

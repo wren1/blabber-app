@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 const NewPostForm = () => {
 
     return (
-        <div>
+        <div className='newpostform'>
 
         </div>
     )

@@ -1,3 +1,6 @@
+
+import { getUsers } from './users';
+
 export const GET_COMMENTS = 'blabber/comments/get';
 export const NEW_COMMENT = 'blabber/comments/new';
 export const EDIT_COMMENT = 'blabber/comments/edit';
@@ -12,8 +15,9 @@ export const deleteComment = (commentId) => ({ type: DELETE_COMMENT, commentId }
 export const loadComments = (postId) => async (dispatch) => {
     const res = await fetch(`/api/posts/${postId}`)
     if (res.ok) {
-        const { comments } = await res.json();
+        const { comments, users } = await res.json();
         dispatch(getComments(comments))
+        dispatch(getUsers(users))
     } else {
         console.error(res)
     }

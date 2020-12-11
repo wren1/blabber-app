@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const CommentHeader = () => {
+const CommentHeader = ({ comment, user }) => {
+
 
     return (
-        <div>
-
+        <div className='comment-header'>
+            {user.username}
         </div>
     )
 }

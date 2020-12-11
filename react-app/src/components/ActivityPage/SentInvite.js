@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 const SentInvite = ({ invite }) => {
 
     return (
-        <div className='invites-list__option'>
+        <div className='invites-list__item'>
 
         </div>
     )

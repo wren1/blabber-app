@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const CommentContent = () => {
+const CommentContent = ({ comment }) => {
 
     return (
-        <div>
-
+        <div className='comment-content'>
+            {comment.content}
         </div>
     )
 }
