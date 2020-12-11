@@ -61,7 +61,7 @@ function App() {
       <ProtectedRoute path="/users/:userId/friends" exact={true} authenticated={authenticated}>
         <FriendsPage />
       </ProtectedRoute>
-      <ProtectedRoute path="/search" exact={true} authenticated={authenticated}>
+      <ProtectedRoute path="/search" authenticated={authenticated}>
         <SearchPage />
       </ProtectedRoute>
       <ProtectedRoute path="/notifications" exact={true} authenticated={authenticated}>
