@@ -12,7 +12,7 @@ html, body {
     position: absolute;
     left: 0;
     top: 0;
-    height: 100vh;
+    height: 110%;
     width: 200px;
 }
 .sidebar__groupslist {
@@ -90,7 +90,7 @@ html, body {
     font-size: 14px;
 }
 .post-header {
-
+    display: flex;
 }
 .post-content {
 }
@@ -104,13 +104,26 @@ html, body {
 
 }
 .comment {
-
+    
 }
 .comment-header {
-
+    display: flex;
+    /* justify-content: ; */
 }
 .comment-content {
 
+}
+
+.user-icon {
+    /* border-radius: 50%;
+    width: 50px;
+    height: 50px; */
+}
+.icon-img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }
 
 

@@ -1,19 +1,19 @@
 import { bindActionCreators } from "redux";
 
-const SEARCH_QUERY = 'blabber/search/query';
-const SEARCH_CAT = 'blabber/search/category';
-const SEARCH_RES = 'blabber/search/results'
-// const SEARCH_USERS_RES = 'blabber/search/results/users'
-// const SEARCH_ALL_RES = 'blabber/search/results/all'
+export const SEARCH_QUERY = 'blabber/search/query';
+export const SEARCH_CAT = 'blabber/search/category';
+export const SEARCH_RES = 'blabber/search/results'
+// export const SEARCH_USERS_RES = 'blabber/search/results/users'
+// export const SEARCH_ALL_RES = 'blabber/search/results/all'
 
-const setQuery = (query) => ({ type: SEARCH_QUERY, query });
-const setCategory = (cat) => ({ type: SEARCH_CAT, cat });
-const searchGroupResults = (results) => ({ type: SEARCH_RES, results })
-// const searchUserResults = (users) => ({ type: SEARCH_USERS_RES, users })
-// const searchAllResults = (groups, users) => ({ type: SEARCH_ALL_RES, groups, users })
+export const setQuery = (query) => ({ type: SEARCH_QUERY, query });
+export const setCategory = (cat) => ({ type: SEARCH_CAT, cat });
+export const searchGroupResults = (results) => ({ type: SEARCH_RES, results })
+// export const searchUserResults = (users) => ({ type: SEARCH_USERS_RES, users })
+// export const searchAllResults = (groups, users) => ({ type: SEARCH_ALL_RES, groups, users })
 
 
-const searchGroups = (query) => async (dispatch) => {
+export const searchGroups = (query) => async (dispatch) => {
     const res = await fetch(`/api/search/groups/${query}`);
     if (res.ok) {
         const { results } = await res.json();
@@ -23,7 +23,7 @@ const searchGroups = (query) => async (dispatch) => {
     }
 }
 
-const searchUsers = (query) => async (dispatch) => {
+export const searchUsers = (query) => async (dispatch) => {
     const res = await fetch(`/api/search/users/${query}`);
     if (res.ok) {
         const { results } = await res.json();
@@ -33,7 +33,7 @@ const searchUsers = (query) => async (dispatch) => {
     }
 }
 
-const searchAll = (query) => async (dispatch) => {
+export const searchAll = (query) => async (dispatch) => {
     const res = await fetch(`/api/search/${query}`);
     if (res.ok) {
         const { results } = await res.json();
