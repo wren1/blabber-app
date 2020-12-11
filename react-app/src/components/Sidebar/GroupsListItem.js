@@ -3,11 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const GroupsListItem = () => {
+const GroupsListItem = ({ group }) => {
+
+    if (group) {
+        console.log('ONE: ', group)
+    }
 
     return (
-        <div>
-
+        <div className='sidebar__groupslist-item'>
+            {group.id}
         </div>
     )
 }
