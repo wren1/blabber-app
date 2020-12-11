@@ -6,6 +6,7 @@ import groups from "./ducks/groups";
 import invites from "./ducks/invites";
 import posts from "./ducks/posts";
 import comments from "./ducks/comments";
+import search from "./ducks/search";
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -16,7 +17,8 @@ const reducer = combineReducers({
   groups,
   invites,
   posts,
-  comments
+  comments,
+  search
 });
 
 const configureStore = (initialState) => {

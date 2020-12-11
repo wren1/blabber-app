@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.group_routes import group_routes
 from .api.invite_routes import invite_routes
 from .api.post_routes import post_routes
+from .api.search_routes import search_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(group_routes, url_prefix='/api/groups')
 app.register_blueprint(post_routes, url_prefix='/api/posts')
 app.register_blueprint(invite_routes, url_prefix='/api/invites')
+app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
 

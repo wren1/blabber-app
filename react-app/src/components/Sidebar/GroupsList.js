@@ -8,7 +8,6 @@ import GroupsListItem from './GroupsListItem';
 const GroupsList = ({ groups }) => {
     // const groups = useSelector(state => state.currentUser.groups.map(groupId => state.groups[`"${groupId}"`]))
     // if (groups[undefined]) return null
-    console.log('GROUPS: ', groups)
 
     return (
         <div className='sidebar__groupslist'>

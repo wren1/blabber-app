@@ -17,11 +17,7 @@ const Sidebar = () => {
 
     user.groups.forEach(groupId => {
         if (allGroups[`"${groupId}"`]) {
-            // console.log(allGroups[`"${groupId}"`])
-            // groups[`"${groupId}"`] = allGroups[`"${groupId}"`]
             if (allGroups[`"${groupId}"`] !== undefined) groups.push(allGroups[`"${groupId}"`])
-            // groups.push(allGroups[`"${groupId}"`])
-            
         }
     })
 
@@ -31,11 +27,9 @@ const Sidebar = () => {
         })();
     }, []);
 
-    // console.log('GROUPS: ', groups)
 
     return (
         <div className='sidebar'>
-            {/* {!groups ? null : */}
             <GroupsList groups={groups} />
         </div>
     )

@@ -5,9 +5,6 @@ import { useParams } from 'react-router-dom';
 
 const GroupsListItem = ({ group }) => {
 
-    if (group) {
-        console.log('ONE: ', group)
-    }
 
     return (
         <div className='sidebar__groupslist-item'>
