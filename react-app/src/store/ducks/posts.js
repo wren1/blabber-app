@@ -1,5 +1,5 @@
 import { getUsers } from './users';
-import { getUserGroups } from './groups';
+import { getUserGroups, getGroup } from './groups';
 
 
 export const GET_POSTS = 'blabber/posts/get';
@@ -52,10 +52,14 @@ export const loadUserPosts = (userId) => async (dispatch) => {
 }
 
 export const loadGroupPosts = (groupId) => async (dispatch) => {
+    console.log(groupId)
     const res = await fetch(`/api/posts/groups/${groupId}`);
     if (res.ok) {
-        const { posts } = await res.json();
-        dispatch(getPosts(posts))
+        const { posts, users, group } = await res.json();
+        console.log(posts, users, group)
+        if (posts) dispatch(getPosts(posts))
+        if (users) dispatch(getUsers(users))
+        if (group) dispatch(getGroup(group))
     } else {
         console.error(res)
     }

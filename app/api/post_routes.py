@@ -32,11 +32,11 @@ def get_user_posts(id):
 
 # get all posts within group
 @post_routes.route('/groups/<int:id>', strict_slashes=False)
-@login_required
+# @login_required
 def get_group_posts(id):
     group = Group.query.get(id)
     user_id = current_user.get_id()
-    # user_id = 3
+    user_id = 1
     group_members = [member.id for member in group.users]
     if group.private is False or user_id in group_members:
         posts = Post.query.filter(Post.group_id == id).order_by(Post.last_modified).all()
