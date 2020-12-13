@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const GroupHeader = () => {
+const GroupHeader = ({ group }) => {
 
     return (
-        <div>
+        <div className='group-header__inner' >
 
         </div>
     )

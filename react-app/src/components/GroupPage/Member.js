@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const Member = () => {
+const Member = ({ member }) => {
+
+    if (!member) return null;
 
     return (
-        <div>
-
+        <div className='group__members-list-item'>
+            {member.name}
         </div>
     )
 }

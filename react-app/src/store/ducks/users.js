@@ -30,7 +30,7 @@ export const loadFriends = (userId) => async (dispatch) => {
 }
 
 export const loadGroupMembers = (groupId) => async (dispatch) => {
-    const res = await fetch(`/groups/${groupId}/users`);
+    const res = await fetch(`/api/groups/${groupId}/users`);
     if (res.ok) {
         const { members } = await res.json();
         dispatch(getSpecificUsers(members))

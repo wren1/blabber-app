@@ -6,6 +6,7 @@ import GroupPageHeader from './GroupPageHeader';
 import GroupFeed from './GroupFeed';
 
 import { loadGroupPosts } from '../../store/ducks/posts';
+import { loadGroupMembers } from '../../store/ducks/users'; 
 
 
 const GroupPage = () => {
@@ -17,13 +18,14 @@ const GroupPage = () => {
     useEffect(() => {
         (async () => {
             await dispatch(loadGroupPosts(groupId))
+            await dispatch(loadGroupMembers(groupId))
         })()
     }, [])
 
     return (
         <div className='group-main'>
-            <GroupPageHeader />
-            <GroupFeed />
+            <GroupPageHeader groupId={groupId}/>
+            <GroupFeed groupId={groupId} />
         </div>
     )
 }

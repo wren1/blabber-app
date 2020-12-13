@@ -43,7 +43,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar setAuthenticated={setAuthenticated} /> */}
-      <Route path="/login/:id" exact={true}>
+      <Route path="/login" exact={true}>
         <LoginPage
           authenticated={authenticated}
           setAuthenticated={setAuthenticated}

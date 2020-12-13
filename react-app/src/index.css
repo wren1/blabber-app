@@ -216,3 +216,30 @@ html, body {
 .group-main {
     
 }
+.group-header {
+
+}
+.group-header__innrer {
+
+}
+.group-header__desc {
+
+}
+.group-header__desc-name {
+
+}
+.group-header__desc-description {
+
+}
+.group-header__desc-members-button {
+    cursor: pointer;
+}
+.group__members-list {
+
+}
+.group__members-list-item {
+
+}
+.group-feed {
+    
+}
