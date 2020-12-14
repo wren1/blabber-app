@@ -14,6 +14,8 @@ const Sidebar = () => {
     // const groups = useSelector(state => state.currentUser.groups.map(groupId => state.groups[`"${groupId}"`]))
     const allGroups = useSelector(state => state.groups)
 
+    // if (!user) return null;
+
     let groups = []
 
     user.groups.forEach(groupId => {
@@ -24,7 +26,9 @@ const Sidebar = () => {
 
     useEffect(() => {
         (async () => {
-            await dispatch(loadUserGroups(user.id))
+            if (user) {
+                await dispatch(loadUserGroups(user.id))
+            }
         })();
     }, []);
 

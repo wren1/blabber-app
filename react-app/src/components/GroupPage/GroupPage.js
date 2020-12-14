@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import GroupPageHeader from './GroupPageHeader';
 import GroupFeed from './GroupFeed';
+import Sidebar from '../Sidebar/Sidebar';
 
 import { loadGroupPosts } from '../../store/ducks/posts';
 import { loadGroupMembers } from '../../store/ducks/users'; 
@@ -20,10 +21,11 @@ const GroupPage = () => {
             await dispatch(loadGroupPosts(groupId))
             await dispatch(loadGroupMembers(groupId))
         })()
-    }, [])
+    }, [groupId])
 
     return (
         <div className='group-main'>
+            <Sidebar />
             <GroupPageHeader groupId={groupId}/>
             <GroupFeed groupId={groupId} />
         </div>

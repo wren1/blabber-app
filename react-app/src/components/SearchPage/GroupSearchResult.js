@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 
 
 const GroupSearchResult = ({ group }) => {
@@ -8,7 +8,9 @@ const GroupSearchResult = ({ group }) => {
 
     return (
         <div className='searchresult-group searchresult'>
-            <div>{group.name}</div>
+            <NavLink to={`/groups/${group.id}`} exact={true} activeClassName="active">
+                <div className='search-group-name'>{group.name}</div>
+            </NavLink>
             <div>{group.description}</div>
             <div>{group.users.length}</div>
         </div>

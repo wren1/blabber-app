@@ -8,6 +8,7 @@ import ProfileNav from './ProfileNav';
 
 const Navbar = () => {
 
+    
     return (
         <div className='navbar'>
             <SearchBar />

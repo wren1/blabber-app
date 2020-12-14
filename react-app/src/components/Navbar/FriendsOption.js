@@ -7,7 +7,7 @@ const FriendsOption = ({ user }) => {
 
     return (
         <div className='profilenav__dropdown-option'>
-
+            Friends ( {!user.friends.length ? 0 : user.friends.length} )
         </div>
     )
 }

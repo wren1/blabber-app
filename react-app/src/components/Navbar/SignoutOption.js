@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const SignoutOption = () => {
+const SignoutOption = ({ user }) => {
 
     return (
         <div className='profilenav__dropdown-option'>
-
+            Sign out
         </div>
     )
 }

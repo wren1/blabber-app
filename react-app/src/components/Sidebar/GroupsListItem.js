@@ -10,6 +10,8 @@ const GroupsListItem = ({ group }) => {
         history.push(`/groups/${group.id}`)
     }
 
+    if (!group) return null;
+
     return (
         <div className='sidebar__groupslist-item' onClick={handleClick}>
             {group.name}

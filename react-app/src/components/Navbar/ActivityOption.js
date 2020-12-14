@@ -7,9 +7,12 @@ const ActivityOption = ({ user }) => {
     const invites = useSelector(state => state.invites.received)
     console.log('rec inv: ', invites)
 
+
+    if (!user) return null;
+
     return (
         <div className='profilenav__dropdown-option'>
-
+            {!invites.length ? 0 : invites.length } Notifications
         </div>
     )
 }

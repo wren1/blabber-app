@@ -22,7 +22,7 @@ const SearchBar = () => {
 
     return (
         <form className='search' onSubmit={handleSubmit}>
-            <input className='searchbar' onChange={(e) => setQuery(e.target.value)} />
+            <input className='searchbar' placeholder='Search...' onChange={(e) => setQuery(e.target.value)} />
         </form>
     )
 }

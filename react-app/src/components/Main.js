@@ -12,6 +12,7 @@ import { loadInvites } from '../store/ducks/invites';
 const Main = () => {
     const dispatch = useDispatch();
     const allPosts = useSelector(state => state.posts)
+    const user = useSelector(state => state.currentUser)
 
     useEffect(() => {
         (async () => {
@@ -25,10 +26,12 @@ const Main = () => {
         posts.push(allPosts[post])
     }
 
+    // if (!user) return null;
+
     return (
         <div className='main' >
+            <Navbar user={user} />
             <Sidebar />
-            <Navbar />
             <Feed posts={posts} />
             <Footer />
         </div>

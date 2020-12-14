@@ -7,8 +7,13 @@ import MakePostBlock from '../Feed/MakePostBlock';
 
 
 const GroupFeed = ({ group }) => {
-    const posts = useSelector(state => state.posts)
+    const allPosts = useSelector(state => state.posts)
     const user = useSelector(state => state.currentUser)
+
+    let posts = [];
+    for (let post in allPosts) {
+        posts.push(allPosts[post])
+    }
 
     return (
         <div className='group-feed'>

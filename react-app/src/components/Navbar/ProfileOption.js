@@ -5,9 +5,11 @@ import { useParams } from 'react-router-dom';
 
 const ProfileOption = ({ user }) => {
 
+    if (!user) return null;
+
     return (
         <div className='profilenav__dropdown-option'>
-
+            {user.username}
         </div>
     )
 }
