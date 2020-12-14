@@ -7,14 +7,24 @@ import SentInvite from './SentInvite';
 
 const SentInvitesList = ({ invites }) => {
 
+    let sent = [];
+    for (let invite in invites) {
+        sent.push(invites[invite])
+    }
+    console.log('s: ', sent)
 
     return (
         <div className='invites-list'>
-            {!invites.length ? null : invites.forEach(invite => {
+            <div className='invites-list__header'>
+                {!sent.length ? 0 : sent.length} pending requests.
+            </div>
+            <div className='invites-list__body'>
+            {!sent.length ? null : sent.map(invite => {
                 return (
                     <SentInvite invite={invite} key={invite.id} />
                 )}
             )}
+            </div>
         </div>
     )
 }

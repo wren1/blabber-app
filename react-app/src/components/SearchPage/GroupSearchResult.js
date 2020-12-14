@@ -7,13 +7,13 @@ const GroupSearchResult = ({ group }) => {
 
 
     return (
-        <div className='searchresult-group searchresult'>
-            <NavLink to={`/groups/${group.id}`} exact={true} activeClassName="active">
-                <div className='search-group-name'>{group.name}</div>
-            </NavLink>
-            <div>{group.description}</div>
-            <div>{group.users.length}</div>
-        </div>
+        <NavLink to={`/groups/${group.id}`} exact={true} activeClassName="active">
+            <div className='searchresult-group searchresult'>
+                <div className='searchgroup-td'><div className='search-group-name'>{group.name}</div>
+            <div>{group.description}</div></div>
+            <div className='seach-group-members'>{group.users.length} members</div>
+            </div>
+        </NavLink>
     )
 }
 

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import ProfileHeader from './ProfileHeader';
 import ProfileFeed from './ProfileFeed';
+import Sidebar from '../Sidebar/Sidebar';
 
 import { loadUserPosts } from '../../store/ducks/posts';
 import { loadUser } from '../../store/ducks/users';
@@ -15,6 +16,7 @@ const ProfilePage = () => {
     let { userId } = useParams();
     
     const user = useSelector(state => state.users[`"${userId}"`]);
+    const currentUser = useSelector(state => state.currentUser)
 
     useEffect(() => {
         (async () => {
@@ -27,6 +29,7 @@ const ProfilePage = () => {
 
     return (
         <div className='profile'>
+            <Sidebar user={currentUser} />
             <ProfileHeader user={user} />
             <ProfileFeed />
         </div>

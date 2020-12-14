@@ -65,13 +65,15 @@ export const loadGroupPosts = (groupId) => async (dispatch) => {
     }
 }
 
-export const createPost = (post) => async (dispatch) => {
+export const createPost = (user_id, title, content, group_id) => async (dispatch) => {
+    // console.log('postsss: ', post)
+    if (!group_id) group_id = null;
     const res = await fetch(`/api/posts`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ post })
+        body: JSON.stringify({ user_id, title, content })
     })
     if (res.ok) {
         const post = await res.json();
@@ -81,13 +83,13 @@ export const createPost = (post) => async (dispatch) => {
     }
 }
 
-export const createGroupPost = (groupId, post) => async (dispatch) => {
-    const res = await fetch(`/api/posts/groups/${groupId}`, {
+export const createGroupPost = (user_id, title, content, group_id) => async (dispatch) => {
+    const res = await fetch(`/api/posts/groups/${group_id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ post })
+        body: JSON.stringify({ user_id, title, content, group_id })
     })
     if (res.ok) {
         const post = await res.json();
@@ -97,13 +99,14 @@ export const createGroupPost = (groupId, post) => async (dispatch) => {
     }
 }
 
-export const updatePost = (post) => async (dispatch) => {
-    const res = await fetch(`/api/posts/${post.id}`, {
-        method: 'POST',
+export const updatePost = (id, user_id, title, content, group_id) => async (dispatch) => {
+    // console.log(inpost)
+    const res = await fetch(`/api/posts/${id}`, {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ post })
+        body: JSON.stringify({ id, user_id, title, content, group_id })
     })
     if (res.ok) {
         const post = await res.json();
@@ -169,7 +172,11 @@ export default function posts(state = {}, action) {
             action.posts.forEach(post => newState[`"${post.id}"`] = post);
             return newState;
         case NEW_POST:
-            newState[`"${action.post.id}"`] = action.post;
+            let newPost = [`"${action.post.id}"`, action.post]
+            let stateArr = Object.entries(newState);
+            stateArr.unshift(newPost);
+            newState = Object.fromEntries(stateArr)
+            // newState[`"${action.post.id}"`] = action.post;
             return newState;
         case NEW_GROUP_POST:
             newState[`"${action.post.id}"`] = action.post;

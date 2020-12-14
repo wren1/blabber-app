@@ -6,13 +6,19 @@ import SearchBar from './SearchBar';
 import ProfileNav from './ProfileNav';
 
 
-const Navbar = () => {
+const Navbar = ({setAuthenticated}) => {
+    const user = useSelector(state => state.currentUser)
 
+    // useEffect(() => {
+    //     (async () {
+
+    //     })()
+    // })
     
     return (
         <div className='navbar'>
             <SearchBar />
-            <ProfileNav />
+            <ProfileNav setAuthenticated={setAuthenticated} />
         </div>
     )
 }

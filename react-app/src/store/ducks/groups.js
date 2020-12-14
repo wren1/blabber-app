@@ -1,3 +1,6 @@
+import { updateUser } from './users';
+import { updateCurrentUser } from './currentUser';
+
 export const GET_GROUP = 'blabber/groups/get';
 export const GET_USER_GROUPS = 'blabber/groups/user/get';
 export const NEW_GROUP = 'blabber/groups/new';
@@ -39,17 +42,24 @@ export const loadUserGroups = (userId) => async (dispatch) => {
     }
 }
 
-export const createGroup = (group) => async (dispatch) => {
-    const res = await fetch(`/api/groups/${group}`, {
+export const createGroup = (owner_id, name, description, isPrivate) => async (dispatch, getState) => {
+    const { currentUser, users } = getState();
+    const res = await fetch(`/api/groups`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ group })
+        body: JSON.stringify({ owner_id, name, description, "private": isPrivate })
     })
     if (res.ok) {
         const group = await res.json();
         dispatch(newGroup(group))
+        currentUser.groups.push(group.id);
+        let user = users[`"${owner_id}"`];
+        console.log(user)
+        user.groups.push(group.id);
+        dispatch(updateCurrentUser(currentUser));
+        dispatch(updateUser(user));
     } else {
         console.error(res)
     }

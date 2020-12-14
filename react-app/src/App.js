@@ -9,6 +9,7 @@ import SignupPage from './components/SignupPage/SignupPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import SearchPage from './components/SearchPage/SearchPage';
 import GroupPage from './components/GroupPage/GroupPage';
+import NewGroupPage from './components/NewGroupPage/NewGroupPage';
 import ActivityPage from './components/ActivityPage/ActivityPage';
 // import LikesPage from './components/LikesPage/LikesPage';
 import FriendsPage from './components/FriendsPage/FriendsPage';
@@ -19,10 +20,15 @@ import Main from './components/Main';
 import { authenticate } from "./services/auth";
 import { setCurrentUser } from './store/ducks/currentUser';
 
+
+import { loadPosts } from './store/ducks/posts';
+import { loadInvites } from './store/ducks/invites';
+
 function App() {
   const dispatch = useDispatch();
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  let currentUser = useSelector(state => state.currentUser)
 
   useEffect(() => {
     (async() => {
@@ -35,6 +41,17 @@ function App() {
       setLoaded(true);
     })();
   }, []);
+
+  
+
+  // useEffect(() => {
+  //   (async () => {
+  //     if (authenticated) {
+  //       await dispatch(loadPosts())
+  //       await dispatch(loadInvites())
+  //     }
+  //   })();
+  // }, [authenticated]);
 
   if (!loaded) {
     return null;
@@ -55,19 +72,22 @@ function App() {
       <ProtectedRoute path="/groups/:groupId" exact={true} authenticated={authenticated}>
         <GroupPage/>
       </ProtectedRoute>
+      <ProtectedRoute path="/new-group" exact={true} authenticated={authenticated}>
+        <NewGroupPage/>
+      </ProtectedRoute>
       <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
         <ProfilePage />
       </ProtectedRoute>
       <ProtectedRoute path="/users/:userId/friends" exact={true} authenticated={authenticated}>
         <FriendsPage />
       </ProtectedRoute>
-      <ProtectedRoute path="/search" authenticated={authenticated}>
+      <ProtectedRoute path="/search" setAuthenticated={setAuthenticated} authenticated={authenticated}>
         <SearchPage />
       </ProtectedRoute>
       <ProtectedRoute path="/notifications" exact={true} authenticated={authenticated}>
         <ActivityPage />
       </ProtectedRoute>
-      <ProtectedRoute path="/" exact={true} authenticated={authenticated} 
+      <ProtectedRoute path="/" exact={true} currentUser={currentUser} authenticated={authenticated} 
         setAuthenticated={setAuthenticated} component={Main}>
       </ProtectedRoute>
     </BrowserRouter>

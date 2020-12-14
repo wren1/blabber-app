@@ -8,21 +8,25 @@ import GroupsList from './GroupsList';
 import HomeButton from './HomeButton';
 
 
-const Sidebar = () => {
+const Sidebar = ({ user }) => {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.currentUser);
+    // const user = useSelector(state => state.currentUser);
     // const groups = useSelector(state => state.currentUser.groups.map(groupId => state.groups[`"${groupId}"`]))
     const allGroups = useSelector(state => state.groups)
 
     // if (!user) return null;
 
     let groups = []
+    // if (!user) return null;
 
+    if (user) {
+
+    
     user.groups.forEach(groupId => {
         if (allGroups[`"${groupId}"`]) {
             if (allGroups[`"${groupId}"`] !== undefined) groups.push(allGroups[`"${groupId}"`])
         }
-    })
+    })}
 
     useEffect(() => {
         (async () => {

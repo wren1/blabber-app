@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import ProfileDropdown from './ProfileDropdown';
 
 
-const ProfileNav = () => {
+const ProfileNav = ({setAuthenticated}) => {
     const [openDropdown, setOpenDropdown] = useState(false)
     const user = useSelector(state => state.currentUser)
 
@@ -23,7 +23,7 @@ const ProfileNav = () => {
                 <img src={user.icon_url} className='navbar-usericon'/>}
             </div>
             {!openDropdown ? null :
-            <ProfileDropdown user={user} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} /> }
+            <ProfileDropdown user={user} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} setAuthenticated={setAuthenticated} /> }
         </div>
         
     )

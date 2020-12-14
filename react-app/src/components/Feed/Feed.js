@@ -11,6 +11,9 @@ const Feed = ({ posts }) => {
 
     const user = useSelector(state => state.currentUser)
     // const posts = useSelector(state => state.posts)
+    
+
+    if (!posts || !user) return null;
 
     return (
         <div className='main-feed'>

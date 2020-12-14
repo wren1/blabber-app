@@ -15,8 +15,10 @@
 // export default LoginForm;
 
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../services/auth";
+import { setCurrentUser } from '../../store/ducks/currentUser';
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
   const [errors, setErrors] = useState([]);
@@ -46,7 +48,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form onSubmit={onLogin} className='signin-form'>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -71,7 +73,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className='button'>Login</button>
       </div>
     </form>
   );

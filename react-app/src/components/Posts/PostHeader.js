@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import UserIcon from '../UserIcon';
 
 
 const PostHeader = ({ post, user }) => {
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push(`/users/${user.id}`)
+    }
 
 
     return (
         <div className='post-header'>
-            <UserIcon user={user} />
-            <div>{user.username}</div>
-            <div>{post.title}</div>
+            <div className='post-header__link'>
+                <UserIcon user={user} />
+                <div className='post-header__username' onClick={handleClick}>{user.username}</div>
+            </div>
+            <div className='post-header__title'>{post.title}</div>
         </div>
     )
 }

@@ -8,18 +8,23 @@ import Footer from './Footer/Footer';
 
 import { loadPosts } from '../store/ducks/posts';
 import { loadInvites } from '../store/ducks/invites';
+import { setCurrentUser, loadCurrentUser } from '../store/ducks/currentUser';
 
-const Main = () => {
+const Main = ({authenticated, setAuthenticated, currentUser}) => {
     const dispatch = useDispatch();
-    const allPosts = useSelector(state => state.posts)
     const user = useSelector(state => state.currentUser)
+    const allPosts = useSelector(state => state.posts)
+    // let currentUser = useSelector(state => state.currentUser)
+
+    // const user = useSelector(state => state.currentUser)
 
     useEffect(() => {
         (async () => {
+            await dispatch(loadCurrentUser())
             await dispatch(loadPosts())
             await dispatch(loadInvites())
         })();
-    }, []);
+    }, [currentUser]);
 
     let posts = [];
     for (let post in allPosts) {
@@ -30,8 +35,8 @@ const Main = () => {
 
     return (
         <div className='main' >
-            <Navbar user={user} />
-            <Sidebar />
+            <Navbar user={user} setAuthenticated={setAuthenticated} />
+            <Sidebar user={user} />
             <Feed posts={posts} />
             <Footer />
         </div>

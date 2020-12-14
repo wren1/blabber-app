@@ -4,8 +4,12 @@ import { useParams } from 'react-router-dom';
 
 import ReceivedInvitesList from './ReceivedInvitesList';
 import SentInvitesList from './SentInvitesList';
+import Navbar from '../Navbar/Navbar';
+import SideBar from '../Sidebar/Sidebar';
 
 import { loadInvites } from '../../store/ducks/invites';
+// import { loadCurrentUser } from '../../store/ducks/currentUser';
+import Sidebar from '../Sidebar/Sidebar';
 
 const ActivityPage = () => {
     const dispatch = useDispatch();
@@ -20,6 +24,8 @@ const ActivityPage = () => {
 
     return (
         <div className='activity-page'>
+            <SideBar user={user} />
+            <Navbar />
             <ReceivedInvitesList invites={received} />
             <SentInvitesList invites={sent} />
         </div>

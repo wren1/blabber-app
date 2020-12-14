@@ -9,12 +9,13 @@ import GroupHeader from './GroupHeader';
 const GroupPageHeader = ({ groupId }) => {
     const dispatch = useDispatch();
     const group = useSelector(state => state.groups[`"${groupId}"`])
+    const user = useSelector(state => state.currentUser)
     if (!group) return null;
     console.log('GROUP DESC: ', group)
     return (
         <div className='group-header'>
-            <GroupHeader group={group} />
-            <GroupDetails group={group} />
+            <GroupHeader group={group} user={user} />
+            <GroupDetails group={group} user={user} />
         </div>
     )
 }
