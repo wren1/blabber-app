@@ -32,7 +32,7 @@ def user_posts(id):
     user_ids.append(id)
     print(user_ids)
     group_ids = [group.id for group in user.groups]
-    posts = Post.query.filter((Post.user_id.in_(user_ids)) | (Post.group_id.in_(group_ids))).order_by(Post.created_on).all()
+    posts = Post.query.filter((Post.user_id.in_(user_ids)) | (Post.group_id.in_(group_ids))).order_by(Post.created_on.desc()).all()
     # return {"posts": [post.to_dict() for post in posts]}
     # user = User.query.get(id)
     # # friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id))
@@ -76,8 +76,15 @@ def user_invites(id):
     user = User.query.get(id)
     received = user.received_invites
     sent = user.sent_invites
+    group_ids = [invite.group_id for invite in received] + [invite.group_id for invite in sent]
+    user_ids = [invite.inviter_id for invite in received] + [invite.invitee_id for invite in sent]
+    groups = Group.query.filter(Group.id.in_(group_ids)).all()
+    users = User.query.filter(User.id.in_(user_ids)).all()
     return {"received_invites": [invite.to_dict() for invite in received],
-            "sent_invites": [invite.to_dict() for invite in sent]}
+            "sent_invites": [invite.to_dict() for invite in sent],
+            "users": [user.to_dict() for user in users],
+            "groups": [group.to_dict() for group in groups]
+            }
     # received_invites = Invite.query.filter(Invite.invitee_id == id).all()
     # sent_invites = Invite.query.filter(Invite.inviter_id == id).all()
     # send info about invites too!!

@@ -11,8 +11,8 @@ const SignoutOption = ({ user, setAuthenticated }) => {
 
     const onLogout = async (e) => {
         await logout();
-        setAuthenticated(false);
         dispatch(setCurrentUser(null))
+        setAuthenticated(false);
   };
 
     return (

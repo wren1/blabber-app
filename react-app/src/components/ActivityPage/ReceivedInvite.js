@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import AddIcon from '@material-ui/icons/Add'
 
-import { acceptFriendRequest } from '../../store/ducks/invites'
+import { acceptFriendRequest, declineFriendRequest, acceptGroupInvite, declineGroupInvite } from '../../store/ducks/invites'
 
 
 const ReceivedInvite = ({ invite }) => {
@@ -13,8 +13,12 @@ const ReceivedInvite = ({ invite }) => {
     const group = useSelector(state => state.groups[`"${invite.group_id}"`]);
     if (!inviter) return null;
 
-    const handleAddFriend = () => {
-        dispatch(acceptFriendRequest(inviter.id))
+    const handleAcceptInvite = () => {
+        if (invite.type === 'friend') {
+            dispatch(acceptFriendRequest(inviter.id))
+        } else {
+            dispatch(acceptGroupInvite(inviter.id, group.id))
+        }
     }
 
     return (
@@ -27,7 +31,7 @@ const ReceivedInvite = ({ invite }) => {
         }
         </div>
         <div>
-            <AddIcon className={'add-friend'} onClick={handleAddFriend}/>
+            <AddIcon className={'add-friend'} onClick={handleAcceptInvite}/>
         </div>
         </div>
     )

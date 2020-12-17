@@ -27,7 +27,6 @@ const ProfileHeader = ({ user }) => {
             <div>
             <div className='profile-icon'><UserIcon user={user} /></div>
             <UserInfo user={user} /></div>
-            {/* <PersonAddIcon onClick={handleRequestFriend}/> */}
         </div>
     )
 }

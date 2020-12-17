@@ -49,10 +49,10 @@ def accept_group_invite(user_id, group_id):
     # current_user_id = 2
     invite = Invite.query.filter(Invite.invitee_id == current_user_id, Invite.group_id == group_id,
                                  Invite.inviter_id == user_id, Invite.type == 'group').first()
-    current_user = User.query.get(current_user_id)
+    user = User.query.get(current_user_id)
     # inviter = User.query.get(id)
     group = Group.query.get(group_id)
-    current_user.groups.append(group)
+    user.groups.append(group)
     db.session.delete(invite)
     db.session.commit()
     return invite.to_dict()
@@ -76,7 +76,7 @@ def decline_group_invite(user_id, group_id):
 @login_required
 def make_friend_request(user_id):
     current_user_id = current_user.get_id()
-    # current_user_id = 4
+    # current_user_id = 3
     invite = Invite(
         inviter_id=current_user_id,
         invitee_id=user_id,
@@ -88,14 +88,15 @@ def make_friend_request(user_id):
 
 
 # current user invites another user to join a group
-@invite_routes.route('/users/<int:user_id>/groups/<int:group_id>', methods=['POST'], strict_slashes=False)
+@invite_routes.route('/users/<username>/groups/<int:group_id>', methods=['POST'], strict_slashes=False)
 @login_required
-def make_group_invite(user_id, group_id):
+def make_group_invite(username, group_id):
     current_user_id = current_user.get_id()
+    user = User.query.filter(User.username == username).first()
     # current_user_id = 1
     invite = Invite(
         inviter_id=current_user_id,
-        invitee_id=user_id,
+        invitee_id=user.id,
         group_id=group_id,
         type='group'
     )

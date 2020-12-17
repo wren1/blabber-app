@@ -35,8 +35,8 @@ export const loadInvites = () => async (dispatch, useState) => {
     }
 }
 
-export const sendFriendRequest = (username) => async (dispatch) => {
-    const res = await fetch(`/api/invites/users/${username}/friends`, {
+export const sendFriendRequest = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/invites/users/${userId}/friends`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -72,7 +72,8 @@ export const acceptFriendRequest = (userId) => async (dispatch, useState) => {
     }
 }
 
-export const declineFriendRequest = (userId) => async (dispatch) => {
+export const declineFriendRequest = (userId) => async (dispatch, useState) => {
+    const { currentUser } = useState();
     const res = await fetch(`/api/invites/users/${userId}/friends/decline`, {
         method: 'DELETE',
         headers: {
@@ -102,8 +103,9 @@ export const sendGroupInvite = (username, groupId) => async (dispatch) => {
     }
 }
 
-export const acceptGroupInvite = (userId, groupId) => async (dispatch) => {
-    const res = await fetch(`/api/invites/users/${userId}/groups/${groupId}`, {
+export const acceptGroupInvite = (userId, groupId) => async (dispatch, useState) => {
+    const { currentUser } = useState();
+    const res = await fetch(`/api/invites/users/${userId}/groups/${groupId}/accept`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -112,13 +114,16 @@ export const acceptGroupInvite = (userId, groupId) => async (dispatch) => {
     if (res.ok) {
         const invite = await res.json();
         // add group
+        currentUser.groups.push(groupId);
+        dispatch(updateCurrentUser(currentUser));
         dispatch(acceptInvite(invite.id))
     } else {
         console.error(res)
     }
 }
 
-export const declineGroupInvite = (userId, groupId) => async (dispatch) => {
+export const declineGroupInvite = (userId, groupId) => async (dispatch, useState) => {
+    const { currentUser } = useState();
     const res = await fetch(`/api/invites/users/${userId}/groups/${groupId}`, {
         method: 'DELETE',
         headers: {
@@ -127,7 +132,9 @@ export const declineGroupInvite = (userId, groupId) => async (dispatch) => {
     })
     if (res.ok) {
         const invite = await res.json();
-        dispatch(declineInvite(invite.id))
+        // currentUser.groups.push(groupId);
+        // dispatch(updateCurrentUser(currentUser));
+        dispatch(declineInvite(invite.id));
     } else {
         console.error(res)
     }

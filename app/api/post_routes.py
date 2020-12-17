@@ -32,14 +32,14 @@ def get_user_posts(id):
 
 # get all posts within group
 @post_routes.route('/groups/<int:id>', strict_slashes=False)
-# @login_required
+@login_required
 def get_group_posts(id):
     group = Group.query.get(id)
-    user_id = current_user.get_id()
-    user_id = 1
+    # user_id = current_user.get_id()
+    user_id = 2
     group_members = [member.id for member in group.users]
     if group.private is False or user_id in group_members:
-        posts = Post.query.filter(Post.group_id == id).order_by(Post.last_modified).all()
+        posts = Post.query.filter(Post.group_id == id).order_by(Post.last_modified.desc()).all()
         user_ids = [post.user_id for post in posts]
         users = User.query.filter(User.id.in_(user_ids)).all()
         return {
@@ -81,7 +81,7 @@ def make_post():
 @login_required
 def make_group_post(id):
     user_id = current_user.get_id()
-    # user_id = 1
+    # user_id = 2
     user = User.query.get(user_id)
     form = NewPostForm()
     form['user_id'].data = user_id
