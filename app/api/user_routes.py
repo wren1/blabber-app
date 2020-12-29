@@ -56,9 +56,10 @@ def user_posts(id):
 @user_routes.route('/<int:id>/friends', strict_slashes=False)
 @login_required
 def user_friends(id):
-    # user = User.query.get(id)
     friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id)).all()
-    return {"friends": [friend.to_dict() for friend in friends]}
+    friend_ids = [friend.id for friend in friends]
+    users = User.query.filter(User.id.in_(friend_ids)).all()
+    return {"friends": [user.to_dict() for user in users]}
 
 
 # get all groups user is in

@@ -20,8 +20,8 @@ export const loadUser = (id) => async (dispatch) => {
     }
 }
 
-export const loadFriends = (userId) => async (dispatch) => {
-    const res = await fetch(`/users/${userId}/friends`);
+export const loadFriends = (userId) => async (dispatch, useState) => {
+    const res = await fetch(`/api/users/${userId}/friends`);
     if (res.ok) {
         const { friends } = await res.json();
         dispatch(getSpecificUsers(friends))

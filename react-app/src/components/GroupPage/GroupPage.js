@@ -14,6 +14,8 @@ const GroupPage = () => {
     const dispatch = useDispatch();
     const { groupId } = useParams()
 
+    const user = useSelector(state => state.currentUser)
+
     console.log(groupId)
 
     useEffect(() => {
@@ -25,7 +27,7 @@ const GroupPage = () => {
 
     return (
         <div className='group-main'>
-            <Sidebar />
+            <Sidebar user={user} />
             <GroupPageHeader groupId={groupId}/>
             <GroupFeed groupId={groupId} />
         </div>

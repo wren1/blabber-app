@@ -7,6 +7,19 @@ from app.api.auth_routes import validation_errors_to_error_messages
 invite_routes = Blueprint('invites', __name__)
 
 
+@invite_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def cancel_invite(id):
+    user_id = current_user.get_id()
+    invite = Invite.query.get(id)
+    if invite.inviter_id == user_id:
+        db.session.delete(invite)
+        return {
+            "user": user.to_dict(),
+            "invite": inivite.to_dict()
+        }
+
+
 # current user accepts friend request
 @invite_routes.route('/users/<int:id>/friends/accept', methods=['DELETE'], strict_slashes=False)
 @login_required

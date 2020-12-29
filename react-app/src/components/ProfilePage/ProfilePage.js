@@ -8,6 +8,8 @@ import Sidebar from '../Sidebar/Sidebar';
 
 import { loadUserPosts } from '../../store/ducks/posts';
 import { loadUser } from '../../store/ducks/users';
+import { loadInvites } from '../../store/ducks/invites';
+
 
 
 const ProfilePage = () => {
@@ -22,6 +24,7 @@ const ProfilePage = () => {
         (async () => {
             await dispatch(loadUser(userId))
             await dispatch(loadUserPosts(userId))
+            await dispatch(loadInvites())
         })();
     }, []);
     

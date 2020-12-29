@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 
 const FriendsOption = ({ user }) => {
+    const history = useHistory();
+
+    const redFriendsPage = () => {
+        history.push(`/users/${user.id}/friends`)
+    }
 
     return (
-        <div className='profilenav__dropdown-option'>
+        <div className='profilenav__dropdown-option' onClick={redFriendsPage}>
             Friends ( {!user.friends.length ? 0 : user.friends.length} )
         </div>
     )
