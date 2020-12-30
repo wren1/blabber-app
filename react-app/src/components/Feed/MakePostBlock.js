@@ -22,7 +22,7 @@ const MakePostBlock = ({ user, group }) => {
     }
 
     return (
-        <div>
+        <div className='makepost--inactive' >
             {!openMakePost ? makePostButton() : <NewPostForm openMakePost={openMakePost} setOpenMakePost={setOpenMakePost} user={user} group={group}/>}
         </div>
     )

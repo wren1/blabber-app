@@ -7,7 +7,8 @@ import GroupFeed from './GroupFeed';
 import Sidebar from '../Sidebar/Sidebar';
 
 import { loadGroupPosts } from '../../store/ducks/posts';
-import { loadGroupMembers } from '../../store/ducks/users'; 
+import { loadGroupMembers } from '../../store/ducks/users';
+// import { loadCurrentUser } from 
 
 
 const GroupPage = () => {
@@ -23,7 +24,7 @@ const GroupPage = () => {
             await dispatch(loadGroupPosts(groupId))
             await dispatch(loadGroupMembers(groupId))
         })()
-    }, [groupId])
+    }, [])
 
     return (
         <div className='group-main'>

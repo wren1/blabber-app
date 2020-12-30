@@ -26,12 +26,14 @@ def user(id):
 @user_routes.route('/<int:id>/posts', strict_slashes=False)
 @login_required
 def user_posts(id):
-    user = User.query.get(id)
-    friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id))
-    user_ids = [friend.id for friend in friends]
+    user = User.query.get(id).to_dict()
+    user_ids = user['friends']
+    # friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id))
+    # user_ids = [friend.id for friend in friends]
     user_ids.append(id)
     print(user_ids)
-    group_ids = [group.id for group in user.groups]
+    group_ids = user['groups']
+    # group_ids = [group.id for group in user.groups]
     posts = Post.query.filter((Post.user_id.in_(user_ids)) | (Post.group_id.in_(group_ids))).order_by(Post.created_on.desc()).all()
     # return {"posts": [post.to_dict() for post in posts]}
     # user = User.query.get(id)
@@ -46,7 +48,8 @@ def user_posts(id):
     users = User.query.filter(User.id.in_(user_ids)).all()
     groups = Group.query.filter(Group.id.in_(group_ids)).all()
     return {
-        "posts": [post.to_dict() for post in posts],
+        "posts": [post.to_dict() for post in posts
+            if post.to_dict()['user_id'] is id or post.to_dict()['group_id'] in user['groups'] or post.to_dict()['group_id'] is None],
         "groups": [group.to_dict() for group in groups],
         "users": [user.to_dict() for user in users]
     }

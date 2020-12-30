@@ -11,6 +11,8 @@ class Group(db.Model):
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
     private = db.Column(db.Boolean, nullable=False)
+    # icon_url = db.Column(db.String(100))
+    # header_url = db.Column(db.String(100))
 
     users = db.relationship('User', secondary=users_to_groups, back_populates='groups')
     moderators = db.relationship('User', secondary=moderators)

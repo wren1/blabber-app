@@ -5,6 +5,7 @@ import Sidebar from './Sidebar/Sidebar';
 import Navbar from './Navbar/Navbar';
 import Feed from './Feed/Feed';
 import Footer from './Footer/Footer';
+import RightSidebar from './RightSidebar/RightSidebar';
 
 import { loadPosts } from '../store/ducks/posts';
 import { loadInvites } from '../store/ducks/invites';
@@ -37,6 +38,7 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
         <div className='main' >
             <Navbar user={user} setAuthenticated={setAuthenticated} />
             <Sidebar user={user} />
+            <RightSidebar user={user} />
             <Feed posts={posts} />
             <Footer />
         </div>

@@ -18,7 +18,7 @@ const Navbar = ({setAuthenticated}) => {
     return (
         <div className='navbar'>
             <SearchBar />
-            <ProfileNav setAuthenticated={setAuthenticated} />
+            {/* <ProfileNav setAuthenticated={setAuthenticated} /> */}
         </div>
     )
 }
