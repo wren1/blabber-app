@@ -14,7 +14,6 @@ const NewPostForm = ({ openMakePost, setOpenMakePost, user, group }) => {
     const [content, setContent] = useState('');
 
     if (!user) return null;
-    console.log('grou')
 
     const handleSubmit = (e) => {
         e.preventDefault(e);

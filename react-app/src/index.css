@@ -151,7 +151,7 @@ body {
     margin: 25px 0;
     box-sizing: border-box;
     min-width: 400px;
-    width: 75%;
+    width: 70%;
     min-height: 100px;
     background-color: #FAFAFA;
     border-radius: 8px;
@@ -159,6 +159,9 @@ body {
     box-shadow: 0 0 3px rgba(14, 133, 136, .5);
     /* padding: 20px; */
     color: #3E4347;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    display: flex;
+
 }
 .feed__makepost {
     display: flex;
@@ -166,6 +169,7 @@ body {
     align-items: center;
     justify-content: space-between;
     /* cursor: pointer; */
+    margin-left: 20px;
     cursor: text;
     width: 200px;
 }
@@ -209,7 +213,7 @@ body {
     border: none;
     resize: none;
     background-color: #FAFAFA;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
     margin-bottom: 10px;
     font-size: 18px;
 }
@@ -220,7 +224,7 @@ body {
     border: none;
     resize: none;
     background-color: #FAFAFA;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
 .makepost-buttons {
@@ -252,7 +256,7 @@ body {
 .post {
     box-sizing: border-box;
     min-width: 400px;
-    width: 75%;
+    width: 70%;
     min-height: 145px;
     background-color: #FAFAFA;
     overflow: hidden;
@@ -269,6 +273,7 @@ body {
     display: flex;
     align-items: center;
     font-family: Avenir, Arial, Helvetica, sans-serif;
+    padding-bottom: 10px;
     border-bottom: 1px solid #DAE5EF;
 }
 .post-header__link {
@@ -277,10 +282,21 @@ body {
     justify-content: center;
     align-items: center;
 }
+.post-header__txt {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+}
 .post-header__username {
     cursor: pointer;
-    color: #0E8588;
+    font-size: 20px;
+    color: #3E4347;
     font-family: Avenir, Arial, Helvetica, sans-serif;
+}
+.post-header__date {
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    color: #5C656C;
+    font-size: 12px;
 }
 .post-header__title {
     margin-left: 30px;
@@ -471,11 +487,11 @@ body {
     top: 0;
     width: 100%;
 }
-.profile-icon .user-icon {
+/* .profile-icon .user-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 .profile__user-info {
     text-align: center;
     font-size: 18px;
@@ -516,6 +532,54 @@ body {
     height: 150px;
 }
 
+.icon {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+/* .profile-icon__img {
+
+} */
+
+.small-icon {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+.med-icon {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+.large-icon {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+}
+.border-icon-small {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #00E8FE;
+}
+.border-icon-med {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 2px solid #00E8FE;
+}
+.border-icon-large {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #00E8FE;
+}
+/* .icon-img {
+    
+} */
 
 .group-main {
     font-size: 14px;
