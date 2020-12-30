@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 
-const Friend = () => {
+const Friend = ({ friend }) => {
 
     return (
         <div>
-
+            {friend.username}
         </div>
     )
 }

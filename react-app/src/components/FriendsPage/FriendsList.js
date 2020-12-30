@@ -5,16 +5,29 @@ import { useParams } from 'react-router-dom';
 import Friend from './Friend';
 
 
-const FriendsList = () => {
+const FriendsList = ({ userId }) => {
     const users = useSelector(state => state.users)
+    const currentUser = useSelector(state => state.currentUser)
     const friends = [];
-    for (let id in users) {
-        friends.push(users[id])
+    let user = users[`"${userId}"`]
+    if (user) {
+        for (let id in users) {
+            if (user['friends'].includes(users[id].id)) {
+                friends.push(users[id])
+            }
+        }
     }
+    console.log('friuends: ', friends)
 
     return (
-        <div className='frinedslist'>
-
+        <div className='friendslist-main'>
+            
+            {
+                friends.map(friend => {
+                    return <Friend friend={friend} key={friend.id} />
+                })
+            }
+            
         </div>
     )
 }
