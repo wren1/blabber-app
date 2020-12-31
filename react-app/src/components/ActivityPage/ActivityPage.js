@@ -8,8 +8,11 @@ import Navbar from '../Navbar/Navbar';
 import SideBar from '../Sidebar/Sidebar';
 
 import { loadInvites } from '../../store/ducks/invites';
+import { loadFriends } from '../../store/ducks/users';
 // import { loadCurrentUser } from '../../store/ducks/currentUser';
 import Sidebar from '../Sidebar/Sidebar';
+
+import RightSidebar from '../RightSidebar/RightSidebar';
 
 const ActivityPage = () => {
     const dispatch = useDispatch();
@@ -28,6 +31,7 @@ const ActivityPage = () => {
             <Navbar />
             <ReceivedInvitesList invites={received} />
             <SentInvitesList invites={sent} />
+            <RightSidebar user={user} />
         </div>
     )
 }

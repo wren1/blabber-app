@@ -57,7 +57,7 @@ export const createGroup = (owner_id, name, description, isPrivate) => async (di
         currentUser.groups.push(group.id);
         let user = users[`"${owner_id}"`];
         console.log(user)
-        user.groups.push(group.id);
+        // user.groups.push(group.id);
         dispatch(updateCurrentUser(currentUser));
         dispatch(updateUser(user));
     } else {

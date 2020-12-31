@@ -15,7 +15,7 @@ const NewGroupPage = () => {
     return (
         <div className='new-group__main'>
             <Navbar />
-            <Sidebar />
+            <Sidebar user={user} />
             <NewGroupForm user={user} />
         </div>
     )

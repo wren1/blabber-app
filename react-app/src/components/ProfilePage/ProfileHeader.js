@@ -8,6 +8,7 @@ import HomeButton from '../Sidebar/HomeButton';
 // import PersonIcon from '@material-ui/icons/Person';
 import UserInfo from './UserInfo';
 import UserIcon from '../UserIcon';
+import ProfileIcon from '../ProfileIcon'
 
 import { sendFriendRequest } from '../../store/ducks/invites';
 import { setCurrentUser } from '../../store/ducks/currentUser';
@@ -48,7 +49,7 @@ const ProfileHeader = ({ user }) => {
     return (
         <div className='profile_header' >
             <div>
-            <div className='profile-icon'><UserIcon user={user} /></div>
+            <div className='profile-icon'><ProfileIcon user={user} size={'med'} /></div>
             <UserInfo user={user} requested={requested} setRequested={setRequested}/></div>
         </div>
     )

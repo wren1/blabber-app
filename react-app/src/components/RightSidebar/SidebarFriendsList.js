@@ -7,7 +7,7 @@ import { loadUserGroups } from '../../store/ducks/groups';
 import FriendListItem from './FriendListItem';
 
 
-const SidebarFriendsList = ({ user }) => {
+const SidebarFriendsList = ({ friends }) => {
     const dispatch = useDispatch();
     // const user = useSelector(state => state.currentUser);
     // const groups = useSelector(state => state.currentUser.groups.map(groupId => state.groups[`"${groupId}"`]))
@@ -38,6 +38,13 @@ const SidebarFriendsList = ({ user }) => {
 
     return (
         <div className='right-sidebar__friendslist'>
+            <div className='sidebar-friendslist-title'>
+                Friends
+            </div>
+            {!friends ? null : friends.map(friend => (
+                <FriendListItem friend={friend} key={friend.id} />
+            )
+            )}
         </div>
     )
 }

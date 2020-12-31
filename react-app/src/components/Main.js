@@ -10,6 +10,7 @@ import RightSidebar from './RightSidebar/RightSidebar';
 import { loadPosts } from '../store/ducks/posts';
 import { loadInvites } from '../store/ducks/invites';
 import { setCurrentUser, loadCurrentUser } from '../store/ducks/currentUser';
+import { loadFriends } from '../store/ducks/users';
 
 const Main = ({authenticated, setAuthenticated, currentUser}) => {
     const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
             await dispatch(loadCurrentUser())
             await dispatch(loadPosts())
             await dispatch(loadInvites())
+            await dispatch(loadFriends(user.id))
         })();
     }, [currentUser]);
 
@@ -38,7 +40,7 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
         <div className='main' >
             <Navbar user={user} setAuthenticated={setAuthenticated} />
             <Sidebar user={user} />
-            <RightSidebar user={user} />
+            <RightSidebar user={user} setAuthenticated={setAuthenticated} />
             <Feed posts={posts} />
             <Footer />
         </div>

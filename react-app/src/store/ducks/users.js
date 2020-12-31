@@ -25,7 +25,7 @@ export const loadFriends = (userId) => async (dispatch, useState) => {
     if (res.ok) {
         const { friends } = await res.json();
         console.log('f: ', friends)
-        dispatch(getSpecificUsers(friends))
+        dispatch(getUsers(friends))
     } else {
         console.error(res)
     }

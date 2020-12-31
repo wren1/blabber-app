@@ -69,12 +69,72 @@ body {
     height: 100%;
     width: 200px;
     color: #FAFAFA;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.sidebar-user {
+    display: flex;
+    justify-content: space-between;
+    min-width: 150px;
+    align-items: center;
+    align-content: center;
+    margin: 15px 15px;
+    padding: 0 0px 10px 10px;
+    border-bottom: 1px solid #707070;
+}
+.sidebar-username {
+    box-sizing: border-box;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.logout-button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 35px;
+    background-color: #5C656C;
+    border-radius: 28px;
+    color: #FAFAFA;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.sidebar-notifications {
+    display: flex;
+    font-size: 14px;
+    align-content: center;
+    align-items: center;
+    width: 150px;
+}
+.sidebar-notifications-num {
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: 10px 10px 10px 0px;
+    padding: 2px;
+    background-color: #383e42;
 }
 .right-sidebar__friendslist {
-
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-top: 10px;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+}
+.sidebar-friendslist-title {
+    font-size: 18px;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #707070;
+    margin-bottom: 10px;
 }
 .right-sidebar__friendslist-item {
-
+    display: flex;
+}
+.right-sidebar__friendslist-username {
+    margin-left: 10px;
+    font-size: 14px;
 }
 
 .home-logo {
@@ -419,11 +479,15 @@ body {
     box-sizing: border-box;
     position: relative;
     margin-left: 200px;
-    padding: 0px 30px 0px 30px;
+    padding: 30px 30px 30px 30px;
     font-family: Arial, Helvetica, sans-serif;
     color: #0E8588;
-    padding: 40px;
+    /* padding: 40px; */
     font-size: 14px;
+    background-color: #FAFAFA;
+    border: 1px solid #A4E6E8;
+    margin: 20px 220px 20px 220px;
+    border-radius: 10px;
 }
 .invites-list__item {
     margin: 20px;
@@ -436,7 +500,11 @@ body {
     cursor: pointer;
 }
 .invites-list__header {
-
+    color: #3E4347;
+    font-size: 18px;
+    border-bottom: 1px solid #DAE5EF;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 .invites-list__body {
 
@@ -756,8 +824,11 @@ body {
 .group-feed {
     box-sizing: border-box;
     position: relative;
-    margin-left: 200px;
-    padding: 0px 30px 0px 30px;
+    margin: 0 220px 0 220px;
+    /* padding: 0px 30px 0px 30px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -806,6 +877,7 @@ body {
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
+    margin-top: 20px;
     /* justify-content: center; */
 }
 .newgroup-formcontainer {
