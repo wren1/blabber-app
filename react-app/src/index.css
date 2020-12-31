@@ -262,7 +262,7 @@ body {
     overflow: hidden;
     margin-bottom: 25px;
     /* margin: 35px 0px; */
-    padding: 10px 25px 10px 25px;
+    padding: 10px 10px 10px 10px;
     font-size: 14px;
     position: relative;
     border-radius: 8px;
@@ -272,9 +272,18 @@ body {
 .post-header {
     display: flex;
     align-items: center;
-    font-family: Avenir, Arial, Helvetica, sans-serif;
+    justify-content: space-between;
     padding-bottom: 10px;
     border-bottom: 1px solid #DAE5EF;
+    width: 100%;
+}
+.post-header__info {
+    display: flex;
+    align-items: center;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    /* padding-bottom: 10px; */
+    /* border-bottom: 1px solid #DAE5EF; */
+    /* width: 100%; */
 }
 .post-header__link {
     display: flex;
@@ -285,7 +294,7 @@ body {
 .post-header__txt {
     display: flex;
     flex-direction: column;
-    margin-left: 8px;
+    margin-left: 12px;
 }
 .post-header__username {
     cursor: pointer;
@@ -298,13 +307,22 @@ body {
     color: #5C656C;
     font-size: 12px;
 }
-.post-header__title {
-    margin-left: 30px;
-    font-size: 18px;
+.post-body {
+    margin: 15px 0px 8px 0px;
+    padding: 0px 15px;
     font-family: Avenir, Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #DAE5EF;
 }
 .post-content {
-    margin: 15px 0px;
+    margin: 15px 0px 20px 0px;
+    font-size: 15px;
+    /* padding: 0px 15px;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    font-size: 15px; */
+}
+.post-body__title {
+    font-size: 20px;
+    font-weight: 400;
     font-family: Avenir, Arial, Helvetica, sans-serif;
 }
 .post-footer {
@@ -312,7 +330,12 @@ body {
     /* align-items: center;
     align-content: center; */
     justify-content: space-between;
+    align-content: center;
+    align-items: center;
     position: relative;
+    min-height: 35px;
+    padding: 0px 10px;
+    color: #5C656C;
 }
 .post-footer__buttons {
     justify-self: flex-end;
@@ -326,9 +349,28 @@ body {
     cursor: pointer;
     margin-left: 8px;
 }
+.post__edit-button {
+    color: #ACBFD1;
+    font-size: 8px;
+    cursor: pointer;
+    margin: 0px 10px;
+    /* align-self: flex-start;
+    justify-self: flex-end; */
+    position: relative;
+    right: 0px;
+}
 .show-comments__button {
     cursor: pointer;
-    color: #0E8588;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    /* color: #5C656C; */
+}
+.comments-icon {
+    color: #ACBFD1;
+    width: 20px;
+    height: 19px;
+    margin-right: 10px;
 }
 .newpostform.editpost {
     position: absolute;

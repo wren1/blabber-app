@@ -19,6 +19,7 @@ const Comments = ({ post, commentIds, users }) => {
 
     return (
         <div className='comments'>
+            
             {!comments ? null : comments.map(comment => 
                 (
                     <Comment comment={comment} key={comment.id} />

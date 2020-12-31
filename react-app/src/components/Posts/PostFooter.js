@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 
 import Comments from './Comments';
 import EditPost from './EditPost';
@@ -48,20 +51,25 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     return (
         <>
             <div className='post-footer'>
-                {!post.comments.length ? null :
+                {/* {!post.comments.length ? null : */}
                 <div onClick={handleClick} className='show-comments__button'>
-                    <div className='post-footer__comments-button'>comments</div>
+                    <div className='comments-icon'>
+                        <ChatBubbleOutlineIcon />
                     </div>
-                     }
+                    <div className='post-footer__comments-button'>
+                            {!commentIds.length ? 0 : commentIds.length} Comments
+                    </div>
+                </div>
+                    {/* //  } */}
                 {currentUser.id !== post.user_id ? null :
                 <div className='post-footer__buttons'>
                 <DeleteIcon onClick={handleDelete} className='post-footer__button' />
-                <EditIcon onClick={handleEdit} className='post-footer__button' />
+                {/* <EditIcon onClick={handleEdit} className='post-footer__button' /> */}
                 </div>}
             </div>
-            {!openComments ? null : <Comments commentIds={commentIds} />}
-            {!openEditPost ? null : 
-            <EditPost openMakePost={openEditPost} setOpenMakePost={setOpenEditPost} post={post} user={user}/>}
+            {!openComments ? null : <Comments post={post} commentIds={commentIds} />}
+            {/* {!openEditPost ? null : 
+            <EditPost openMakePost={openEditPost} setOpenMakePost={setOpenEditPost} post={post} user={user}/>} */}
         </>
     )
 }
