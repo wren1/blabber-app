@@ -597,11 +597,11 @@ body {
     top: 0;
     width: 100%;
 }
-/* .profile-icon .user-icon {
-    display: flex;
+.profile-icon .user-icon {
+    /* display: flex;
     align-items: center;
-    justify-content: center;
-} */
+    justify-content: center; */
+}
 .profile__user-info {
     text-align: center;
     font-size: 18px;
