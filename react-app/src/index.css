@@ -47,7 +47,19 @@ body {
 .new-group-button {
     color: #A4E6E8;
     align-self: center;
+    width: 100px;
+    text-align: center;
     margin: 20px 0px;
+    background-color: #38A7AA;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: .2s background-color;
+}
+.new-group-button:hover {
+    background-color: #289396;
+    cursor: pointer;
 }
 .sidebar-logo {
     width: 100%;
@@ -131,6 +143,7 @@ body {
 }
 .right-sidebar__friendslist-item {
     display: flex;
+    margin-bottom: 8px;
 }
 .right-sidebar__friendslist-username {
     margin-left: 10px;
