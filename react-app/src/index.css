@@ -37,12 +37,17 @@ body {
     flex-direction: column;
 }
 .sidebar__groupslist-item {
+    display: flex;
+    align-items: center;
     cursor: pointer;
     margin: 10px 30px;
 }
 .sidebar__groupslist-item:hover {
     color: white;
     /* background-color: black; */
+}
+.sidebar__grouplist-name {
+    margin-left: 5px;
 }
 .new-group-button {
     color: #A4E6E8;

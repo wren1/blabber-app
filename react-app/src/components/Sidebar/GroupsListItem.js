@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
+import ProfileIcon from '../ProfileIcon';
+
 
 const GroupsListItem = ({ group }) => {
     const history = useHistory();
@@ -14,7 +16,10 @@ const GroupsListItem = ({ group }) => {
 
     return (
         <div className='sidebar__groupslist-item' onClick={handleClick}>
-            {group.name}
+            <ProfileIcon group={group} size={'small'} />
+            <div className='sidebar__grouplist-name'>
+                {group.name}
+            </div>
         </div>
     )
 }
