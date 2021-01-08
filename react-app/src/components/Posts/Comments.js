@@ -14,18 +14,34 @@ const Comments = ({ post, commentIds, users }) => {
         commentIds.forEach(id => comments.push(allComments[`"${id}"`]))
     }
 
+    const makeCommentBlock = () => {
+        return (
+        <div className='make-comment__container'>
+            <form className='make-comment-form'>
+                <textarea className='make-comment-input' />
+            </form>
+        </div>
+    )}
+
     console.log('COMMENTS: ', comments)
-    if (!commentIds) return null;
+    if (!commentIds) {
+        return (
+        <div className='comments-container'>
+            {makeCommentBlock()}
+        </div>
+        );
+    } else {
 
     return (
-        <div className='comments'>
+        <div className='comments-container'>
             
             {!comments ? null : comments.map(comment => 
                 (
                     <Comment comment={comment} key={comment.id} />
                 ))}
+            {makeCommentBlock()}
         </div>
-    )
+    )}
 }
 
 export default Comments;
