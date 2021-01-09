@@ -40,11 +40,14 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin: 10px 30px;
+    margin: 0px 20px;
+    padding: 8px;
+    border-radius: 12px;
+    transition: .2s all;
 }
 .sidebar__groupslist-item:hover {
     color: white;
-    /* background-color: black; */
+    background-color: #2f3438;
 }
 .sidebar__grouplist-name {
     margin-left: 5px;

@@ -23,13 +23,13 @@ export const loadComments = (postId) => async (dispatch) => {
     }
 }
 
-export const createComment = (postId, comment) => async (dispatch) => {
+export const createComment = (postId, content) => async (dispatch) => {
     const res = await fetch(`/api/posts/${postId}/comments`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ comment })
+        body: JSON.stringify({ content })
     })
     if (res.ok) {
         const { comment } = await res.json();

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 
 const CommentContent = ({ comment }) => {
+    if (!comment) return null;
 
     return (
         <div className='comment-content'>

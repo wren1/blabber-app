@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import Comment from './Comment';
+import CommentForm from './CommentContent';
 
 
 const Comments = ({ post, commentIds, users }) => {
@@ -14,20 +15,12 @@ const Comments = ({ post, commentIds, users }) => {
         commentIds.forEach(id => comments.push(allComments[`"${id}"`]))
     }
 
-    const makeCommentBlock = () => {
-        return (
-        <div className='make-comment__container'>
-            <form className='make-comment-form'>
-                <textarea className='make-comment-input' />
-            </form>
-        </div>
-    )}
 
     console.log('COMMENTS: ', comments)
     if (!commentIds) {
         return (
         <div className='comments-container'>
-            {makeCommentBlock()}
+            <CommentForm post={post}/>
         </div>
         );
     } else {
@@ -39,7 +32,7 @@ const Comments = ({ post, commentIds, users }) => {
                 (
                     <Comment comment={comment} key={comment.id} />
                 ))}
-            {makeCommentBlock()}
+            <CommentForm post={post}/>
         </div>
     )}
 }
