@@ -722,9 +722,9 @@ body {
     position: relative;
     margin-left: 200px;
     padding: 30px;
+    background-color:rgba(12, 204, 209, .5);
 }
 .group-header__inner {
-
 }
 .group-header__desc {
     box-sizing: border-box;
