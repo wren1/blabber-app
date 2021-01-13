@@ -18,11 +18,6 @@ import { like, unlike } from '../../store/ducks/likes';
 const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.currentUser)
-    // let comments = [];
-    // console.log(post.comments)
-    // const allComments = useSelector(state => state.comments)
-    // const comments = useSelector(state => post.comments.map(commentId => state.comments[`"${commentId}"`]));
-    // console.log('all c: ', allComments)
     let commentIds = post.comments
     const [openEditPost, setOpenEditPost] = useState(false)
     let isLiked = currentUser.likes.includes(post.id);
@@ -48,18 +43,9 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     }
 
 
-    // useEffect(() => {
-    //     (async () => {
-    //         if (openComments) {
-    //             dispatch(loadComments(post.id))
-    //         }
-    //     })();
-    // }, []);
-
     return (
         <>
             <div className='post-footer'>
-                {/* {!post.comments.length ? null : */}
                 <div onClick={handleClick} className='show-comments__button'>
                     <div className='comments-icon'>
                         <ChatBubbleOutlineIcon />
@@ -68,16 +54,13 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
                             {!commentIds.length ? 0 : commentIds.length} Comments
                     </div>
                 </div>
-                    {/* //  } */}
                 {currentUser.id !== post.user_id ? null :
                 <div className='post-footer__buttons'>
-                    {!liked ? <FavoriteBorderIcon onClick={handleLike} /> : <FavoriteIcon onClick={handleLike} />}
+                    {!liked ? <FavoriteBorderIcon onClick={handleLike} className='post-like-icon' /> : <FavoriteIcon onClick={handleLike} className='post-like-icon' />}
                 <DeleteIcon onClick={handleDelete} className='post-footer__button' />
                 </div>}
             </div>
             {!openComments ? null : <Comments post={post} commentIds={commentIds} />}
-            {/* {!openEditPost ? null : 
-            <EditPost openMakePost={openEditPost} setOpenMakePost={setOpenEditPost} post={post} user={user}/>} */}
         </>
     )
 }
