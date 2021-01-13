@@ -5,12 +5,12 @@ export const GET_LIKES = 'blabber/likes/get';
 export const NEW_LIKE = 'blabber/likes/new';
 export const DELETE_LIKE = 'blabber/likes/delete';
 
-export const getLikes = (comments) => ({ type: GET_LIKES, likes })
-export const newLike = (comment) => ({ type: NEW_LIKE, like })
-export const deleteLike = (commentId) => ({ type: DELETE_LIKE, like })
+export const getLikes = (likeIds) => ({ type: GET_LIKES, likeIds })
+export const newLike = (likeId) => ({ type: NEW_LIKE, likeId })
+export const deleteLike = (likeId) => ({ type: DELETE_LIKE, likeId })
 
 
-export const loadLikes = (postId) => async (dispatch) => {
+export const loadLikes = () => async (dispatch) => {
     const res = await fetch(`/api/posts/${postId}`)
     if (res.ok) {
         const { comments, users } = await res.json();
@@ -21,8 +21,8 @@ export const loadLikes = (postId) => async (dispatch) => {
     }
 }
 
-export const like = (postId, content) => async (dispatch) => {
-    const res = await fetch(`/api/posts/${postId}/comments`, {
+export const like = (postId) => async (dispatch) => {
+    const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -30,24 +30,24 @@ export const like = (postId, content) => async (dispatch) => {
         body: JSON.stringify({ content })
     })
     if (res.ok) {
-        const { comment } = await res.json();
-        dispatch(newComment(comment))
+        const { post } = await res.json();
+        dispatch(newLike(post))
     } else {
         console.error(res)
     }
 }
 
 
-export const unlike = (commentId) => async (dispatch) => {
-    const res = await fetch(`/api/posts/comments/${commentId}`, {
+export const unlike = (postId) => async (dispatch) => {
+    const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         }
     })
     if (res.ok) {
-        const { comment } = await res.json();
-        dispatch(deleteComment(commentId))
+        const { post } = await res.json();
+        dispatch(deleteLike(post))
     } else {
         console.error(res)
     }
@@ -57,16 +57,13 @@ export const unlike = (commentId) => async (dispatch) => {
 export default function likes(state = {}, action) {
     let newState = { ...state };
     switch (action.type) {
-        case GET_COMMENTS:
+        case GET_LIKES:
             action.comments.forEach(comment => newState[`"${comment.id}"`] = comment);
             return newState;
-        case NEW_COMMENT:
+        case NEW_LIKE:
             newState[`"${action.comment.id}"`] = action.comment;
             return newState;
-        case EDIT_COMMENT:
-            newState[`"${action.comment.id}"`] = action.comment;
-            return newState;
-        case DELETE_COMMENT:
+        case DELETE_LIKE:
             delete newState[`"${action.comment.id}"`]
             return newState;
         default:
