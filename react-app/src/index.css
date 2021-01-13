@@ -197,19 +197,12 @@ body {
     padding-left: 15px;
 }
 .navbar__profilenav {
-    /* justify-self: flex-end; */
-    /* align-self: flex-start; */
     position: relative;
     left: 420px;
 }
 .navbar-usericon {
-    /* position: absolute;
-    left: 400px; */
-    /* cursor: pointer; */
 }
 .bop {
-    /* position: relative; */
-    /* right: 400px; */
 }
 .navbar__profilenav-dropdown {
 }
@@ -332,7 +325,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* font-family: Arial, Helvetica, sans-serif; */
 }
 .post {
     box-sizing: border-box;
@@ -362,9 +354,6 @@ body {
     display: flex;
     align-items: center;
     font-family: Avenir, Arial, Helvetica, sans-serif;
-    /* padding-bottom: 10px; */
-    /* border-bottom: 1px solid #DAE5EF; */
-    /* width: 100%; */
 }
 .post-header__link {
     display: flex;
@@ -408,8 +397,6 @@ body {
 }
 .post-footer {
     display: flex;
-    /* align-items: center;
-    align-content: center; */
     justify-content: space-between;
     align-content: center;
     align-items: center;
@@ -417,6 +404,10 @@ body {
     min-height: 35px;
     padding: 0px 10px;
     color: #5C656C;
+}
+.post-like-icon {
+    color: red;
+    cursor: pointer;
 }
 .post-footer__buttons {
     justify-self: flex-end;
@@ -743,15 +734,7 @@ body {
 .group-header__desc-description {
 
 }
-/* .group-header__buttons {
-    position: absolute;
-    width: 50px;
-    height: 30px;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-} */
+
 .group-header__invite-button {
     cursor: pointer;
     display: flex;
