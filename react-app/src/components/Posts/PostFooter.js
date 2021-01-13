@@ -12,6 +12,7 @@ import EditPost from './EditPost';
 
 import { loadComments } from '../../store/ducks/comments';
 import { removePost } from '../../store/ducks/posts';
+import { like, unlike } from '../../store/ducks/likes';
 
 
 const PostFooter = ({ post, user, setOpenComments, openComments }) => {
@@ -24,6 +25,8 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     // console.log('all c: ', allComments)
     let commentIds = post.comments
     const [openEditPost, setOpenEditPost] = useState(false)
+    let isLiked = currentUser.likes.includes(post.id);
+    const [liked, setLiked] = useState(isLiked)
 
     const handleClick = () => {
         (async () => {
@@ -39,6 +42,11 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     const handleEdit = () => {
         setOpenEditPost(!openEditPost);
     }
+
+    const handleLike = () => {
+        setLiked(!isLiked)
+    }
+
 
     // useEffect(() => {
     //     (async () => {
@@ -63,8 +71,8 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
                     {/* //  } */}
                 {currentUser.id !== post.user_id ? null :
                 <div className='post-footer__buttons'>
+                    {!liked ? <FavoriteBorderIcon onClick={handleLike} /> : <FavoriteIcon onClick={handleLike} />}
                 <DeleteIcon onClick={handleDelete} className='post-footer__button' />
-                {/* <EditIcon onClick={handleEdit} className='post-footer__button' /> */}
                 </div>}
             </div>
             {!openComments ? null : <Comments post={post} commentIds={commentIds} />}
