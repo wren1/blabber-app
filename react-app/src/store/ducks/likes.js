@@ -27,7 +27,7 @@ export const like = (postId) => async (dispatch) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ content })
+        // body: JSON.stringify({ post })
     })
     if (res.ok) {
         const { post } = await res.json();
@@ -58,7 +58,7 @@ export default function likes(state = {}, action) {
     let newState = { ...state };
     switch (action.type) {
         case GET_LIKES:
-            action.comments.forEach(comment => newState[`"${comment.id}"`] = comment);
+            action.likes.forEach(comment => newState[`"${comment.id}"`] = comment);
             return newState;
         case NEW_LIKE:
             newState[`"${action.comment.id}"`] = action.comment;

@@ -39,6 +39,11 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     }
 
     const handleLike = () => {
+        if (!isLiked) {
+            dispatch(like(post.id))
+        } else {
+            dispatch(unlike(post.id))
+        }
         setLiked(!isLiked)
     }
 
