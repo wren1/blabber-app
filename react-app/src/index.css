@@ -298,6 +298,9 @@ body {
     position: absolute;
     top: 0px;
     right: 0px;
+    display: flex;
+    align-content: center;
+    align-items: center;
 }
 .button {
     background-color: #A4E6E8;
@@ -415,10 +418,10 @@ body {
 }
 
 .post-footer__button {
-    color: #ACBFD1;
+    /* color: #ACBFD1;
     font-size: 8px;
     cursor: pointer;
-    margin-left: 8px;
+    margin-left: 8px; */
 }
 .post__edit-button {
     color: #ACBFD1;
@@ -429,6 +432,14 @@ body {
     justify-self: flex-end; */
     position: relative;
     right: 0px;
+}
+.post-header__delete {
+    color: #ACBFD1;
+    font-size: 27px !important;
+    /* height: 30px !important; */
+    cursor: pointer;
+    margin-right: 3px;
+    /* margin-left: 8px; */
 }
 .show-comments__button {
     cursor: pointer;

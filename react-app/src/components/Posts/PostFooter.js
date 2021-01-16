@@ -11,7 +11,7 @@ import Comments from './Comments';
 import EditPost from './EditPost';
 
 import { loadComments } from '../../store/ducks/comments';
-import { removePost } from '../../store/ducks/posts';
+// import { removePost } from '../../store/ducks/posts';
 import { like, unlike } from '../../store/ducks/likes';
 
 
@@ -33,9 +33,9 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
         })()
     }
 
-    const handleDelete = () => {
-        dispatch(removePost(post.id))
-    }
+    // const handleDelete = () => {
+    //     dispatch(removePost(post.id))
+    // }
 
     const handleEdit = () => {
         setOpenEditPost(!openEditPost);

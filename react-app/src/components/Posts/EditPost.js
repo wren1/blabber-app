@@ -20,6 +20,10 @@ const EditPost = ({ post, user, setOpenMakePost, openMakePost, group }) => {
 
     if (!user) return null;
 
+    const handleDelete = () => {
+        dispatch(removePost(post.id))
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault(e);
         if (group) {
@@ -51,6 +55,7 @@ const EditPost = ({ post, user, setOpenMakePost, openMakePost, group }) => {
                     name='content'
                     onChange={(e) => setContent(e.target.value)}/>
                     <div className='makepost-buttons'>
+                        <DeleteIcon onClick={handleDelete} className='post-header__delete' />
                         <button onClick={handleCancel} className='button'>Cancel</button>
                         <button type='submit' className='button'>Submit</button>
                     </div>

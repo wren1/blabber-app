@@ -9,6 +9,9 @@ import EditPost from './EditPost';
 import UserIcon from '../UserIcon';
 import ProfileIcon from '../ProfileIcon';
 
+// import { removePost } from '../../store/ducks/posts';
+
+
 
 const PostHeader = ({ post, user }) => {
     const history = useHistory();
@@ -23,6 +26,10 @@ const PostHeader = ({ post, user }) => {
     const handleEdit = () => {
         setOpenEditPost(!openEditPost);
     }
+
+    // const handleDelete = () => {
+    //     dispatch(removePost(post.id))
+    // }
 
     const handleClick = () => {
         if (!group) {
