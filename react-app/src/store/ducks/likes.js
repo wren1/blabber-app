@@ -1,5 +1,6 @@
 
 import { getUsers } from './users';
+import { getPosts } from './posts';
 
 export const GET_LIKES = 'blabber/likes/get';
 export const NEW_LIKE = 'blabber/likes/new';
@@ -10,16 +11,16 @@ export const newLike = (likeId) => ({ type: NEW_LIKE, likeId })
 export const deleteLike = (likeId) => ({ type: DELETE_LIKE, likeId })
 
 
-export const loadLikes = () => async (dispatch) => {
-    const res = await fetch(`/api/posts/${postId}`)
-    if (res.ok) {
-        const { comments, users } = await res.json();
-        dispatch(getComments(comments))
-        dispatch(getUsers(users))
-    } else {
-        console.error(res)
-    }
-}
+// export const loadLikes = () => async (dispatch) => {
+//     const res = await fetch(`/api/posts/${postId}`)
+//     if (res.ok) {
+//         const { posts, users } = await res.json();
+//         dispatch(getPosts(posts))
+//         dispatch(getUsers(users))
+//     } else {
+//         console.error(res)
+//     }
+// }
 
 export const like = (postId) => async (dispatch) => {
     const res = await fetch(`/api/posts/${postId}/likes`, {
@@ -54,19 +55,19 @@ export const unlike = (postId) => async (dispatch) => {
 }
 
 
-export default function likes(state = {}, action) {
-    let newState = { ...state };
-    switch (action.type) {
-        case GET_LIKES:
-            action.likes.forEach(comment => newState[`"${comment.id}"`] = comment);
-            return newState;
-        case NEW_LIKE:
-            newState[`"${action.comment.id}"`] = action.comment;
-            return newState;
-        case DELETE_LIKE:
-            delete newState[`"${action.comment.id}"`]
-            return newState;
-        default:
-            return state;
-    }
-}
+// export default function likes(state = {}, action) {
+//     let newState = { ...state };
+//     switch (action.type) {
+//         case GET_LIKES:
+//             action.likes.forEach(comment => newState[`"${comment.id}"`] = comment);
+//             return newState;
+//         case NEW_LIKE:
+//             newState[`"${action.comment.id}"`] = action.comment;
+//             return newState;
+//         case DELETE_LIKE:
+//             delete newState[`"${action.comment.id}"`]
+//             return newState;
+//         default:
+//             return state;
+//     }
+// }
