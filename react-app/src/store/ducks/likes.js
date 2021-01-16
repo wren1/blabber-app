@@ -1,6 +1,7 @@
 
 import { getUsers } from './users';
 import { getPosts } from './posts';
+import { updateCurrentUser } from './currentUser';
 
 export const GET_LIKES = 'blabber/likes/get';
 export const NEW_LIKE = 'blabber/likes/new';
@@ -22,7 +23,8 @@ export const deleteLike = (likeId) => ({ type: DELETE_LIKE, likeId })
 //     }
 // }
 
-export const like = (postId) => async (dispatch) => {
+export const like = (postId) => async (dispatch, getState) => {
+    let { currentUser } = getState();
     const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'POST',
         headers: {
@@ -32,14 +34,16 @@ export const like = (postId) => async (dispatch) => {
     })
     if (res.ok) {
         const { post } = await res.json();
-        dispatch(newLike(post))
+        currentUser.likes.push(postId)
+        dispatch(updateCurrentUser(currentUser))
     } else {
         console.error(res)
     }
 }
 
 
-export const unlike = (postId) => async (dispatch) => {
+export const unlike = (postId) => async (dispatch, getState) => {
+    let { currentUser } = getState();
     const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'DELETE',
         headers: {
@@ -48,7 +52,10 @@ export const unlike = (postId) => async (dispatch) => {
     })
     if (res.ok) {
         const { post } = await res.json();
-        dispatch(deleteLike(post))
+        let idx = currentUser.likes.indexOf(postId)
+        currentUser.likes = currentUser.likes.splice(idx, 1)
+        dispatch(updateCurrentUser(currentUser));
+        // dispatch(deleteLike(post))
     } else {
         console.error(res)
     }
