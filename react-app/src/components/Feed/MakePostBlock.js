@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 
+import ProfileIcon from '../ProfileIcon';
+
 import NewPostForm from './NewPostForm';
 
 
@@ -15,8 +17,9 @@ const MakePostBlock = ({ user, group }) => {
     const makePostButton = () => {
         return (
             <div className='feed__makepost' onClick={() => setOpenMakePost(!openMakePost)}>
-                <AddIcon className='makepost__icon'></AddIcon>
-                <div className='makepost__des'>Make a new post</div>
+                {/* <AddIcon className='makepost__icon'></AddIcon> */}
+                <ProfileIcon user={user} size={'med'} />
+                <div className='makepost__des'>Make a new post...</div>
             </div>
         )
     }
