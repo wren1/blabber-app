@@ -22,6 +22,7 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     const [openEditPost, setOpenEditPost] = useState(false)
     let isLiked = currentUser.likes.includes(post.id);
     const [liked, setLiked] = useState(isLiked)
+    const [numLikes, setNumLikes] = useState(post.users_liked.length);
 
     // console.log('post: ', post)
 
@@ -41,14 +42,16 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     }
 
     const handleLike = () => {
-        if (!isLiked) {
+        if (!liked) {
             console.log('like')
+            setNumLikes(numLikes + 1)
             dispatch(like(post.id))
         } else {
             console.log('unlike')
+            setNumLikes(numLikes - 1)
             dispatch(unlike(post.id))
         }
-        setLiked(!isLiked)
+        setLiked(!liked)
     }
 
 
@@ -63,12 +66,12 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
                             {!commentIds.length ? 0 : commentIds.length} Comments
                     </div>
                 </div>
-                {currentUser.id !== post.user_id ? null :
+                {/* {currentUser.id !== post.user_id ? null : } */}
                 <div className='post-footer__buttons'>
-                    <div className='post-footer__likes'>{post.users_liked.length} likes</div>
+                    <div className='post-footer__likes'>{numLikes} likes</div>
                     {!liked ? <FavoriteBorderIcon onClick={handleLike} className='post-like-icon' /> : <FavoriteIcon onClick={handleLike} className='post-like-icon' />}
                 {/* <DeleteIcon onClick={handleDelete} className='post-footer__button' /> */}
-                </div>}
+                </div>
             </div>
             {!openComments ? null : <Comments post={post} commentIds={commentIds} />}
         </>

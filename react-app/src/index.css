@@ -402,12 +402,13 @@ body {
     color: red;
     cursor: pointer;
     margin-left: 10px;
-    align-self: center;
-    justify-self: center;
+    /* align-self: center; */
+    /* justify-self: center; */
 }
 .post-footer__buttons {
     display: flex;
-    /* align-items: center; */
+    align-self: center;
+    align-items: center;
     align-content: center;
     /* justify-content: space-around; */
     justify-self: flex-end;
