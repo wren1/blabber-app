@@ -23,6 +23,8 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     let isLiked = currentUser.likes.includes(post.id);
     const [liked, setLiked] = useState(isLiked)
 
+    // console.log('post: ', post)
+
     const handleClick = () => {
         (async () => {
             await dispatch(loadComments(post.id))
@@ -63,8 +65,9 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
                 </div>
                 {currentUser.id !== post.user_id ? null :
                 <div className='post-footer__buttons'>
+                    <div className='post-footer__likes'>{post.users_liked.length} likes</div>
                     {!liked ? <FavoriteBorderIcon onClick={handleLike} className='post-like-icon' /> : <FavoriteIcon onClick={handleLike} className='post-like-icon' />}
-                <DeleteIcon onClick={handleDelete} className='post-footer__button' />
+                {/* <DeleteIcon onClick={handleDelete} className='post-footer__button' /> */}
                 </div>}
             </div>
             {!openComments ? null : <Comments post={post} commentIds={commentIds} />}

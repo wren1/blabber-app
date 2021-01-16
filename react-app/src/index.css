@@ -401,13 +401,21 @@ body {
 .post-like-icon {
     color: red;
     cursor: pointer;
+    margin-left: 10px;
+    align-self: center;
+    justify-self: center;
 }
 .post-footer__buttons {
+    display: flex;
+    /* align-items: center; */
+    align-content: center;
+    /* justify-content: space-around; */
     justify-self: flex-end;
     position: absolute;
     right: 0px;
     bottom: 0px;
 }
+
 .post-footer__button {
     color: #ACBFD1;
     font-size: 8px;
