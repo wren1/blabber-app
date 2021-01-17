@@ -37,9 +37,9 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     //     dispatch(removePost(post.id))
     // }
 
-    const handleEdit = () => {
-        setOpenEditPost(!openEditPost);
-    }
+    // const handleEdit = () => {
+    //     setOpenEditPost(!openEditPost);
+    // }
 
     const handleLike = () => {
         if (!liked) {

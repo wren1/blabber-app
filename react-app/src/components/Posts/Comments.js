@@ -28,7 +28,7 @@ const Comments = ({ post, commentIds, users }) => {
     return (
         <div className='comments-container'>
             
-            {!comments ? null : comments.map(comment => 
+            {comments.map(comment => 
                 (
                     <Comment comment={comment} key={comment.id} />
                 ))}
