@@ -467,6 +467,9 @@ body {
 .comments {
 
 }
+.comments-container {
+
+}
 .comment {
     
 }
@@ -475,6 +478,13 @@ body {
     /* justify-content: ; */
 }
 .comment-content {
+
+}
+.make-comment__container {
+    width: 100%;
+    min-height: 100px;
+}
+.make-comment__container {
 
 }
 

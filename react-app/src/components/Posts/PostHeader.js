@@ -4,12 +4,8 @@ import { useParams, useHistory, NavLink } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-import Comments from './Comments';
 import EditPost from './EditPost';
-import UserIcon from '../UserIcon';
 import ProfileIcon from '../ProfileIcon';
-
-// import { removePost } from '../../store/ducks/posts';
 
 
 
@@ -27,10 +23,6 @@ const PostHeader = ({ post, user }) => {
         setOpenEditPost(!openEditPost);
     }
 
-    // const handleDelete = () => {
-    //     dispatch(removePost(post.id))
-    // }
-
     const handleClick = () => {
         if (!group) {
             history.push(`/users/${user.id}`)
@@ -43,8 +35,6 @@ const PostHeader = ({ post, user }) => {
     return (
         <>
             <div className='post-header'>
-                {/* <div className='post-header__link'>
-                </div> */}
                 <div className='post-header__info'>
                     <ProfileIcon user={user} size={'med'} group={group} />
                     <div className='post-header__txt'>

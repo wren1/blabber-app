@@ -11,7 +11,6 @@ import Comments from './Comments';
 import EditPost from './EditPost';
 
 import { loadComments } from '../../store/ducks/comments';
-// import { removePost } from '../../store/ducks/posts';
 import { like, unlike } from '../../store/ducks/likes';
 
 
@@ -24,7 +23,6 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     const [liked, setLiked] = useState(isLiked)
     const [numLikes, setNumLikes] = useState(post.users_liked.length);
 
-    // console.log('post: ', post)
 
     const handleClick = () => {
         (async () => {
@@ -32,14 +30,6 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
             setOpenComments(!openComments)
         })()
     }
-
-    // const handleDelete = () => {
-    //     dispatch(removePost(post.id))
-    // }
-
-    // const handleEdit = () => {
-    //     setOpenEditPost(!openEditPost);
-    // }
 
     const handleLike = () => {
         if (!liked) {
@@ -66,11 +56,9 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
                             {!commentIds.length ? 0 : commentIds.length} Comments
                     </div>
                 </div>
-                {/* {currentUser.id !== post.user_id ? null : } */}
                 <div className='post-footer__buttons'>
                     <div className='post-footer__likes'>{numLikes} likes</div>
                     {!liked ? <FavoriteBorderIcon onClick={handleLike} className='post-like-icon' /> : <FavoriteIcon onClick={handleLike} className='post-like-icon' />}
-                {/* <DeleteIcon onClick={handleDelete} className='post-footer__button' /> */}
                 </div>
             </div>
             {!openComments ? null : <Comments post={post} commentIds={commentIds} />}
