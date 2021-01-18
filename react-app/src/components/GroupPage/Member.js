@@ -5,6 +5,10 @@ import { useParams, useHistory } from 'react-router-dom';
 
 const Member = ({ member, group }) => {
     const history = useHistory();
+    let isMod = group.moderators.includes(member.id);
+    let isOwner = (group.user_id === member.id);
+    const [mod, setMod] = useState(mod);
+    const [isOwner, setOwner] = useState(owner)
 
     if (!member) return null;
 

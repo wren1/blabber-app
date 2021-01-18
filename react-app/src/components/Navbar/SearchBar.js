@@ -12,7 +12,6 @@ const SearchBar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log('history: ', history)
         let q = encodeURIComponent(query);
         (async () => {
             await dispatch(searchAll(query))

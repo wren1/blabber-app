@@ -19,7 +19,6 @@ const NewGroupForm = ({ user }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(user.id, name, description, isPrivate)
         dispatch(createGroup(user.id, name, description, isPrivate))
         history.push('/')
     }

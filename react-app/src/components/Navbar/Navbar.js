@@ -8,12 +8,6 @@ import ProfileNav from './ProfileNav';
 
 const Navbar = ({setAuthenticated}) => {
     const user = useSelector(state => state.currentUser)
-
-    // useEffect(() => {
-    //     (async () {
-
-    //     })()
-    // })
     
     return (
         <div className='navbar'>
