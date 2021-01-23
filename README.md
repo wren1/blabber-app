@@ -15,7 +15,7 @@
     <img src="readmeImages/hangry-alt-logo.png" alt="Logo" width="120" height="auto"
     ></a>
 <a href="https://hangry-yelp-clone.herokuapp.com/">
-  <h3 align="center">Bumble</h3></a>
+  <h3 align="center">Blabber</h3></a>
   
 
 
@@ -62,16 +62,16 @@
 ![signup]()
 
 * Initial load page that displays posts.
-![feed](readmeImages/business.png)
+![feed]()
 
 * User profile page.
-![profile](readmeImages/review.png)
+![profile]()
 
 * Search page.
-![search](readmeImages/search.png)
+![search]()
 
 * Business owner user can create business.
-![createbusiness](readmeImages/createbusiness.png)
+![createbusiness]()
 
 * Database Schema
 ![database](documentation/DBschema.png)
@@ -80,7 +80,7 @@
 ### Technical Stack
 
 * Frontend built with JavaScript, React, Redux.
-* Backend built with Express and Sequelize.
+* Backend built with Python and Flask SQLAlchemy.
 
 
 ### Introduction
@@ -88,16 +88,45 @@
 A blogging website where users can make posts and follow others.
 
 
-### MVPs
+### Features
 
-1. Login / Sign-up
-    * login with demo user
-    * make new account
-2. Feed
-
-3. Profile
-
+1. Groups
+    * List of posts within group
+    * Group page header:
+        * group name (unique)
+        * number of users (list on click)
+        * description
+        * join option (if public)
+        * chat room link
+    * Create, edit, and delete your own group
+        * can set group to public or private
+        * delete group
+        * delete posts and remove users from group
+    * User can join other groups
+        * if private, must join through invite
+2. Posts
+    * Make posts in group page
+        * edit and delete your own post
+        * comment on other user's posts
+3. Friends
+    * Friend and unfriend other users
+    * Friend page shows a list of a user's friends
 4. Search
+    * Search feature to find groups or users (filter option on search page)
+5. User Profile
+    * Shows list of posts by that user
+        * if in private group, only shown to users in that group
+    * User profile header:
+        * option to edit info if current user
+        * username, name, profile picture, description
+        * buttons to view friends, groups, and likes
+        * button to friend or unfriend
+6. Likes
+    * like and unlike posts
+7. Moderators
+    * Group owner can set members to be moderators
+        * moderator can edit group information, remove regular members, and delete posts
+        * moderators can remove themselves from being moderators
 
     
 
@@ -142,51 +171,52 @@ A blogging website where users can make posts and follow others.
 ## Frontend Routes
 --------------------------
 
-'/'
-    - navbar
-        - home
-        - search
-        - login / signup | signout / profile
-    - post options
-        - text / photo / quote / link /  video
-    - feed: posts of users that current user follows in most recent order
-        - post: user that posted / content / original poster / tags
-'/login'
-    - login form to log user in
-'/signup'
-    - signup form to create a new user
-'/user/:userId'
-    - user info: username, profile picture, banner, page title, about
-    - user's posts
-        - user's post: user reblogged from, post content, original poster, tags
-'/user/:userId/likes'
-    - posts that the user liked
-'/search'
-    - navbar
-    - posts that match the searched query
-'/tags/:tag'
-    - navbar
-    - posts with the matching tag
+
+|           path            |                       description                     |
+|---------------------------|-------------------------------------------------------|
+|   /                       | main page, show posts from user's friends and groups  |
+|   /groups/id              | group page, show posts made in the group              |
+|   /groups/new             | make new group form                                   |
+|   /search                 | search page, find search results for gorups and users |
+|   /users/id               | profile page, show user's posts                       |
+|   /users/id/friends       | friends page, list the user's friends                 |
+|   /users/id/likes         | likes page, show user's likes                         |
+|   /notifications          | shows all received invites and pending sent invites   |
+|   /users/id/groups        | groups page, shows list of groups user is in          |
+|   /signup                 | signup page                                           |
+|   /login                  | login page                                            |
+
 
 --------------------------
 
 ## API Backend
 -----------
-|                Path                 | HTTP Verb |                      Meaning                         |
-|-------------------------------------|-----------|------------------------------------------------------|
-| /api/users/token          | POST   | logs in user                                                      |
-| /api/users                | POST   | creates a new user                                                |
-| /api/users/:userId        | PUT    | makes changes to a user's details (such as their profile picture) |
-| /api/users/:userId/posts  | GET    | gets all of the posts that the user has posted                    |
-| /api/users/:userId/likes  | GET    | shows all the liked posts of the user                             |
-| /api/posts/:userId        | GET    | get all of the posts from the users that the current user follows |
-| /api/posts                | POST   | user creates a new post                                           |
-| /api/posts/:postId        | PUT    | makes changes to a post                                           |
-| /api/posts/:postId        | DELETE | deletes a post                                                    |
-| /api/posts/:postId/like   | POST   | current user likes a post                                         |
-| /api/posts/:postId/like   | DELETE | current user unlikes an already liked post                        |
-| /api/posts/:postId/reblog | POST   | current user reblogs a post                                       |
-| /api/search/:query        | GET    | shows all post results that match the given query                 |
-| /api/posts/:tag           | GET    | gets all the posts that have the selected / searched tag          |
 
-
+|        PATH                    |     ACTION        |
+|--------------------------------|-------------------|
+| /api/users/id/posts            |      GET          |
+| /api/users/id/friends          |      GET          |
+| /api/users/id/groups           |      GET          |
+| /api/users/id/invites          |      GET          |
+| /api/users/id/profile          |      PUT          |
+| /api/groups                    |      POST         |
+| /api/groups/id/users           |      GET          |
+| /api/groups/id/users/id        |      DELETE       |
+| /api/groups/id/users           |      POST         |
+| /api/groups/id                 |      GET          |
+| /api/groups/id                 |      PUT          |
+| /api/groups/id                 |      DELETE       |
+| /api/groups/id/moderators      |      POST         |
+| /api/groups/id/moderators/id   |      DELETE       |
+| /api/invites/users/id/friend   |      POST         |
+| /api/invites/users/id/group/id |      POST         |
+| /api/invites/users/id/group/id |      DELETE       |
+| /api/invites/users/id/friend   |      DELETE       |
+| /api/posts/users/id            |      GET          |
+| /api/posts                     |      POST         |
+| /api/posts/id                  |      GET          |
+| /api/posts/id                  |      PUT          |
+| /api/posts/id                  |      DELETE       |
+| /api/posts/id/comments         |      POST         |
+| /api/posts/comments/id         |      PUT          |
+| /api/posts/comments/id         |      DELETE       |
