@@ -49,21 +49,3 @@ export const unlike = (postId) => async (dispatch, getState) => {
         console.error(res)
     }
 }
-
-
-// export default function likes(state = {}, action) {
-//     let newState = { ...state };
-//     switch (action.type) {
-//         case GET_LIKES:
-//             action.likes.forEach(comment => newState[`"${comment.id}"`] = comment);
-//             return newState;
-//         case NEW_LIKE:
-//             newState[`"${action.comment.id}"`] = action.comment;
-//             return newState;
-//         case DELETE_LIKE:
-//             delete newState[`"${action.comment.id}"`]
-//             return newState;
-//         default:
-//             return state;
-//     }
-// }
