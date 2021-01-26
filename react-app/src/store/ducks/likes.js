@@ -12,17 +12,6 @@ export const newLike = (likeId) => ({ type: NEW_LIKE, likeId })
 export const deleteLike = (likeId) => ({ type: DELETE_LIKE, likeId })
 
 
-// export const loadLikes = () => async (dispatch) => {
-//     const res = await fetch(`/api/posts/${postId}`)
-//     if (res.ok) {
-//         const { posts, users } = await res.json();
-//         dispatch(getPosts(posts))
-//         dispatch(getUsers(users))
-//     } else {
-//         console.error(res)
-//     }
-// }
-
 export const like = (postId) => async (dispatch, getState) => {
     let { currentUser } = getState();
     const res = await fetch(`/api/posts/${postId}/likes`, {
