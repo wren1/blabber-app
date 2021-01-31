@@ -7,7 +7,12 @@ const GroupHeader = ({ group }) => {
 
     return (
         <div className='group-header__inner' >
-
+            <a className='group-header__img'>
+                {
+                    group.header_url ? <img src='' /> :
+                    <img src='' />
+                }
+            </a>
         </div>
     )
 }

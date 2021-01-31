@@ -8,7 +8,7 @@ const Member = ({ member, group }) => {
     let isMod = group.moderators.includes(member.id);
     let isOwner = (group.user_id === member.id);
     const [mod, setMod] = useState(mod);
-    const [isOwner, setOwner] = useState(owner)
+    const [owner, setOwner] = useState(owner)
 
     if (!member) return null;
 
