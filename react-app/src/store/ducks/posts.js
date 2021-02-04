@@ -1,10 +1,9 @@
 import { getUsers } from './users';
 import { getUserGroups, getGroup } from './groups';
+import { updateCurrentUser } from './currentUser';
 
 
 export const GET_POSTS = 'blabber/posts/get';
-// export const GET_USER_POSTS = 'blabber/posts/get/user';
-// export const GET_GROUP_POSTS = 'blabber/posts/get/group'
 export const NEW_POST = 'blabber/posts/new';
 export const NEW_GROUP_POST = 'blabber/posts/new/group';
 export const EDIT_POST = 'blabber/posts/edit';
@@ -14,8 +13,6 @@ export const UNLIKE_POST = 'blabber/posts/unlike';
 
 
 export const getPosts = (posts) => ({ type: GET_POSTS, posts })
-// export const getGroupPosts = (posts) => ({ type: GET_GROUP_POSTS, posts })
-// export const getUserPosts = (posts) => ({ type: GET_USER_POSTS, posts })
 export const newPost = (post) => ({ type: NEW_POST, post })
 export const newGroupPost = (post) => ({ type: NEW_GROUP_POST, post })
 export const editPost = (post) => ({ type: EDIT_POST, post })
@@ -131,7 +128,8 @@ export const removePost = (postId) => async (dispatch) => {
     }
 }
 
-export const like = (postId) => async (dispatch) => {
+export const like = (postId) => async (dispatch, getState) => {
+    const { currentUser } = await getState();
     const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'POST',
         headers: {
@@ -141,13 +139,16 @@ export const like = (postId) => async (dispatch) => {
     if (res.ok) {
         const post = await res.json();
         // edit likes
-        dispatch(likePost(postId))
+        currentUser.likes.append(postId)
+        dispatch(updateCurrentUser(currentUser))
+        // dispatch(likePost(postId))
     } else {
         console.error(res)
     }
 }
 
-export const unlike = (postId) => async (dispatch) => {
+export const unlike = (postId) => async (dispatch, getState) => {
+    const { currentUser } = await getState();
     const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'DELETE',
         headers: {
@@ -157,7 +158,10 @@ export const unlike = (postId) => async (dispatch) => {
     if (res.ok) {
         const post = await res.json();
         // edit likes
-        dispatch(unlikePost(postId))
+        const idx = currentUser.likes.indexOf(postId)
+        currentUser.likes.slice(idx, 1)
+        dispatch(updateCurrentUser(currentUser))
+        // dispatch(unlikePost(postId))
     } else {
         console.error(res)
     }
