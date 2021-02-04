@@ -129,7 +129,7 @@ export const removePost = (postId) => async (dispatch) => {
 }
 
 export const like = (postId) => async (dispatch, getState) => {
-    const { currentUser } = await getState();
+    const { currentUser } = getState();
     const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'POST',
         headers: {
@@ -148,7 +148,7 @@ export const like = (postId) => async (dispatch, getState) => {
 }
 
 export const unlike = (postId) => async (dispatch, getState) => {
-    const { currentUser } = await getState();
+    const { currentUser } = getState();
     const res = await fetch(`/api/posts/${postId}/likes`, {
         method: 'DELETE',
         headers: {
