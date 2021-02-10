@@ -6,17 +6,11 @@ export const GET_INVITES = 'blabber/invites/get';
 export const SEND_INVITE = 'blabber/invites/send';
 export const ACCEPT_INVITE = 'blabber/invites/accept';
 export const DECLINE_INVITE = 'blabber/invites/decline';
-// export const SEND_GROUP_INVITE = 'blabber/invites/groups/send';
-// export const ACCEPT_GROUP_INVITE = 'blabber/invites/groups/accept';
-// export const DECLINE_GROUP_INVITE = 'blabber/invites/groups/decline';
 
 export const getInvites = (sent, received) => ({ type: GET_INVITES, sent, received });
 export const sendInvite = (invite) => ({ type: SEND_INVITE, invite });
 export const acceptInvite = (inviteId) => ({ type: ACCEPT_INVITE, inviteId });
 export const declineInvite = (inviteId) => ({ type: DECLINE_INVITE, inviteId });
-// export const acceptGroupInvite = (invite) => ({ type: ACCEPT_GROUP_INVITE, invite });
-// export const sendGroupInvite = (invite) => ({ type: SEND_GROUP_INVITE, invite });
-// export const declineGroupInvite = (invite) => ({ type: DECLINE_GROUP_INVITE, invite });
 
 
 export const loadInvites = () => async (dispatch, useState) => {
@@ -113,7 +107,6 @@ export const acceptGroupInvite = (userId, groupId) => async (dispatch, useState)
     })
     if (res.ok) {
         const invite = await res.json();
-        // add group
         currentUser.groups.push(groupId);
         dispatch(updateCurrentUser(currentUser));
         dispatch(acceptInvite(invite.id))
@@ -132,8 +125,6 @@ export const declineGroupInvite = (userId, groupId) => async (dispatch, useState
     })
     if (res.ok) {
         const invite = await res.json();
-        // currentUser.groups.push(groupId);
-        // dispatch(updateCurrentUser(currentUser));
         dispatch(declineInvite(invite.id));
     } else {
         console.error(res)

@@ -2,7 +2,6 @@ export const GET_USERS = 'blabber/users/get';
 export const GET_USER = 'blabber/users/user';
 export const GET_SPEC_USERS = 'blabber/users/specific';
 export const UPDATE_USER = 'blabber/users/update';
-// export const GET_FRIENDS = 'blabber/users/friends'
 
 
 export const getUser = (user) => ({ type: GET_USER, user })
