@@ -1,1 +1,1 @@
-FLASK_APP=https://blabberapp.herokuapp.com/
+FLASK_APP=app

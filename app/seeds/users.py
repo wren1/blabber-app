@@ -14,7 +14,7 @@ def seed_users():
                   password='password', name='demo user', description='demo user', 
                   icon_url='https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F433-spouting-whale-512.png')
     user_2 = User(username='seeduser1', email='email1@aa.io',
-                  password='password', name='sara', description='hi im a seed user', 
+                  password='password', name='sara', description='Seed User', 
                   icon_url='https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F433-spouting-whale-512.png')
     user_3 = User(username='seeduser2', email='email2@aa.io',
                   password='password', name='sally', description='my name is sally and i like cats', 
