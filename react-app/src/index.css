@@ -628,6 +628,7 @@ body {
     position: relative;
     top: 0;
     width: 100%;
+    padding: 20px;
 }
 .profile-icon .user-icon {
 
@@ -717,9 +718,6 @@ body {
     -webkit-box-sizing: border-box;
     border: 1px solid #00E8FE;
 }
-/* .icon-img {
-    
-} */
 
 .group-main {
     font-size: 14px;
@@ -753,7 +751,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .group-header__invite-button {
@@ -870,7 +867,6 @@ body {
     border-radius: 6px;
 }
 .profilenav__dropdown-option {
-    /* z-index: 2; */
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
@@ -894,7 +890,6 @@ body {
     flex-direction: column;
     position: relative;
     align-items: center;
-    /* justify-content: space-between; */
     background-color: #FAFAFA;
     border-radius: 15px;
     min-width: 600px;
@@ -903,7 +898,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     margin-top: 20px;
-    /* justify-content: center; */
 }
 .newgroup-formcontainer {
     margin-left: 200px;
@@ -942,12 +936,6 @@ body {
     position: absolute;
     bottom: 10px;
 }
-/* .newgroup-name-private {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-} */
-
 
 
 
