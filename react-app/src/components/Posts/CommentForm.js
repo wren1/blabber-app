@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import CommentContent from './CommentContent';
-import CommentHeader from './CommentHeader';
-
-import { createComment } from '../../store/ducks/comments';
-
 
 const CommentForm = ({ post }) => {
     const dispatch = useDispatch();

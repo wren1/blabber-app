@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import TextField from '@material-ui/core/TextField';
@@ -9,7 +7,6 @@ import TextField from '@material-ui/core/TextField';
 import { updatePost } from '../../store/ducks/posts';
 import Comments from './Comments';
 
-import { loadComments } from '../../store/ducks/comments';
 import { removePost } from '../../store/ducks/posts';
 
 
