@@ -62,14 +62,37 @@
     display: flex;
     align-content: center;
 }
-.group-header__invite {
-    z-index: 6;
-    border-radius: 5px;;
-    padding: 20px;
-    background-color: #A4E6E8;
+.group-header__invite-backdrop {
     position: fixed;
-    top: 30%;
-    left: 45%;
+    background-color: rgba(0, 0, 0, .5);
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.group-header__invite {
+    position: absolute;
+    background-color: white;
+    width: 500px;
+    min-height: 250px;
+    max-height: 500px;
+    border-radius: 5px;
+    z-index: 7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.group-header__invite-username {
+    cursor: pointer;
+    padding: 5px;
+}
+.group-header__invite-username:hover {
+    background-color: rgba(12, 204, 209, .5);
 }
 .invite-user-input {
     text-align: center;

@@ -10,6 +10,7 @@ import { sendGroupInvite } from '../../store/ducks/invites';
 const InviteUser = ({ openInvite, setOpenInvite, group, user, users }) => {
     const dispatch = useDispatch();
     const [username, setUsername] = useState('')
+
     let friends = [];
     if (user.friends) {
         for (let friend in user.friends) {
@@ -29,17 +30,29 @@ const InviteUser = ({ openInvite, setOpenInvite, group, user, users }) => {
         setOpenInvite(!openInvite)
     }
 
+    const handleBDClick = () => {
+        console.log('click on backdrop');
+        setOpenInvite(false)
+    }
+
+    const handleClick = (e) => {
+        console.log('click on invites main');
+        e.stopPropagation();
+    }
+
     return (
-        <form className='group-header__invite' onSubmit={handleSubmit}>
-            {!friends.length ? null : friends.map(friend => {
-                return <Username currentUser={user} user={friend} key={friend.id} openInvite={openInvite} setOpenInvite={setOpenInvite} group={group} />
-            })}
-            {/* <input className='invite-user-input' placeholder='username' value={username} name='username' onChange={(e) => setUsername(e.target.value)}/> */}
-            {/* <div className='buttons'> */}
-                    {/* <button onClick={handleCancel} className='button'>Cancel</button>
-                    <button type='submit' className='button'>Submit</button> */}
-            {/* </div> */}
-        </form>
+        <div className='group-header__invite-backdrop' onClick={handleBDClick} >
+            <div className='group-header__invite' onClick={(e) => handleClick(e)} >
+                {!friends.length ? null : friends.map(friend => {
+                    return <Username currentUser={user} user={friend} key={friend.id} openInvite={openInvite} setOpenInvite={setOpenInvite} group={group} />
+                })}
+                {/* <input className='invite-user-input' placeholder='username' value={username} name='username' onChange={(e) => setUsername(e.target.value)}/> */}
+                {/* <div className='buttons'> */}
+                        {/* <button onClick={handleCancel} className='button'>Cancel</button>
+                        <button type='submit' className='button'>Submit</button> */}
+                {/* </div> */}
+            </div>
+        </div>
     )
 }
 

@@ -14,7 +14,7 @@ const Username = ({ openInvite, setOpenInvite, group, currentUser, user }) => {
     }
 
     return (
-        <div className='group__invite-username' onClick={handleClick} >
+        <div className='group-header__invite-username' onClick={handleClick} >
             {user.username}
         </div>
     )
