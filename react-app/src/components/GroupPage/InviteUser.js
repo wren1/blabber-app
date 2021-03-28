@@ -32,7 +32,7 @@ const InviteUser = ({ openInvite, setOpenInvite, group, user, users }) => {
     return (
         <form className='group-header__invite' onSubmit={handleSubmit}>
             {!friends.length ? null : friends.map(friend => {
-                return <Username currentUser={user} user={friend} key={friend.id} />
+                return <Username currentUser={user} user={friend} key={friend.id} openInvite={openInvite} setOpenInvite={setOpenInvite} group={group} />
             })}
             {/* <input className='invite-user-input' placeholder='username' value={username} name='username' onChange={(e) => setUsername(e.target.value)}/> */}
             {/* <div className='buttons'> */}

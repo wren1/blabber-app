@@ -13,7 +13,10 @@ const GroupFeed = ({ groupId }) => {
 
     let posts = [];
     for (let post in allPosts) {
-        posts.push(allPosts[post])
+        if (allPosts[post].group_id === parseInt(groupId)) {
+            console.log('in ')
+            posts.push(allPosts[post])
+        }
     }
     if (!group) return null;
 

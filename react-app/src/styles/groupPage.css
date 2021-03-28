@@ -43,6 +43,10 @@
     height: 30px;
     margin-left: 10px;
 }
+.group__invite-username {
+    cursor: pointer;
+    margin: 5px;
+}
 .invite-user-input {
     width: 100%;
     height: 100%;

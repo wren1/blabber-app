@@ -9,16 +9,16 @@ import RightSidebar from '../RightSidebar/RightSidebar';
 
 import { loadGroupPosts } from '../../store/ducks/posts';
 import { loadGroupMembers, loadFriends } from '../../store/ducks/users';
-// import { loadCurrentUser } from 
 
 
 const GroupPage = () => {
     const dispatch = useDispatch();
-    const { groupId } = useParams()
+    const { groupId } = useParams();
 
     const user = useSelector(state => state.currentUser)
 
     console.log(groupId)
+
 
     useEffect(() => {
         (async () => {
@@ -26,7 +26,9 @@ const GroupPage = () => {
             await dispatch(loadGroupMembers(groupId))
             await dispatch(loadFriends(user.id))
         })()
-    }, [])
+    }, [groupId])
+
+    if (!groupId) return null;
 
     return (
         <div className='group-main'>
