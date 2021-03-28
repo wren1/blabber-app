@@ -8,10 +8,10 @@ import MembersList from './MembersList';
 import InviteUser from './InviteUser';
 
 
-const GroupDetails = ({ group, user }) => {
+const GroupDetails = ({ group, user, users }) => {
     const [openMembersList, setOpenMemberslist] = useState(false)
     const [openInvite, setOpenInvite] = useState(false)
-    const users = useSelector(state => state.users);
+    // const users = useSelector(state => state.users);
     const members = group.users.map(user => users[`"${user}"`]);
     console.log('mems: ', members)
 
@@ -33,7 +33,7 @@ const GroupDetails = ({ group, user }) => {
                 <div>{!members.length ? 0 : members.length}</div>
             </div>
             {!openMembersList ? null : <MembersList openMembersList={openMembersList} setOpenMemberslist={setOpenMemberslist} members={members} group={group} />}
-            {!openInvite ? null : <InviteUser openInvite={openInvite} setOpenInvite={setOpenInvite} members={members} group={group} user={user}/>}
+            {!openInvite ? null : <InviteUser openInvite={openInvite} setOpenInvite={setOpenInvite} members={members} group={group} user={user} users={users} />}
         </div>
     )
 }
