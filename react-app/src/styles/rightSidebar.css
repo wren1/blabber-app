@@ -1,0 +1,81 @@
+
+.right-sidebar {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    z-index: 5;
+    background-color: #3E4347;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 200px;
+    color: #FAFAFA;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.sidebar-user {
+    display: flex;
+    justify-content: space-between;
+    min-width: 150px;
+    align-items: center;
+    align-content: center;
+    margin: 15px 15px;
+    padding: 0 0px 10px 10px;
+    border-bottom: 1px solid #707070;
+}
+.sidebar-username {
+    box-sizing: border-box;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.logout-button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 35px;
+    background-color: #5C656C;
+    border-radius: 28px;
+    color: #FAFAFA;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.sidebar-notifications {
+    display: flex;
+    font-size: 14px;
+    align-content: center;
+    align-items: center;
+    width: 150px;
+}
+.sidebar-notifications-num {
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: 10px 10px 10px 0px;
+    padding: 2px;
+    background-color: #383e42;
+}
+.right-sidebar__friendslist {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-top: 10px;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+}
+.sidebar-friendslist-title {
+    font-size: 18px;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #707070;
+    margin-bottom: 10px;
+}
+.right-sidebar__friendslist-item {
+    display: flex;
+    margin-bottom: 8px;
+}
+.right-sidebar__friendslist-username {
+    margin-left: 10px;
+    font-size: 14px;
+}

@@ -1,0 +1,77 @@
+html, body {
+    background-color: #D9F6F7;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+
+a, a:hover, a:focus, a:active {
+     text-decoration: none;
+     color: inherit;
+ }
+
+
+
+.small-logo {
+    width: 80px;
+    height: 80px;
+}
+.big-logo {
+    width: 150px;
+    height: 150px;
+}
+
+.icon {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.small-icon {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+.med-icon {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+.large-icon {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+}
+.border-icon-small {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #00E8FE;
+}
+.border-icon-med {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 2px solid #00E8FE;
+}
+.border-icon-large {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #00E8FE;
+}

@@ -1,0 +1,160 @@
+.user-icon {
+}
+.icon-img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.posts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.post {
+    box-sizing: border-box;
+    min-width: 400px;
+    width: 70%;
+    min-height: 145px;
+    background-color: #FAFAFA;
+    overflow: hidden;
+    margin-bottom: 25px;
+    padding: 10px 10px 10px 10px;
+    font-size: 14px;
+    position: relative;
+    border-radius: 8px;
+    border: .5px solid rgba(12, 204, 209, .5);
+    box-shadow: 0 0 3px rgba(14, 133, 136, .5);
+}
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DAE5EF;
+    width: 100%;
+}
+.post-header__info {
+    display: flex;
+    align-items: center;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+}
+.post-header__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.post-header__txt {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+.post-header__username {
+    cursor: pointer;
+    font-size: 20px;
+    color: #3E4347;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+}
+.post-header__date {
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    color: #5C656C;
+    font-size: 12px;
+}
+.post-body {
+    margin: 15px 0px 8px 0px;
+    padding: 0px 15px;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid #DAE5EF;
+}
+.post-content {
+    margin: 15px 0px 20px 0px;
+    font-size: 15px;
+}
+.post-body__title {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+}
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 35px;
+    padding: 0px 10px;
+    color: #5C656C;
+}
+.post-like-icon {
+    color: red;
+    cursor: pointer;
+}
+.post-footer__buttons {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.post-footer__likes {
+    margin-right: 10px;
+}
+
+.post-footer__button {
+}
+.post__edit-button {
+    color: #ACBFD1;
+    font-size: 8px;
+    cursor: pointer;
+    margin: 0px 10px;
+    position: relative;
+    right: 0px;
+}
+.post-header__delete {
+    color: #ACBFD1;
+    font-size: 27px !important;
+    cursor: pointer;
+    margin-right: 3px;
+}
+.show-comments__button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.comments-icon {
+    color: #ACBFD1;
+    width: 20px;
+    height: 19px;
+    margin-right: 10px;
+}
+.newpostform.editpost {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.comments {
+
+}
+.comments-container {
+
+}
+.comment {
+    
+}
+.comment-header {
+    display: flex;
+}
+.comment-content {
+
+}
+.make-comment__container {
+    width: 100%;
+    min-height: 100px;
+}
+.make-comment__container {
+
+}

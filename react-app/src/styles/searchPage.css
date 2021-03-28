@@ -1,0 +1,67 @@
+
+.searchpage {
+}
+.searchpage__header {
+    position: relative;
+    box-sizing: border-box;
+    left: 200px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3E4347;
+    padding: 20px;
+}
+.searchpage__header-title {
+    font-size: 45px;
+}
+.searchpage__header-res {
+    align-self: flex-end;
+    margin: 0px 10px;
+}
+.searchresults {
+    position: relative;
+    left: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.searchresult {
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    min-width: 500px;
+    width: 60%;
+    overflow: hidden;
+    margin: 10px 0px;
+    display: flex;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    resize: none;
+    background-color: #FAFAFA;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+.searchgroup-td {
+    display: flex;
+}
+.searchresult-group {
+    justify-content: space-between;
+    padding: 20px;
+}
+.searchresult-user {
+    align-items: center;
+    padding: 5px 20px;
+}
+.searchuser-username {
+    margin-left: 15px;
+    font-weight: bold;
+
+}
+.search-group-name {
+    margin-right: 15px;
+    font-weight: bold;
+}
+.seach-group-members {
+    justify-self: flex-end;
+}

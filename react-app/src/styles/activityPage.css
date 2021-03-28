@@ -1,0 +1,36 @@
+
+.activity-page {
+}
+.invites-list {
+    box-sizing: border-box;
+    position: relative;
+    margin-left: 200px;
+    padding: 30px 30px 30px 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0E8588;
+    font-size: 14px;
+    background-color: #FAFAFA;
+    border: 1px solid #A4E6E8;
+    margin: 20px 220px 20px 220px;
+    border-radius: 10px;
+}
+.invites-list__item {
+    margin: 20px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.add-friend {
+    margin-left: 10px;
+    cursor: pointer;
+}
+.invites-list__header {
+    color: #3E4347;
+    font-size: 18px;
+    border-bottom: 1px solid #DAE5EF;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.invites-list__body {
+
+}
