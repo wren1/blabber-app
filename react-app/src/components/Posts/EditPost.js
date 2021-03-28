@@ -5,7 +5,6 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import TextField from '@material-ui/core/TextField';
 
 import { updatePost } from '../../store/ducks/posts';
-import Comments from './Comments';
 
 import { removePost } from '../../store/ducks/posts';
 

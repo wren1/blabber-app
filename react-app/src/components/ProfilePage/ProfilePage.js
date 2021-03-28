@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -14,7 +14,6 @@ import { loadInvites } from '../../store/ducks/invites';
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
-    // let { userId } = useParams();
     let { userId } = useParams();
     
     const user = useSelector(state => state.users[`"${userId}"`]);
