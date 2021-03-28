@@ -8,7 +8,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import RightSidebar from '../RightSidebar/RightSidebar';
 
 import { loadGroupPosts } from '../../store/ducks/posts';
-import { loadGroupMembers } from '../../store/ducks/users';
+import { loadGroupMembers, loadFriends } from '../../store/ducks/users';
 // import { loadCurrentUser } from 
 
 
@@ -24,14 +24,15 @@ const GroupPage = () => {
         (async () => {
             await dispatch(loadGroupPosts(groupId))
             await dispatch(loadGroupMembers(groupId))
+            await dispatch(loadFriends(user.id))
         })()
     }, [])
 
     return (
         <div className='group-main'>
             <Sidebar user={user} />
-            <GroupPageHeader groupId={groupId}/>
-            <GroupFeed groupId={groupId} />
+            <GroupPageHeader groupId={groupId} user={user} />
+            <GroupFeed groupId={groupId} user={user} />
             <RightSidebar user={user} />
         </div>
     )

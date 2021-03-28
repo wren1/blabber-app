@@ -6,10 +6,10 @@ import GroupDetails from './GroupDetails';
 import GroupHeader from './GroupHeader';
 
 
-const GroupPageHeader = ({ groupId }) => {
+const GroupPageHeader = ({ groupId, user }) => {
     const dispatch = useDispatch();
     const group = useSelector(state => state.groups[`"${groupId}"`])
-    const user = useSelector(state => state.currentUser)
+    // const user = useSelector(state => state.currentUser)
     if (!group) return null;
     console.log('GROUP DESC: ', group)
     return (
