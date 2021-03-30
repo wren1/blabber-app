@@ -6,8 +6,6 @@ import Username from './Username';
 
 
 const InviteUser = ({ openInvite, setOpenInvite, group, user, users }) => {
-    const dispatch = useDispatch();
-    const [username, setUsername] = useState('')
 
     let friends = [];
     if (user.friends) {

@@ -7,6 +7,7 @@ import { sendGroupInvite } from '../../store/ducks/invites';
 
 const Username = ({ openInvite, setOpenInvite, group, currentUser, user }) => {
     const dispatch = useDispatch();
+    const []
 
     const handleClick = () => {
         dispatch(sendGroupInvite(user.username, group.id))
@@ -14,8 +15,13 @@ const Username = ({ openInvite, setOpenInvite, group, currentUser, user }) => {
     }
 
     return (
-        <div className='group-header__invite-username' onClick={handleClick} >
-            {user.username}
+        <div className='group-header__invite-user' onClick={handleClick} >
+            <div className='group-header__invite-username'>
+                {user.username}
+            </div>
+            <div className='group-header__invite-status'>
+                {}
+            </div>
         </div>
     )
 }
