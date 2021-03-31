@@ -7,7 +7,19 @@ import { sendGroupInvite } from '../../store/ducks/invites';
 
 const Username = ({ openInvite, setOpenInvite, group, currentUser, user }) => {
     const dispatch = useDispatch();
-    const []
+    const [status, setStatus] = useState('')
+    // const invites = useSelector(state => state.invites.sent);
+    // statuses: member, invited, notInvited
+
+    if (group.members.includes(user.id)) {
+
+    } else if (invites) {
+
+    } else {
+        
+    }
+
+    
 
     const handleClick = () => {
         dispatch(sendGroupInvite(user.username, group.id))

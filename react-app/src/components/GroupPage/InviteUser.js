@@ -6,6 +6,7 @@ import Username from './Username';
 
 
 const InviteUser = ({ openInvite, setOpenInvite, group, user, users }) => {
+    const invites = useSelector(state => state.invites.sent);
 
     let friends = [];
     if (user.friends) {
