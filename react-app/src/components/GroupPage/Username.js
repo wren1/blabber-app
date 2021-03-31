@@ -5,18 +5,16 @@ import { useParams, useHistory } from 'react-router-dom';
 import { sendGroupInvite } from '../../store/ducks/invites';
 
 
-const Username = ({ openInvite, setOpenInvite, group, currentUser, user }) => {
+const Username = ({ openInvite, setOpenInvite, group, currentUser, user, invites }) => {
     const dispatch = useDispatch();
-    const [status, setStatus] = useState('')
+    const [status, setStatus] = useState('notInvited')
     // const invites = useSelector(state => state.invites.sent);
     // statuses: member, invited, notInvited
 
     if (group.members.includes(user.id)) {
-
-    } else if (invites) {
-
-    } else {
-        
+        setStatus('member')
+    } else if (invites.includes(user.id)) {
+        setStatus('invited')
     }
 
     
