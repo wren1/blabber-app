@@ -17,15 +17,31 @@ const Username = ({ openInvite, setOpenInvite, group, currentUser, user, invites
         setStatus('invited')
     }
 
-    
-
     const handleClick = () => {
         dispatch(sendGroupInvite(user.username, group.id))
         setOpenInvite(false)
     }
 
+    const inviteStatus = () => {
+        if (status === 'member') {
+            return (
+                <div />
+            )
+        }
+        else if (status === 'invited') {
+            return (
+                <div />
+            )
+        }
+        else {
+            return (
+                <div onClick={handleClick} />
+            )
+        }
+    }
+
     return (
-        <div className='group-header__invite-user' onClick={handleClick} >
+        <div className='group-header__invite-user' >
             <div className='group-header__invite-username'>
                 {user.username}
             </div>
