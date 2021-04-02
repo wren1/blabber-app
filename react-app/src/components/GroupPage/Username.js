@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import PersonIcon from '@material-ui/icons/Person';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 import { sendGroupInvite } from '../../store/ducks/invites';
 
 
@@ -25,17 +30,17 @@ const Username = ({ openInvite, setOpenInvite, group, currentUser, user, invites
     const inviteStatus = () => {
         if (status === 'member') {
             return (
-                <div />
+                <AccountCircleIcon className='group-header__invite-icon--member' />
             )
         }
         else if (status === 'invited') {
             return (
-                <div />
+                <PersonIcon className='group-header__invite-icon--invited' />
             )
         }
         else {
             return (
-                <div onClick={handleClick} />
+                <PersonOutlineIcon className='group-header__invite-icon' onClick={handleClick} />
             )
         }
     }
@@ -46,7 +51,7 @@ const Username = ({ openInvite, setOpenInvite, group, currentUser, user, invites
                 {user.username}
             </div>
             <div className='group-header__invite-status'>
-                {}
+                {inviteStatus()}
             </div>
         </div>
     )
