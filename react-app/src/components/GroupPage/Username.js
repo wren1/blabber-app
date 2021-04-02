@@ -10,21 +10,27 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { sendGroupInvite } from '../../store/ducks/invites';
 
 
-const Username = ({ openInvite, setOpenInvite, group, currentUser, user, invites }) => {
+const Username = ({ openInvite, setOpenInvite, group, currentUser, user, invites, members, sentInvites }) => {
     const dispatch = useDispatch();
-    const [status, setStatus] = useState('notInvited')
+    // const [status, setStatus] = useState('notInvited')
     // const invites = useSelector(state => state.invites.sent);
     // statuses: member, invited, notInvited
 
-    if (group.members.includes(user.id)) {
-        setStatus('member')
-    } else if (invites.includes(user.id)) {
-        setStatus('invited')
+    let stat;
+
+    if (members.includes(user)) {
+        stat = 'member';
+    } else if (sentInvites.includes(user.id)) {
+        stat = 'invited'
+    } else {
+        stat = 'notInvited';
     }
+    const [status, setStatus] = useState(stat)
 
     const handleClick = () => {
         dispatch(sendGroupInvite(user.username, group.id))
-        setOpenInvite(false)
+        // setOpenInvite(false)
+        setStatus('invited')
     }
 
     const inviteStatus = () => {

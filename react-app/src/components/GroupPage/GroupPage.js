@@ -9,6 +9,7 @@ import RightSidebar from '../RightSidebar/RightSidebar';
 
 import { loadGroupPosts } from '../../store/ducks/posts';
 import { loadGroupMembers, loadFriends } from '../../store/ducks/users';
+import { loadInvites } from '../../store/ducks/invites';
 
 
 const GroupPage = () => {
@@ -25,6 +26,7 @@ const GroupPage = () => {
             await dispatch(loadGroupPosts(groupId))
             await dispatch(loadGroupMembers(groupId))
             await dispatch(loadFriends(user.id))
+            await dispatch(loadInvites())
         })()
     }, [groupId])
 
