@@ -90,7 +90,8 @@
 .group-header__invite-user {
     cursor: pointer;
     width: 100%;
-    padding: 5px 0px;
+    box-sizing: border-box;
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,6 +105,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.group-header__invite-icon--invited {
+    padding: 2px;
+    background-color: white;
+    border-radius: 50%;
+    color: lightgray;
+}
+.group-header__invite-icon--member {
+    padding: 2px;
+    background-color: #9EE486;
+    border-radius: 50%;
+    color: white;
+}
+.group-header__invite-icon {
+    padding: 2px;
+    background-color: white;
+    border-radius: 50%;
+    color: lightgray;
 }
 .group-header__invite-user:hover {
     background-color: rgba(12, 204, 209, .5);

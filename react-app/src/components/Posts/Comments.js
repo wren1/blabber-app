@@ -16,24 +16,24 @@ const Comments = ({ post, commentIds, users }) => {
 
 
     console.log('COMMENTS: ', comments)
-    if (!commentIds) {
-        return (
-        <div className='comments-container'>
-            <CommentForm post={post}/>
-        </div>
-        );
-    } else {
+    // if (!commentIds) {
+    //     return (
+    //         <div className='comments-container'>
+    //             <CommentForm post={post}/>
+    //         </div>
+    //     );
+    // } else {
 
     return (
         <div className='comments-container'>
             
-            {comments.map(comment => 
+            {!commentIds ? null : comments.map(comment => 
                 (
                     <Comment comment={comment} key={comment.id} />
                 ))}
             <CommentForm post={post}/>
         </div>
-    )}
+    )
 }
 
 export default Comments;

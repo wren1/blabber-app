@@ -31,7 +31,7 @@ const Username = ({ openInvite, setOpenInvite, group, currentUser, user, invites
     const inviteStatus = () => {
         if (status === 'member') {
             return (
-                <AccountCircleIcon className='group-header__invite-icon--member' />
+                <PersonIcon className='group-header__invite-icon--member' />
             )
         }
         else if (status === 'invited') {
