@@ -21,7 +21,9 @@ a, a:hover, a:focus, a:active {
      color: inherit;
  }
 
-
+.red {
+    background-color: red;
+}
 
 .small-logo {
     width: 80px;

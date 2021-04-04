@@ -9,6 +9,7 @@ import { logout } from "../../services/auth";
 
 import SidebarFriendsList from './SidebarFriendsList';
 import ProfileIcon from '../ProfileIcon';
+import Notifications from './Notifications';
 
 
 
@@ -16,9 +17,9 @@ const RightSidebar = ({ user, setAuthenticated }) => {
     const dispatch = useDispatch();
     const invites = useSelector(state => state.invites.received)
     console.log('rec inv: ', invites)
-    let sent = [];
+    let notifs = [];
     for (let invite in invites) {
-        sent.push(invites[invite])
+        notifs.push(invites[invite])
     }
     // const user = useSelector(state => state.currentUser);
     // const friends = useSelector(state => state.currentUser.friends.map(friendId => state.users[`"${friendId}"`]))
@@ -66,14 +67,7 @@ const RightSidebar = ({ user, setAuthenticated }) => {
             <div onClick={handleLogout} className='logout-button'>
                 Logout
             </div>
-            <NavLink to='/notifications' exact={true}>
-                <div className='sidebar-notifications'>
-                    <div className='sidebar-notifications-num'>
-                        {!sent.length ? 0 : sent.length }
-                    </div>
-                    <div>Notifications</div>
-                </div>
-            </NavLink>
+            <Notifications notifs={notifs} />
             <SidebarFriendsList friends={friends}/>
         </div>
     )

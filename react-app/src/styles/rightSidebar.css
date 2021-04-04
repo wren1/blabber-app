@@ -49,13 +49,19 @@
     align-content: center;
     align-items: center;
     width: 150px;
+    /* height: 15px; */
 }
 .sidebar-notifications-num {
     border-radius: 50%;
     box-sizing: border-box;
     margin: 10px 10px 10px 0px;
+    width: 20px;
+    height: 20px;
     padding: 2px;
-    background-color: #383e42;
+    /* background-color: red; */
+    text-align: center;
+    font-weight: bold;
+
 }
 .right-sidebar__friendslist {
     display: flex;
