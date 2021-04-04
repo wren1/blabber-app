@@ -89,16 +89,23 @@
 }
 .group-header__invite-user {
     cursor: pointer;
-    padding: 5px;
+    width: 100%;
+    padding: 5px 0px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .group-header__invite-username {
     color: gray;
+    margin-left: 15px;
 }
 .group-header__invite-status {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.group-header__invite-username:hover {
+.group-header__invite-user:hover {
     background-color: rgba(12, 204, 209, .5);
 }
 .invite-user-input {
