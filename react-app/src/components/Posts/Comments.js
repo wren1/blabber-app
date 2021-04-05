@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Comment from './Comment';
-import CommentForm from './CommentContent';
+import CommentForm from './CommentForm';
 
 
 const Comments = ({ post, commentIds, users }) => {
@@ -27,7 +27,7 @@ const Comments = ({ post, commentIds, users }) => {
     return (
         <div className='comments-container'>
             
-            {!commentIds ? null : comments.map(comment => 
+            {!commentIds ? 'hi' : comments.map(comment => 
                 (
                     <Comment comment={comment} key={comment.id} />
                 ))}
