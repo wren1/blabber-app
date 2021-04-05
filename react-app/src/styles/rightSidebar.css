@@ -79,7 +79,9 @@
 }
 .right-sidebar__friendslist-item {
     display: flex;
-    margin-bottom: 8px;
+    align-items: center;
+    /* margin-bottom: 8px; */
+    margin: 5px 0px;
 }
 .right-sidebar__friendslist-username {
     margin-left: 10px;
