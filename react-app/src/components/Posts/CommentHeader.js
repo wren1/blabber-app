@@ -9,7 +9,7 @@ const CommentHeader = ({ comment, user }) => {
     return (
         <div className='comment-header'>
             <ProfileIcon user={user} size={'small'} />
-            <div className='' >
+            <div className='comment-header__username' >
                 {user.username}
             </div>
         </div>
