@@ -1,5 +1,6 @@
 
 import { getUsers } from './users';
+import { editPost } from './posts'
 
 export const GET_COMMENTS = 'blabber/comments/get';
 export const NEW_COMMENT = 'blabber/comments/new';
@@ -23,7 +24,8 @@ export const loadComments = (postId) => async (dispatch) => {
     }
 }
 
-export const createComment = (postId, content) => async (dispatch) => {
+export const createComment = (postId, content) => async (dispatch, getState) => {
+    const { posts } = getState();
     const res = await fetch(`/api/posts/${postId}/comments`, {
         method: 'POST',
         headers: {
@@ -32,8 +34,12 @@ export const createComment = (postId, content) => async (dispatch) => {
         body: JSON.stringify({ content })
     })
     if (res.ok) {
-        const { comment } = await res.json();
+        const comment = await res.json();
+        console.log('new comment: ', comment)
+        let post = posts[`"${postId}"`];
+        post.comments.push(comment.id);
         dispatch(newComment(comment))
+        dispatch(editPost(post))
     } else {
         console.error(res)
     }

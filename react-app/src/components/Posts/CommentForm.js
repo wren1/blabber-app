@@ -13,6 +13,7 @@ const CommentForm = ({ post }) => {
 
     const newComment = async () => {
         await dispatch(createComment(post.id, content));
+        setContent('')
     }
 
     return (
@@ -21,7 +22,7 @@ const CommentForm = ({ post }) => {
             <form className='make-comment-form'>
                 <textarea className='make-comment-input' onChange={(e) => setContent(e.target.value)} placeholder='Make a comment...' />
             </form>
-            <div className='make-comment__submit' onClick={newComment} >
+            <div className='make-comment__submit' onClick={newComment} type='submit' >
                 Submit
             </div>
         </div>

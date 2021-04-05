@@ -7,7 +7,10 @@ import CommentForm from './CommentForm';
 
 const Comments = ({ post, commentIds, users }) => {
     const allComments = useSelector(state => state.comments)
+    const posts = useSelector(state => state.posts)
+    // commentIds = posts[`"${post.id}"`].comments;
     const comments = [];
+    // const [comments, setComments] = useState([])
     console.log('ids: ', commentIds)
     if (commentIds) {
         console.log('all: ', allComments)
@@ -24,6 +27,8 @@ const Comments = ({ post, commentIds, users }) => {
     //     );
     // } else {
 
+    if (commentIds.length !== comments.length) return null;
+
     return (
         <div className='comments-container'>
             
@@ -31,7 +36,7 @@ const Comments = ({ post, commentIds, users }) => {
                 (
                     <Comment comment={comment} key={comment.id} />
                 ))}
-            <CommentForm post={post}/>
+            <CommentForm post={post} comments={comments} />
         </div>
     )
 }
