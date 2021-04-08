@@ -94,3 +94,15 @@ def user_invites(id):
     # sent_invites = Invite.query.filter(Invite.inviter_id == id).all()
     # send info about invites too!!
     # return {"received_invites": received_invites.to_dict(), "sent_invites": sent_invites.to_dict()}
+
+
+# get all invites to and from user
+@user_routes.route('/<int:id>/friends/delete', strict_slashes=False)
+@login_required
+def user_invites(id):
+    current_user_id = current_user.get_id()
+    friendship = Friend.query.filter(Friend.user_one_id == current_user_id and Friend.user_two_id == id or
+                                        Friend.user_two_id == id and Friend.user_one_id == current_user_id)
+    db.session.delete(invite)
+    user = User.query.get(current_user_id)
+    return user.to_dict()
