@@ -48,6 +48,10 @@
 .profile__friend-icon {
     color: rgb(80, 233, 80);
 }
+.profile__removeFriend-icon {
+    color: red;
+    cursor: pointer;
+}
 .profile__requestedFriend-icon {
     color: gray;
 }

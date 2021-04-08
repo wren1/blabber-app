@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import PersonIcon from '@material-ui/icons/Person';
+import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 
 import { sendFriendRequest } from '../../store/ducks/invites'
 
 
 const UserInfo = ({ user, requested, setRequested }) => {
     const dispatch = useDispatch();
+    const [hover, setHover] = useState(false)
     const currentUser = useSelector(state => state.currentUser)
     const invites = useSelector(state => state.invites.sent)
     console.log('inv: ', invites)
@@ -42,11 +44,12 @@ const UserInfo = ({ user, requested, setRequested }) => {
     if (!user) return null;
     console.log('req: ', requested)
 
+
     const friendIcon = () => {
         if (currentUser.friends.includes(user.id)) {
             return (
-                <div className='profile__friend-icon' >
-                    <PersonIcon />
+                <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} >
+                    {!hover ? <PersonAddIcon className='profile__friend-icon' /> : <PersonAddDisabledIcon className='profile__removeFriend-icon' />}
                 </div>
             )
         }
