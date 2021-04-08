@@ -1,3 +1,5 @@
+import { setCurrentUser } from './currentUser';
+
 export const GET_USERS = 'blabber/users/get';
 export const GET_USER = 'blabber/users/user';
 export const GET_SPEC_USERS = 'blabber/users/specific';
@@ -40,7 +42,16 @@ export const loadGroupMembers = (groupId) => async (dispatch) => {
     }
 }
 
-
+export const removeFriend = (userId) => async (dispatch) => {
+    const res = await fetch(`api/users/${userId}/friends/delete`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    const user = await res.json();
+    dispatch(setCurrentUser(user))
+}
 
 export default function users(state = {}, action) {
     let newState = { ...state }
