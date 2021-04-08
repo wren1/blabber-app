@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required, current_user
-from app.models import User, Post, Group, Invite, Comment, Friend
+from app.models import User, Post, Group, Invite, Comment, Friend, db
 
 user_routes = Blueprint('users', __name__)
 
@@ -71,8 +71,10 @@ def user_friends(id):
 @login_required
 def remove_friend(id):
     current_user_id = current_user.get_id()
-    friendship = Friend.query.filter((Friend.user_one_id == current_user_id, Friend.user_two_id == id) or
-                                     (Friend.user_two_id == id, Friend.user_one_id == current_user_id)).first()
+    # friendship = Friend.query.filter((Friend.user_one_id == current_user_id, Friend.user_two_id == id)
+    #                                  or (Friend.user_one_id == id, Friend.user_two_id == current_user_id)).first()
+    friendship = Friend.query.filter((Friend.user_one_id == id and Friend.user_two_id == current_user_id) | (Friend.user_two_id == id and Friend.user_one_id == current_user_id)).first()
+    print(friendship.to_dict())
     db.session.delete(friendship)
     db.session.commit()
     user = User.query.get(current_user_id)
