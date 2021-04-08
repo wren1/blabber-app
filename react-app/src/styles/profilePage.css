@@ -45,3 +45,13 @@
 .profile__user-info {
 
 }
+.profile__friend-icon {
+    color: rgb(80, 233, 80);
+}
+.profile__requestedFriend-icon {
+    color: gray;
+}
+.profile__addFriend-icon {
+    color: rgb(80, 80, 233);
+    cursor: pointer;
+}

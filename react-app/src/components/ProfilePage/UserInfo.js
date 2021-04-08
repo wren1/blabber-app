@@ -45,20 +45,20 @@ const UserInfo = ({ user, requested, setRequested }) => {
     const friendIcon = () => {
         if (currentUser.friends.includes(user.id)) {
             return (
-                <div className='profile-friend' >
+                <div className='profile__friend-icon' >
                     <PersonIcon />
                 </div>
             )
         }
         if (requested) {
             return (
-                <div className='profile-requestedFriend' >
+                <div className='profile__requestedFriend-icon' >
                     <PersonOutlineIcon />
                 </div>
             )
         } else {
             return (
-                <div onClick={handleAdd} className='profile-addFriend' >
+                <div onClick={handleAdd} className='profile__addFriend-icon' >
                     <PersonAddIcon />
                 </div>
             )
