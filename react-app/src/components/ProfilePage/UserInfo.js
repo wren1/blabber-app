@@ -7,6 +7,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 
 import { sendFriendRequest } from '../../store/ducks/invites'
+import { removeFriend } from '../../store/ducks/users';
 
 
 const UserInfo = ({ user, requested, setRequested }) => {
@@ -37,6 +38,10 @@ const UserInfo = ({ user, requested, setRequested }) => {
     //     return false;
     // }
 
+    const handleRemove = () => {
+        dispatch(removeFriend(user.id))
+    }
+
     const handleAdd = () => {
         dispatch(sendFriendRequest(user.id))
         setRequested(true)
@@ -49,7 +54,7 @@ const UserInfo = ({ user, requested, setRequested }) => {
         if (currentUser.friends.includes(user.id)) {
             return (
                 <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} >
-                    {!hover ? <PersonAddIcon className='profile__friend-icon' /> : <PersonAddDisabledIcon className='profile__removeFriend-icon' />}
+                    {!hover ? <PersonIcon className='profile__friend-icon' /> : <PersonAddDisabledIcon className='profile__removeFriend-icon' onClick={handleRemove} />}
                 </div>
             )
         }

@@ -32,6 +32,21 @@ export const loadFriends = (userId) => async (dispatch, useState) => {
     }
 }
 
+export const removeFriend = (userId) => async (dispatch) => {
+    const res = await fetch(`/api/users/${userId}/friends`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if (res.ok) {
+        const user = await res.json();
+        dispatch(setCurrentUser(user))
+    } else {
+        console.error(res)
+    }
+}
+
 export const loadGroupMembers = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/users`);
     if (res.ok) {
@@ -42,16 +57,6 @@ export const loadGroupMembers = (groupId) => async (dispatch) => {
     }
 }
 
-export const removeFriend = (userId) => async (dispatch) => {
-    const res = await fetch(`api/users/${userId}/friends/delete`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    const user = await res.json();
-    dispatch(setCurrentUser(user))
-}
 
 export default function users(state = {}, action) {
     let newState = { ...state }
