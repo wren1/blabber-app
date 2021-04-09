@@ -25,7 +25,6 @@ export const loadFriends = (userId) => async (dispatch, useState) => {
     const res = await fetch(`/api/users/${userId}/friends`);
     if (res.ok) {
         const { friends } = await res.json();
-        console.log('f: ', friends)
         dispatch(getUsers(friends))
     } else {
         console.error(res)
