@@ -80,6 +80,12 @@ const UserInfo = ({ user, requested, setRequested }) => {
             {user.id === currentUser.id ? null :
                 friendIcon()
             }
+            <div className='profile__user-name'>
+                {!user.name ? null : user.name}
+            </div>
+            <div className='profile__user-desc'>
+                {!user.description ? null : user.description}
+            </div>
         </div>
     )
 }
