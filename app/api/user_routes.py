@@ -47,6 +47,8 @@ def user_posts(id):
 @login_required
 def user_friends(id):
     user = User.query.get(id).to_dict()
+    # friends = Friend.query.filter((Friend.user_one_id == id) | (Friend.user_two_id == id)).all()
+    # friend_ids = [friend.id for friend in friends]
     users = User.query.filter(User.id.in_(user['friends'])).all()
     return {"friends": [user.to_dict() for user in users] + [user]}
 
@@ -55,7 +57,8 @@ def user_friends(id):
 @user_routes.route('/<int:id>/friends', methods=['DELETE'], strict_slashes=False)
 @login_required
 def remove_friend(id):
-    current_user_id = current_user.get_id()friendship = Friend.query.filter((Friend.user_one_id == id and Friend.user_two_id == current_user_id) | (Friend.user_two_id == id and Friend.user_one_id == current_user_id)).first()
+    current_user_id = current_user.get_id()
+    friendship = Friend.query.filter((Friend.user_one_id == id and Friend.user_two_id == current_user_id) | (Friend.user_two_id == id and Friend.user_one_id == current_user_id)).first()
     print(friendship.to_dict())
     db.session.delete(friendship)
     db.session.commit()

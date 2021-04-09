@@ -77,9 +77,7 @@ const UserInfo = ({ user, requested, setRequested }) => {
     return (
         <div className='profile__user-info'>
             {!user ? null : user.username}
-            {user.id === currentUser.id ? null :
-                friendIcon()
-            }
+            {user.id === currentUser.id ? null : friendIcon()}
             <div className='profile__user-name'>
                 {!user.name ? null : user.name}
             </div>
