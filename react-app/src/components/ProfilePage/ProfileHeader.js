@@ -22,7 +22,7 @@ const ProfileHeader = ({ user }) => {
     return (
         <div className='profile_header' >
             <div>
-            <div className='profile-icon'><ProfileIcon user={user} size={'med'} /></div>
+            {/* <div className='profile-icon'><ProfileIcon user={user} size={'med'} /></div> */}
             <UserInfo user={user} requested={requested} setRequested={setRequested}/></div>
         </div>
     )

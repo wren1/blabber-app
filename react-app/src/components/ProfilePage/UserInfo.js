@@ -6,6 +6,8 @@ import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import PersonIcon from '@material-ui/icons/Person';
 import PersonAddDisabledIcon from '@material-ui/icons/PersonAddDisabled';
 
+import ProfileIcon from '../ProfileIcon';
+
 import { sendFriendRequest } from '../../store/ducks/invites'
 import { removeFriend } from '../../store/ducks/users';
 
@@ -15,28 +17,7 @@ const UserInfo = ({ user, requested, setRequested }) => {
     const [hover, setHover] = useState(false)
     const currentUser = useSelector(state => state.currentUser)
     const invites = useSelector(state => state.invites.sent)
-    console.log('inv: ', invites)
-    // const [requested, setRequested] = useState(false)
-    // if (invites) {
-    //     for (let i in invites) {
-    //         if (invites[i].type === 'friend' && invites[i].invitee_id === user.id && !requested) {
-    //             // isRequested = true;
-    //             setRequested(true)
-    //         }
-    //     }
-    // }
-    // const [requested, setRequested] = useState(isRequested)
-    // const isRequested = () => {
-    //     if (!invites) {
-    //         return false;
-    //     }
-    //     for (let i in invites) {
-    //         if (invites[i].type === 'friend' && invites[i].invitee_id === user.id) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
+    
 
     const handleRemove = () => {
         dispatch(removeFriend(user.id))
@@ -46,6 +27,7 @@ const UserInfo = ({ user, requested, setRequested }) => {
         dispatch(sendFriendRequest(user.id))
         setRequested(true)
     }
+
     if (!user) return null;
     console.log('req: ', requested)
 
@@ -77,6 +59,7 @@ const UserInfo = ({ user, requested, setRequested }) => {
     return (
         <div className='profile__user-info'>
             <div className='profile__username'>
+                <ProfileIcon user={user} size={'med'} />
                 {!user ? null : user.username}
                 {user.id === currentUser.id ? null : friendIcon()}
                 {!user.name ? null : user.name}
