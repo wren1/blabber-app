@@ -43,7 +43,14 @@
     position: relative;
 }
 .profile__user-info {
-
+    display: flex;
+}
+.profile__username {
+    display: flex;
+    flex-direction: column;
+}
+.profile__user-desc {
+    font-size: 14px;
 }
 .profile__friend-icon {
     color: rgb(80, 233, 80);
