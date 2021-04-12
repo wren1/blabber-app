@@ -10,9 +10,9 @@ const SearchResults = ({ results }) => {
 
     const handle = (res) => {
         if (res.owner_id) {
-            return <GroupSearchResult group={res} key={res} />
+            return <GroupSearchResult group={res} key={`group-${res.id}`} />
         } else {
-            return <UserSearchResult user={res} key={res} />
+            return <UserSearchResult user={res} key={`user-${res.id}`} />
         }
     }
 

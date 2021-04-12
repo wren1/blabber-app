@@ -44,6 +44,7 @@
 }
 .searchgroup-td {
     display: flex;
+    align-items: center;
 }
 .searchresult-group {
     justify-content: space-between;
@@ -59,7 +60,7 @@
 
 }
 .search-group-name {
-    margin-right: 15px;
+    margin: 0px 10px;
     font-weight: bold;
 }
 .seach-group-members {
