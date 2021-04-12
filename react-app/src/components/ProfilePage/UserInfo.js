@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
@@ -16,7 +16,6 @@ const UserInfo = ({ user, requested, setRequested }) => {
     const dispatch = useDispatch();
     const [hover, setHover] = useState(false)
     const currentUser = useSelector(state => state.currentUser)
-    const invites = useSelector(state => state.invites.sent)
     
 
     const handleRemove = () => {
@@ -29,7 +28,6 @@ const UserInfo = ({ user, requested, setRequested }) => {
     }
 
     if (!user) return null;
-    console.log('req: ', requested)
 
 
     const friendIcon = () => {
