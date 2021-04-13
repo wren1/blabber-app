@@ -20,6 +20,13 @@ def search_users(query):
     return {"results": [user.to_dict() for user in users]}
 
 
+@search_routes.route('/posts/<query>')
+@login_required
+def search_posts(query):
+    posts = Post.query.filter(Post.title.ilike(f'%{query}%')).all()
+    return {"results": [post.to_dict() for post in posts]}
+
+
 @search_routes.route('/<query>')
 # @login_required
 def search_all(query):

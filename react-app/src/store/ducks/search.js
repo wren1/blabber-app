@@ -33,6 +33,19 @@ export const searchUsers = (query) => async (dispatch) => {
     }
 }
 
+export const searchPosts = (query) => async (dispatch) => {
+    const res = await fetch(`/api/search/posts/${query}`);
+    console.log('q: ', query)
+    if (res.ok) {
+        const { results } = await res.json();
+        console.log('res: ', results)
+        dispatch(setQuery(query))
+        dispatch(searchGroupResults(results))
+    } else {
+        console.error(res)
+    }
+}
+
 export const searchAll = (query) => async (dispatch) => {
     const res = await fetch(`/api/search/${query}`);
     console.log('q: ', query)
