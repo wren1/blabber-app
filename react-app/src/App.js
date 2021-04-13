@@ -82,7 +82,7 @@ function App() {
         <FriendsPage />
       </ProtectedRoute>
       <ProtectedRoute path="/search" setAuthenticated={setAuthenticated} authenticated={authenticated}>
-        <SearchPage />
+        <SearchPage authenticated={authenticated} setAuthenticated={setAuthenticated} />
       </ProtectedRoute>
       <ProtectedRoute path="/notifications" exact={true} authenticated={authenticated}>
         <ActivityPage />

@@ -6,12 +6,15 @@ import NavBar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar'
 import SearchPageHeader from './SearchPageHeader';
 import SearchResults from './SearchResults';
+import RightSidebar from '../RightSidebar/RightSidebar';
 
 import { searchAll } from '../../store/ducks/search';
 import { loadCurrentUser } from '../../store/ducks/currentUser';
+import { loadInvites } from '../../store/ducks/invites';
+import { loadFriends } from '../../store/ducks/users';
 
 
-const SearchPage = () => {
+const SearchPage = ({ authenticated, setAuthenticated }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     let results = useSelector(state => state.search.results)
@@ -24,6 +27,8 @@ const SearchPage = () => {
         (async () => {
             await dispatch(loadCurrentUser())
             await dispatch(searchAll(query))
+            await dispatch(loadInvites())
+            await dispatch(loadFriends(user.id))
         })()
     }, [])
 
@@ -31,6 +36,7 @@ const SearchPage = () => {
         <div className='searchpage'>
             <Sidebar user={user} />
             <NavBar />
+            <RightSidebar user={user} setAuthenticated={setAuthenticated} />
             <SearchPageHeader query={query} results={results} />
             <SearchResults query={query} results={results} />
         </div>
