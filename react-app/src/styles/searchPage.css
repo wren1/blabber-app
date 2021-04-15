@@ -29,7 +29,9 @@
     border-left: 1px solid lightgray;
 }
 .searchpage__header-txt {
-    
+    display: flex;
+    margin: 25px;
+    justify-content: center;
 }
 .searchpage__header-title {
     font-size: 45px;
@@ -43,8 +45,10 @@
     padding-right: 200px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    align-content: center;
+    /* justify-content: space-around; */
 }
 .searchresult {
     background-color: #FAFAFA;
@@ -73,6 +77,10 @@
 .searchresult-user {
     align-items: center;
     padding: 5px 20px;
+}
+.searchresult-post {
+    align-self: center;
+    justify-self: center;
 }
 .searchuser-username {
     margin-left: 15px;
