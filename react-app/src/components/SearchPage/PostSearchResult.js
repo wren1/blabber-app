@@ -11,7 +11,7 @@ const PostSearchResult = ({ post }) => {
 
     return (
         <NavLink to={`/users/${post.user_id}`} exact={true} activeClassName="active">
-        <div className='searchresult-post searchresult'>
+        <div className='searchresult-post'>
             {/* <ProfileIcon user={user} size={'med'} /> */}
             {/* <div className='searchuser-username'>{user.username}</div> */}
             <Post post={post} user={user} />
