@@ -13,13 +13,13 @@ const SearchPageHeader = ({ query, results, searchType, setSearchType }) => {
         <div className='searchpage__header'>
             <div className='searchpage__header-options'>
                 <div onClick={() => setSearchType('posts')} className={searchType !== 'posts' ? null : 'lightgray'} >
-                    posts
+                    Posts
                 </div>
                 <div onClick={() => setSearchType('users')} className={searchType !== 'users' ? null : 'lightgray'}>
-                    users
+                    Users
                 </div>
                 <div onClick={() => setSearchType('groups')} className={searchType !== 'groups' ? null : 'lightgray'}>
-                    groups
+                    Groups
                 </div>
             </div>
             <div className='searchpage__header-txt'>
