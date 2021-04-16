@@ -17,9 +17,9 @@ const FriendListItem = ({ friend }) => {
 
     return (
         <NavLink to={`/users/${friend.id}`}>
-        <div className='right-sidebar__friendslist-item'>
+        <div className='sidebar__list-item'>
             <ProfileIcon user={friend} size={'small'} />
-            <div className='right-sidebar__friendslist-username'>
+            <div className='sidebar__list-name'>
             {friend.username}
 
             </div>

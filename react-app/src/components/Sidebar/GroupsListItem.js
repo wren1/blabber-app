@@ -15,9 +15,9 @@ const GroupsListItem = ({ group }) => {
     if (!group) return null;
 
     return (
-        <div className='sidebar__groupslist-item' onClick={handleClick}>
+        <div className='sidebar__list-item' onClick={handleClick}>
             <ProfileIcon group={group} size={'small'} />
-            <div className='sidebar__grouplist-name'>
+            <div className='sidebar__list-name'>
                 {group.name}
             </div>
         </div>

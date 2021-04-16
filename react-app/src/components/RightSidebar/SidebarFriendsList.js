@@ -37,7 +37,7 @@ const SidebarFriendsList = ({ friends }) => {
 
 
     return (
-        <div className='right-sidebar__friendslist'>
+        <div className='sidebar__list'>
             <div className='sidebar-friendslist-title'>
                 Friends
             </div>

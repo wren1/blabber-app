@@ -10,7 +10,7 @@ const GroupsList = ({ groups }) => {
 
     
     return (
-        <div className='sidebar__groupslist'>
+        <div className='sidebar__list'>
             <div className='new-group-button'>
                 <NavLink to='/new-group' exact={true}>
                     Create Group

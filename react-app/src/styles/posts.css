@@ -57,7 +57,8 @@
 .post-header__username {
     cursor: pointer;
     font-size: 20px;
-    color: #3E4347;
+    /* color: #3E4347; */
+    color: black;
     font-family: Avenir, Arial, Helvetica, sans-serif;
 }
 .post-header__date {
