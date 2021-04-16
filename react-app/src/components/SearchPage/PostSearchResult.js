@@ -10,13 +10,11 @@ const PostSearchResult = ({ post }) => {
     const user = useSelector(state => state.users[`"${post.user_id}"`]);
 
     return (
-        <NavLink to={`/users/${post.user_id}`} exact={true} activeClassName="active">
         <div className='searchresult-post'>
             {/* <ProfileIcon user={user} size={'med'} /> */}
             {/* <div className='searchuser-username'>{user.username}</div> */}
             <Post post={post} user={user} />
         </div>
-        </NavLink>
     )
 }
 
