@@ -87,8 +87,10 @@ a, a:hover, a:focus, a:active {
     height: 100vh;
     background-color: rgba(0, 0, 0, .5);
     position: fixed;
+    left: 0;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 8;
+    z-index: 9;
 }
