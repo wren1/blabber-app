@@ -14,8 +14,8 @@
     background-color: #3E4347;
     position: fixed;
     left: 0;
-    top: 0;
-    height: 100%;
+    top: 75px;
+    height: 100vh;
     width: 200px;
     color: #FAFAFA;
 }

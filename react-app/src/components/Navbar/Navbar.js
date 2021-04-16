@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import SearchBar from './SearchBar';
 import ProfileNav from './ProfileNav';
+import Logo from './Logo';
 
 
 const Navbar = ({setAuthenticated}) => {
@@ -11,6 +12,7 @@ const Navbar = ({setAuthenticated}) => {
     
     return (
         <div className='navbar'>
+            <Logo />
             <SearchBar />
             {/* <ProfileNav setAuthenticated={setAuthenticated} /> */}
         </div>

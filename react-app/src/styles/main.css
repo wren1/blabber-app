@@ -13,6 +13,7 @@ body {
 .main {
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
+    display: flex;
 }
 
 
@@ -93,4 +94,12 @@ a, a:hover, a:focus, a:active {
     justify-content: center;
     align-items: center;
     z-index: 9;
+}
+
+.logo-button {
+    cursor: pointer;
+}
+.logo {
+    width: 50px;
+    height: 50px;
 }

@@ -41,8 +41,8 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
             {!loaded ? <Loading /> : null}
             <Navbar user={user} setAuthenticated={setAuthenticated} />
             <Sidebar user={user} />
-            <RightSidebar user={user} setAuthenticated={setAuthenticated} />
             <Feed posts={allPosts} />
+            <RightSidebar user={user} setAuthenticated={setAuthenticated} />
             <Footer />
         </div>
     )

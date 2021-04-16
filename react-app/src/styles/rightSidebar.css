@@ -5,7 +5,7 @@
     font-size: small;
     z-index: 5;
     background-color: #3E4347;
-    position: fixed;
+    position: sticky;
     right: 0;
     top: 0;
     height: 100%;
