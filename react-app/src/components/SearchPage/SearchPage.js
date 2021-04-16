@@ -43,8 +43,8 @@ const SearchPage = ({ authenticated, setAuthenticated }) => {
                 await dispatch(searchPosts(query))
             }
             // await dispatch(searchAll(query))
+            setLoaded(true)
         })()
-        setLoaded(true)
     }, [searchType])
     
     return (
