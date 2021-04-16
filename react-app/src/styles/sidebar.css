@@ -9,11 +9,13 @@
 .sidebar {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
+    /* font-size: small; */
+    font-size: 15px;
     z-index: 5;
     /* background-color: #00E8FE; */
-    background-color: #cdfbff;
+    /* background-color: #cdfbff; */
     /* background-color: #3E4347; */
+    background-color: rgba(0, 232, 254, .2);
     /* position: sticky;
     top: 0px; */
     /* position: absolute;
@@ -23,23 +25,28 @@
     width: 250px;
     /* color: #FAFAFA; */
     color: black;
+    /* border-right: 1px solid rgba(0, 232, 254, 1); */
+    box-shadow: 0 0 6px rgba(0, 232, 254, 1);
 }
 .sidebar__groupslist {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .sidebar__groupslist-item {
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin: 0px 20px;
+    /* margin: 0px 20px; */
     padding: 8px;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     transition: .2s all;
 }
 .sidebar__groupslist-item:hover {
     color: white;
-    background-color: #2f3438;
+    background-color: rgba(0, 232, 254, 1);
 }
 .sidebar__grouplist-name {
     margin-left: 5px;
