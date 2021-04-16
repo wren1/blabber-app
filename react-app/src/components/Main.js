@@ -12,6 +12,8 @@ import { loadPosts } from '../store/ducks/posts';
 import { loadInvites } from '../store/ducks/invites';
 import { setCurrentUser, loadCurrentUser } from '../store/ducks/currentUser';
 import { loadFriends } from '../store/ducks/users';
+import { loadUserGroups } from '../store/ducks/groups';
+
 
 const Main = ({authenticated, setAuthenticated, currentUser}) => {
     const [loaded, setLoaded] = useState(false)
@@ -28,16 +30,10 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
             await dispatch(loadPosts())
             await dispatch(loadInvites())
             await dispatch(loadFriends(user.id))
+            await dispatch(loadUserGroups(user.id))
+            setLoaded(true)
         })();
-        setLoaded(true)
     }, []);
-
-    let posts = [];
-    for (let post in allPosts) {
-        posts.push(allPosts[post])
-    }
-
-    // if (!user) return null;
 
 
     return (
@@ -46,7 +42,7 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
             <Navbar user={user} setAuthenticated={setAuthenticated} />
             <Sidebar user={user} />
             <RightSidebar user={user} setAuthenticated={setAuthenticated} />
-            <Feed posts={posts} />
+            <Feed posts={allPosts} />
             <Footer />
         </div>
     )

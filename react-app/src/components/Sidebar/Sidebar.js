@@ -28,13 +28,13 @@ const Sidebar = ({ user }) => {
         }
     })}
 
-    useEffect(() => {
-        (async () => {
-            if (user) {
-                await dispatch(loadUserGroups(user.id))
-            }
-        })();
-    }, []);
+    // useEffect(() => {
+    //     (async () => {
+    //         if (user) {
+    //             await dispatch(loadUserGroups(user.id))
+    //         }
+    //     })();
+    // }, []);
 
 
     return (

@@ -8,6 +8,10 @@ import MakePostBlock from './MakePostBlock';
 
 const Feed = ({ posts }) => {
     const dispatch = useDispatch();
+    let postsArr = [];
+    for (let post in posts) {
+        postsArr.push(posts[post])
+    }
 
     const user = useSelector(state => state.currentUser)
     // const posts = useSelector(state => state.posts)
@@ -18,7 +22,7 @@ const Feed = ({ posts }) => {
     return (
         <div className='main-feed'>
             <MakePostBlock user={user} />
-            <Posts posts={posts} />
+            <Posts posts={postsArr} />
         </div>
     )
 }
