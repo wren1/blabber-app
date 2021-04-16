@@ -40,10 +40,12 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
         <div className='main' >
             {!loaded ? <Loading /> : null}
             <Navbar user={user} setAuthenticated={setAuthenticated} />
-            <Sidebar user={user} />
-            <Feed posts={allPosts} />
-            <RightSidebar user={user} setAuthenticated={setAuthenticated} />
-            <Footer />
+            <div className='mainpage' >
+                <Sidebar user={user} />
+                <Feed posts={allPosts} />
+                <RightSidebar user={user} setAuthenticated={setAuthenticated} />
+            </div>
+            {/* <Footer /> */}
         </div>
     )
 }

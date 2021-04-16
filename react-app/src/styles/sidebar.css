@@ -12,10 +12,12 @@
     font-size: small;
     z-index: 5;
     background-color: #3E4347;
-    position: fixed;
+    /* position: sticky;
+    top: 0px; */
+    /* position: absolute;
     left: 0;
-    top: 75px;
-    height: 100vh;
+    top: 75px; */
+    /* height: 100%; */
     width: 200px;
     color: #FAFAFA;
 }
