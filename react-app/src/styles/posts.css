@@ -27,8 +27,8 @@
     font-size: 14px;
     position: relative;
     border-radius: 8px;
-    border: .5px solid rgba(12, 204, 209, .5);
-    box-shadow: 0 0 3px rgba(14, 133, 136, .5);
+    border: .5px solid rgba(0, 232, 254, .5);
+    box-shadow: 0 0 3px rgba(0, 172, 187, 0.5);
 }
 .post-header {
     display: flex;

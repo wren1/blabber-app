@@ -19,7 +19,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0 0 6px rgba(0, 232, 254, 1);
+    border-right: .5px solid rgba(0, 232, 254, .5);
+    box-shadow: 0 0 6px rgba(0, 172, 187, .5);
 }
 .sidebar-user {
     display: flex;
