@@ -16,9 +16,11 @@
 .post {
     box-sizing: border-box;
     min-width: 400px;
-    width: 70%;
+    width: 80%;
     min-height: 145px;
-    background-color: #FAFAFA;
+    /* background-color: #FAFAFA; */
+    /* background-color: #cdfbff; */
+    background-color: white;
     overflow: hidden;
     margin-bottom: 25px;
     padding: 10px 10px 10px 10px;
