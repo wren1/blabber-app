@@ -1,7 +1,9 @@
 html, body {
     /* background-color: #D9F6F7; */
     /* background-color: white; */
-    background-color: #cdfbff;
+    /* background-color: rgb(0, 238, 255); */
+    background-color: rgb(226, 255, 255);
+    /* background-color: #cdfbff; */
     /* background-color: #00E8FE; */
     /* background-color: #B6C5C5; */
     height: 100%;
@@ -62,8 +64,8 @@ a, a:hover, a:focus, a:active {
 .small-icon {
     border-radius: 50%;
     cursor: pointer;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
 .med-icon {
     border-radius: 50%;

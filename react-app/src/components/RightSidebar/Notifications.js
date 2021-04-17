@@ -12,10 +12,10 @@ const Notifications = ({ notifs }) => {
     return (
         <NavLink to='/notifications' exact={true}>
                 <div className='sidebar-notifications'>
-                    <div className={!notifs.length ? 'sidebar-notifications-num' : 'sidebar-notifications-num red'}>
+                    <div className={!notifs.length ? 'sidebar-notifications-num' : 'sidebar-notifications-num sidebar-notifications-num--active'}>
                         {!notifs.length ? 0 : notifs.length }
                     </div>
-                    <div>Notifications</div>
+                    <div className='sidebar-notifications-txt'>Notifications</div>
                 </div>
             </NavLink>
     )

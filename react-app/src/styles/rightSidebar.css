@@ -8,7 +8,10 @@
     z-index: 5;
     /* background-color: #00E8FE; */
     /* background-color: #cdfbff; */
-    background-color: rgba(0, 232, 254, .2);
+    /* background-color: white; */
+    background-color: rgba(0, 238, 255, .4);
+    /* background-color: rgb(243, 249, 249); */
+    /* background-color: rgba(0, 232, 254, .2); */
     /* background-color: #3E4347; */
     position: fixed;
     right: 0;
@@ -21,20 +24,24 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    border-left: .5px solid rgba(0, 232, 254, .5);
+    border-left: 1px solid rgba(0, 172, 187, .5);
+    /* border-left: 1px solid black; */
     box-shadow: 0 0 6px rgba(0, 172, 187, .5);
 }
-.sidebar-user {
-    display: flex;
-    justify-content: space-between;
-    min-width: 150px;
-    align-items: center;
-    align-content: center;
+.right-sidebar__title {
+    box-sizing: border-box;
+    width: 100%;
     margin: 15px 15px;
     padding: 0 0px 10px 10px;
-    border-bottom: 1px solid #707070;
+    border-bottom: 1px solid rgba(0, 232, 254, .5);
+}
+.right-sidebar__user-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .sidebar-username {
+    margin-right: 10px;
     box-sizing: border-box;
     font-family: Avenir, Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -52,25 +59,46 @@
     font-size: 18px;
     margin-bottom: 10px;
 }
+.right-sidebar > a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .sidebar-notifications {
     display: flex;
     /* font-size: 14px; */
-    align-content: center;
+    /* align-content: center; */
     align-items: center;
-    width: 150px;
+    width: 100%;
+    justify-content: center;
+    /* width: 250px; */
     /* height: 15px; */
+    margin: 25px 0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .sidebar-notifications-num {
     border-radius: 50%;
     box-sizing: border-box;
-    margin: 10px 10px 10px 0px;
-    width: 20px;
-    height: 20px;
+    /* margin: 10px 10px 10px 0px; */
+    width: 25px;
+    height: 25px;
     padding: 2px;
     /* background-color: red; */
-    text-align: center;
-    font-weight: bold;
+    /* font-weight: bold; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3px;
+    font-size: 15px;
 
+}
+.sidebar-notifications-num--active {
+    background-color: rgb(243, 70, 70);
+    color: white;
+}
+.sidebar-notifications-txt {
+    font-size: 17px;
+    margin-left: 3px;
 }
 .right-sidebar__friendslist {
     display: flex;

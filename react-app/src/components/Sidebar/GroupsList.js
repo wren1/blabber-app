@@ -12,9 +12,9 @@ const GroupsList = ({ groups }) => {
     return (
         <div className='sidebar__list'>
             <div className='new-group-button'>
-                <NavLink to='/new-group' exact={true}>
+                <NavLink to='/new-group' exact={true} className='sidebar-button'>
                     Create Group
-                    </NavLink>
+                </NavLink>
             </div>
             <div className='sidebar-title'>
                 Groups
