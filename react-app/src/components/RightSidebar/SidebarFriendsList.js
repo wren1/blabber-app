@@ -37,8 +37,8 @@ const SidebarFriendsList = ({ friends }) => {
 
 
     return (
-        <div className='sidebar__list'>
-            <div className='sidebar-friendslist-title'>
+        <div className='sidebar__friendsList'>
+            <div className='sidebar-title'>
                 Friends
             </div>
             {!friends ? null : friends.map(friend => (

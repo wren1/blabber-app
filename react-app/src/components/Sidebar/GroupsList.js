@@ -16,6 +16,9 @@ const GroupsList = ({ groups }) => {
                     Create Group
                     </NavLink>
             </div>
+            <div className='sidebar-title'>
+                Groups
+            </div>
             {!groups.length ? null : groups.map(group => {
                 return (
                     <GroupsListItem group={group} key={group.id} />
