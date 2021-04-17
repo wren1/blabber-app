@@ -19,6 +19,7 @@ body {
 .main {
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
+    overflow-x: hidden;
 }
 
 .mainpage {
@@ -122,4 +123,24 @@ a, a:hover, a:focus, a:active {
 .logo {
     /* width: 50px; */
     height: 45px;
+}
+
+
+::-webkit-scrollbar {
+    width: 0px;
+    /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    /* background: orange; */
+    /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+    /* background-color: blue; */
+    /* color of the scroll thumb */
+    /* border-radius: 20px; */
+    /* roundness of the scroll thumb */
+    /* border: 3px solid orange; */
+    /* creates padding around scroll thumb */
 }

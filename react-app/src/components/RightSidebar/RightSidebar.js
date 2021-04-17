@@ -55,20 +55,22 @@ const RightSidebar = ({ user, setAuthenticated }) => {
 
 
     return (
-        <div className='right-sidebar'>
-            <div className='right-sidebar__title'>
-                <NavLink to={`/users/${user.id}`} className='right-sidebar__user-link'>
-                    <div className='sidebar-username'>
-                        {user.username}
-                    </div>
-                    <ProfileIcon user={user} size={'med'} />
-                </NavLink>
+        <div className='right sidebar'>
+            <div className='sidebar__list right-sidebar'>
+                <div className='right-sidebar__title'>
+                    <NavLink to={`/users/${user.id}`} className='right-sidebar__user-link'>
+                        <div className='sidebar-username'>
+                            {user.username}
+                        </div>
+                        <ProfileIcon user={user} size={'med'} />
+                    </NavLink>
+                </div>
+                <div onClick={handleLogout} className='sidebar-button'>
+                    Logout
+                </div>
+                <Notifications notifs={notifs} />
+                <SidebarFriendsList friends={friends}/>
             </div>
-            <div onClick={handleLogout} className='sidebar-button'>
-                Logout
-            </div>
-            <Notifications notifs={notifs} />
-            <SidebarFriendsList friends={friends}/>
         </div>
     )
 }

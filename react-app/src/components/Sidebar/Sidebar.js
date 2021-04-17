@@ -38,7 +38,7 @@ const Sidebar = ({ user }) => {
 
 
     return (
-        <div className='sidebar'>
+        <div className='left-sidebar sidebar'>
             {/* <HomeButton /> */}
             <GroupsList groups={groups} />
         </div>
