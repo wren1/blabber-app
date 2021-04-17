@@ -12,7 +12,7 @@ const Logo = () => {
 
     return (
         <div className='logo-button'>
-            <img src={require('../../images/whale.png')} className='logo' onClick={handleClick}/>
+            <img src={require('../../images/blabber.png')} className='logo' onClick={handleClick}/>
         </div>
     )
 }
