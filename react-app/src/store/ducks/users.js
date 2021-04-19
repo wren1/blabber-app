@@ -21,6 +21,17 @@ export const loadUser = (id) => async (dispatch) => {
     }
 }
 
+export const loadCurrentUserFriends = () => async (dispatch, getState) => {
+    const { currentUser } = getState();
+    const res = await fetch(`/api/users/${currentUser.id}/friends`);
+    if (res.ok) {
+        const { friends } = await res.json();
+        dispatch(getUsers(friends))
+    } else {
+        console.error(res)
+    }
+}
+
 export const loadFriends = (userId) => async (dispatch, useState) => {
     const res = await fetch(`/api/users/${userId}/friends`);
     if (res.ok) {

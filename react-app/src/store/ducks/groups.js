@@ -32,6 +32,17 @@ export const loadGroup = (groupId) => async (dispatch) => {
     }
 }
 
+export const loadCurrentUserGroups = (userId) => async (dispatch, getState) => {
+    const { currentUser } = getState();
+    const res = await fetch(`/api/users/${currentUser.id}/groups`)
+    if (res.ok) {
+        const { groups } = await res.json();
+        dispatch(getUserGroups(groups))
+    } else {
+        console.error(res)
+    }
+}
+
 export const loadUserGroups = (userId) => async (dispatch) => {
     const res = await fetch(`/api/users/${userId}/groups`)
     if (res.ok) {

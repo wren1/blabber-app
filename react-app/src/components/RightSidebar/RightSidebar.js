@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useHistory } from 'react-router-dom';
 
 import { loadUserGroups } from '../../store/ducks/groups';
 import { setCurrentUser } from '../../store/ducks/currentUser';
@@ -13,7 +13,8 @@ import Notifications from './Notifications';
 
 
 
-const RightSidebar = ({ user, setAuthenticated }) => {
+const RightSidebar = ({ user, authenticated, setAuthenticated }) => {
+    const history = useHistory()
     const dispatch = useDispatch();
     const invites = useSelector(state => state.invites.received)
     console.log('rec inv: ', invites)
@@ -50,7 +51,7 @@ const RightSidebar = ({ user, setAuthenticated }) => {
     const handleLogout = async (e) => {
                 await logout();
                 dispatch(setCurrentUser(null))
-                setAuthenticated(false);
+                window.location.href = '/login'
     }
 
 

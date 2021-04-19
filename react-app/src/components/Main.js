@@ -11,8 +11,8 @@ import RightSidebar from './RightSidebar/RightSidebar';
 import { loadPosts } from '../store/ducks/posts';
 import { loadInvites } from '../store/ducks/invites';
 import { setCurrentUser, loadCurrentUser } from '../store/ducks/currentUser';
-import { loadFriends } from '../store/ducks/users';
-import { loadUserGroups } from '../store/ducks/groups';
+import { loadCurrentUserFriends } from '../store/ducks/users';
+import { loadCurrentUserGroups } from '../store/ducks/groups';
 
 
 const Main = ({authenticated, setAuthenticated, currentUser}) => {
@@ -29,8 +29,8 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
             await dispatch(loadCurrentUser())
             await dispatch(loadPosts())
             await dispatch(loadInvites())
-            await dispatch(loadFriends(user.id))
-            await dispatch(loadUserGroups(user.id))
+            await dispatch(loadCurrentUserFriends())
+            await dispatch(loadCurrentUserGroups())
             setLoaded(true)
         })();
     }, []);
@@ -43,7 +43,7 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
             <div className='mainpage' >
                 <Sidebar user={user} />
                 <Feed posts={allPosts} />
-                <RightSidebar user={user} setAuthenticated={setAuthenticated} />
+                <RightSidebar user={user} authenticated={authenticated} setAuthenticated={setAuthenticated} />
             </div>
             {/* <Footer /> */}
         </div>
