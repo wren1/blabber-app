@@ -66,9 +66,9 @@ function App() {
           setAuthenticated={setAuthenticated}
         />
       </Route>
-      <Route path="/signup" exact={true}>
+      {/* <Route path="/signup" exact={true}>
         <SignupPage authenticated={authenticated} setAuthenticated={setAuthenticated} />
-      </Route>
+      </Route> */}
       <ProtectedRoute path="/groups/:groupId" exact={true} authenticated={authenticated}>
         <GroupPage/>
       </ProtectedRoute>

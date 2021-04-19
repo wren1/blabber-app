@@ -1,19 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useParams } from 'react-router-dom';
-
-
-// const SignupForm = () => {
-
-//     return (
-//         <div>
-
-//         </div>
-//     )
-// }
-
-// export default SignupForm;
-
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../services/auth';
@@ -57,7 +41,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   return (
     <form onSubmit={onSignUp} className='signup-form'>
       <div>
-        <label>User Name</label>
+        <label>Username</label>
         <input type="text" name="username" onChange={updateUsername} value={username} ></input>
       </div>
       <div>
@@ -69,7 +53,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         <input type="password" name="password" onChange={updatePassword} value={password} ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Confirm Password</label>
         <input type="password" name="repeat_password" onChange={updateRepeatPassword} value={repeatPassword}
           required={true}
         ></input>
