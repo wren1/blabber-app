@@ -4,8 +4,9 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import NavBar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar'
-import SearchPageHeader from './SearchPageHeader';
-import SearchResults from './SearchResults';
+// import SearchPageHeader from './SearchPageHeader';
+// import SearchResults from './SearchResults';
+import SearchContainer from './SearchContainer';
 import RightSidebar from '../RightSidebar/RightSidebar';
 import Loading from '../Loading';
 
@@ -48,13 +49,16 @@ const SearchPage = ({ authenticated, setAuthenticated }) => {
     }, [searchType])
     
     return (
-        <div className='searchpage'>
+        <div className='search'>
             {!loaded ? <Loading /> : null}
             <NavBar />
-            <Sidebar user={user} />
-            <RightSidebar user={user} setAuthenticated={setAuthenticated} />
-            <SearchPageHeader query={query} results={results} searchType={searchType} setSearchType={setSearchType} />
-            <SearchResults query={query} results={results} />
+            <div className='search-main' >
+                <Sidebar user={user} />
+                <SearchContainer query={query} results={results} searchType={searchType} setSearchType={setSearchType} />
+                <RightSidebar user={user} setAuthenticated={setAuthenticated} />
+            {/* <SearchPageHeader query={query} results={results} searchType={searchType} setSearchType={setSearchType} />
+            <SearchResults query={query} results={results} /> */}
+            </div>
         </div>
     )
 }

@@ -18,6 +18,8 @@
     min-width: 300px;
     width: 60%;
     justify-self: center;
+    display: flex;
+    align-items: center;
 }
 .searchbar {
     box-sizing: border-box;
