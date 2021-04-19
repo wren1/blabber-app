@@ -12,14 +12,14 @@
     height: 55px;
     box-shadow: 0 0 6px rgba(62, 68, 71, .8);
 }
-.search {
+.navbar .search {
     /* position: relative; */
     /* left: 200px; */
     min-width: 300px;
     width: 60%;
     justify-self: center;
-    display: flex;
-    align-items: center;
+    box-sizing: border-box;
+    height: 35px;
 }
 .searchbar {
     box-sizing: border-box;

@@ -56,8 +56,6 @@ const SearchPage = ({ authenticated, setAuthenticated }) => {
                 <Sidebar user={user} />
                 <SearchContainer query={query} results={results} searchType={searchType} setSearchType={setSearchType} />
                 <RightSidebar user={user} setAuthenticated={setAuthenticated} />
-            {/* <SearchPageHeader query={query} results={results} searchType={searchType} setSearchType={setSearchType} />
-            <SearchResults query={query} results={results} /> */}
             </div>
         </div>
     )
