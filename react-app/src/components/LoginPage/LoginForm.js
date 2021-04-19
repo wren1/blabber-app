@@ -54,27 +54,27 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           <div>{error}</div>
         ))}
       </div>
-      <div>
+      <div className='login__form-field' >
         <label htmlFor="email">Email</label>
         <input
           name="email"
           type="text"
-          placeholder="Email"
+          placeholder="example@email.com..."
           value={email}
           onChange={updateEmail}
         />
       </div>
-      <div>
+      <div className='login__form-field' >
         <label htmlFor="password">Password</label>
         <input
           name="password"
           type="password"
-          placeholder="Password"
+          placeholder="Your password here..."
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit" className='button'>Login</button>
       </div>
+      <button type="submit" className='button'>Login</button>
     </form>
   );
 };

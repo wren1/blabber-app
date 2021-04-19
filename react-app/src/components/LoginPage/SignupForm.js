@@ -40,25 +40,24 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
 
   return (
     <form onSubmit={onSignUp} className='signup-form'>
-      <div>
+      <div className='login__form-field' >
         <label>Username</label>
-        <input type="text" name="username" onChange={updateUsername} value={username} ></input>
+        <input type="text" name="username" onChange={updateUsername} value={username} placeholder="Your username here..."></input>
       </div>
-      <div>
+      <div className='login__form-field' >
         <label>Email</label>
-        <input type="text" name="email" onChange={updateEmail} value={email} ></input>
+        <input type="text" name="email" onChange={updateEmail} value={email} placeholder="example@email.com..." ></input>
       </div>
-      <div>
+      <div className='login__form-field' >
         <label>Password</label>
-        <input type="password" name="password" onChange={updatePassword} value={password} ></input>
+        <input type="password" name="password" onChange={updatePassword} value={password} placeholder="Your password here..." ></input>
       </div>
-      <div>
+      <div className='login__form-field' >
         <label>Confirm Password</label>
-        <input type="password" name="repeat_password" onChange={updateRepeatPassword} value={repeatPassword}
-          required={true}
-        ></input>
+        <input type="password" name="repeat_password" onChange={updateRepeatPassword} value={repeatPassword} placeholder="Confirm your password..."
+          required={true} ></input>
       </div>
-      <button type="submit">Sign Up</button>
+      <button type="submit" className='button'>Sign Up</button>
     </form>
   );
 };
