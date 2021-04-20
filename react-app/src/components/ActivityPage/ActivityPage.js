@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import ReceivedInvitesList from './ReceivedInvitesList';
-import SentInvitesList from './SentInvitesList';
 import Navbar from '../Navbar/Navbar';
 import SideBar from '../Sidebar/Sidebar';
+import ActivityContainer from './ActivityContainer';
 
 import { loadInvites } from '../../store/ducks/invites';
 import { loadFriends } from '../../store/ducks/users';
@@ -16,7 +15,7 @@ import RightSidebar from '../RightSidebar/RightSidebar';
 import Loading from '../Loading';
 
 
-const ActivityPage = () => {
+const ActivityPage = ({ setAuthenticated }) => {
     const [loaded, setLoaded] = useState(false)
     const dispatch = useDispatch();
     const user = useSelector(state => state.currentUser);
@@ -31,13 +30,14 @@ const ActivityPage = () => {
     }, []);
     
     return (
-        <div className='activity-page'>
+        <div className='activity'>
             {!loaded ? <Loading /> : null}
-            <SideBar user={user} />
             <Navbar />
-            <ReceivedInvitesList invites={received} />
-            <SentInvitesList invites={sent} />
-            <RightSidebar user={user} />
+            <div className='activity__main'>
+                <SideBar user={user} />
+                <ActivityContainer received={received} sent={sent} />
+                <RightSidebar user={user} setAuthenticated={setAuthenticated} />
+            </div>
         </div>
     )
 }

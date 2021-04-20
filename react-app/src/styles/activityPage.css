@@ -1,35 +1,64 @@
 
-.activity-page {
+.activity {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+.activity__main {
+    position: relative;
+    top: 55px;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 250px auto 250px;
+    grid-template-rows: 1fr;
+}
+.activity__container {
+    box-sizing: border-box;
+    position: relative;
+    /* margin: 0 220px 0 220px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 .invites-list {
     box-sizing: border-box;
     position: relative;
-    margin-left: 200px;
-    padding: 30px 30px 30px 30px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #0E8588;
+    color: black;
     font-size: 14px;
-    background-color: #FAFAFA;
-    border: 1px solid #A4E6E8;
-    margin: 20px 220px 20px 220px;
-    border-radius: 10px;
+    background-color: white;
+    border: 3px solid rgb(0, 255, 255);
+    border-radius: 30px;
+    min-width: 400px;
+    width: 70%;
+    margin: 10px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .invites-list__item {
     margin: 20px;
     display: flex;
     align-content: center;
     align-items: center;
+    /* margin: 10px 0px 10px 0px; */
+    /* display: flex;
+    justify-content: center; */
 }
 .add-friend {
     margin-left: 10px;
     cursor: pointer;
 }
 .invites-list__header {
-    color: #3E4347;
+    color: black;
     font-size: 18px;
-    border-bottom: 1px solid #DAE5EF;
-    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(0, 255, 255);
+    box-sizing: border-box;
+    padding: 15px;
     margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
 }
 .invites-list__body {
 
