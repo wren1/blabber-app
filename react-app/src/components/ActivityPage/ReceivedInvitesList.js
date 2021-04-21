@@ -16,7 +16,7 @@ const ReceivedInvitesList = ({ invites }) => {
     return (
         <div className='invites-list'>
             <div className='invites-list__header'>
-                You have {!received.length ? 0 : received.length} notifications.
+                You have {!received.length ? 0 : received.length} {received.length === 1 ? 'notification' : 'notifications.'}
             </div>
             <div className='invites-list__body'>
             {!received.length ? null : received.map(invite => {

@@ -127,7 +127,7 @@ a, a:hover, a:focus, a:active {
 
 
 ::-webkit-scrollbar {
-    width: 0px;
+    /* width: 0px; */
     /* width of the entire scrollbar */
 }
 
