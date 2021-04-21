@@ -59,12 +59,14 @@
     margin: 0px 10px;
 }
 .searchresults {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    /* flex-wrap: wrap; */
-    align-content: center;
-    /* justify-content: space-around; */
+    align-content: center; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .searchresult {
     background-color: #FAFAFA;
@@ -97,6 +99,9 @@
 .searchresult-post {
     align-self: center;
     justify-self: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .searchuser-username {
     margin-left: 15px;
