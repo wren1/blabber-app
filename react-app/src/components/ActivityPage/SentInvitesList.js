@@ -16,7 +16,7 @@ const SentInvitesList = ({ invites }) => {
     return (
         <div className='invites-list'>
             <div className='invites-list__header'>
-                {!sent.length ? 0 : sent.length} pending requests.
+                {!sent.length ? 0 : sent.length} pending {sent.length === 1 ? 'request' : 'requests'}
             </div>
             <div className='invites-list__body'>
             {!sent.length ? null : sent.map(invite => {
