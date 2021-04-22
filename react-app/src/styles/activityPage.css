@@ -37,6 +37,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding-bottom: 10px;
 }
 .invites-list__item {
@@ -44,9 +45,16 @@
     display: flex;
     align-content: center;
     align-items: center;
-    /* margin: 10px 0px 10px 0px; */
-    /* display: flex;
-    justify-content: center; */
+    font-size: 16px;
+}
+.invites-list__link {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin: 0px 10px;
+}
+.invites-list__link .icon {
+    margin: 0px 5px 0px 0px;
 }
 .add-friend {
     margin-left: 10px;

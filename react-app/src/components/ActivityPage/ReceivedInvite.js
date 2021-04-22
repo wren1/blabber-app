@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import AddIcon from '@material-ui/icons/Add'
 
+import Link from '../Link';
+
 import { acceptFriendRequest, declineFriendRequest, acceptGroupInvite, declineGroupInvite } from '../../store/ducks/invites'
 
 
@@ -21,20 +23,37 @@ const ReceivedInvite = ({ invite }) => {
         }
     }
 
-    return (
-        <div className='invites-list__item'>
-        <div >
-            {invite.type !== 'group' ? 
-            `You have a friend request from ${inviter.username}`
-        :
-            `You've been invited to ${group.name} by ${inviter.username}`
-        }
-        </div>
-        <div>
-            <AddIcon className={'add-friend'} onClick={handleAcceptInvite}/>
-        </div>
-        </div>
-    )
+    if (invite.type !== 'group') {
+        return (
+            <div className='invites-list__item'>
+                You have a friend request from 
+                <Link item={inviter} />
+            </div>
+        )
+    } else {
+        return (
+            <div className='invites-list__item'>
+                <Link item={inviter} />
+                 has invited you to the group 
+                 <Link item={group} />
+            </div>
+        )
+    }
+
+    // return (
+    //     <div className='invites-list__item'>
+    //     <div >
+    //         {invite.type !== 'group' ? 
+    //         `You have a friend request from ${inviter.username}`
+    //     :
+    //         `You've been invited to ${group.name} by ${inviter.username}`
+    //     }
+    //     </div>
+    //     <div>
+    //         <AddIcon className={'add-friend'} onClick={handleAcceptInvite}/>
+    //     </div>
+    //     </div>
+    // )
 }
 
 export default ReceivedInvite;
