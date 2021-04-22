@@ -117,7 +117,7 @@ export const acceptGroupInvite = (userId, groupId) => async (dispatch, useState)
 
 export const declineGroupInvite = (userId, groupId) => async (dispatch, useState) => {
     const { currentUser } = useState();
-    const res = await fetch(`/api/invites/users/${userId}/groups/${groupId}`, {
+    const res = await fetch(`/api/invites/users/${userId}/groups/${groupId}/decline`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

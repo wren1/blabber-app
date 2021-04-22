@@ -7,8 +7,9 @@ import SideBar from '../Sidebar/Sidebar';
 import ActivityContainer from './ActivityContainer';
 
 import { loadInvites } from '../../store/ducks/invites';
-import { loadFriends } from '../../store/ducks/users';
-import { loadUserGroups } from '../../store/ducks/groups';
+import { setCurrentUser, loadCurrentUser } from '../../store/ducks/currentUser';
+import { loadCurrentUserFriends } from '../../store/ducks/users';
+import { loadCurrentUserGroups } from '../../store/ducks/groups';
 
 import Sidebar from '../Sidebar/Sidebar';
 import RightSidebar from '../RightSidebar/RightSidebar';
@@ -23,8 +24,10 @@ const ActivityPage = ({ setAuthenticated }) => {
     
     useEffect(() => {
         (async () => {
+            await dispatch(loadCurrentUser())
             await dispatch(loadInvites())
-            await dispatch(loadUserGroups(user.id))
+            await dispatch(loadCurrentUserFriends())
+            await dispatch(loadCurrentUserGroups())
             setLoaded(true)
         })();
     }, []);

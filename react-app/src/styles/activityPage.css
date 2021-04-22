@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     padding-top: 20px;
 }
@@ -45,6 +46,7 @@
     display: flex;
     align-content: center;
     align-items: center;
+    justify-content: center;
     font-size: 16px;
 }
 .invites-list__link {
@@ -57,7 +59,7 @@
     margin: 0px 5px 0px 0px;
 }
 .invites-list__buttons {
-
+    display: flex;
 }
 .invites-list__accept-button {
 

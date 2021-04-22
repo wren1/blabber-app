@@ -8,10 +8,9 @@ import { acceptFriendRequest, declineFriendRequest, acceptGroupInvite, declineGr
 
 
 
-const Buttons = ({ invite }) => {
+const Buttons = ({ invite, inviter, group }) => {
     const dispatch = useDispatch()
-    const inviter = useSelector(state => state.users[`"${invite.inviter_id}"`]);
-    const group = useSelector(state => state.groups[`"${invite.group_id}"`]);
+    
     if (!inviter) return null;
 
     const handleAccept = () => {
@@ -32,8 +31,8 @@ const Buttons = ({ invite }) => {
 
     return (
         <div className='invites-list__buttons'>
-            <div className='invites-list__accept-button' onClick={handleAccept} >Accept</div>
-            <div className='invites-list__decline-button' onClick={handleReject} >Decline</div>
+            <div className='invites-list__accept-button button' onClick={handleAccept} >Accept</div>
+            <div className='invites-list__decline-button button' onClick={handleReject} >Decline</div>
         </div>
     )
 }
