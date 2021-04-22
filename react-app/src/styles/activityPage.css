@@ -56,6 +56,15 @@
 .invites-list__link .icon {
     margin: 0px 5px 0px 0px;
 }
+.invites-list__buttons {
+
+}
+.invites-list__accept-button {
+
+}
+.invites-list__decline-button {
+
+}
 .add-friend {
     margin-left: 10px;
     cursor: pointer;
