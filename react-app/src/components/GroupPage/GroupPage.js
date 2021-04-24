@@ -19,9 +19,7 @@ const GroupPage = () => {
     const { groupId } = useParams();
     
     const user = useSelector(state => state.currentUser)
-    
-    console.log(groupId)
-    
+        
     
     useEffect(() => {
         (async () => {

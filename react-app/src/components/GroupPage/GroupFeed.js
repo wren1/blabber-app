@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Posts from '../Posts/Posts';
 import MakePostBlock from '../Feed/MakePostBlock';
@@ -14,7 +13,6 @@ const GroupFeed = ({ groupId }) => {
     let posts = [];
     for (let post in allPosts) {
         if (allPosts[post].group_id === parseInt(groupId)) {
-            console.log('in ')
             posts.push(allPosts[post])
         }
     }

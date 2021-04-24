@@ -30,7 +30,6 @@ const ProfilePage = () => {
         })();
     }, []);
     
-    console.log(userId)
     
     return (
         <div className='profile'>
