@@ -36,13 +36,6 @@ const GroupPage = ({ setAuthenticated }) => {
     if (!groupId) return null;
     
     return (
-        // <div className='group-main'>
-        //     {!loaded ? <Loading /> : null}
-        //     <Sidebar user={user} />
-        //     <GroupPageHeader groupId={groupId} user={user} />
-        //     <GroupFeed groupId={groupId} user={user} />
-        //     <RightSidebar user={user} />
-        // </div>
         <div className='main' >
             {!loaded ? <Loading /> : null}
             <Navbar user={user} setAuthenticated={setAuthenticated} />
