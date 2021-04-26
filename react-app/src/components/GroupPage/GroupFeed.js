@@ -19,7 +19,7 @@ const GroupFeed = ({ groupId }) => {
     if (!group) return null;
 
     return (
-        <div className='group-feed'>
+        <div className='main-feed'>
             <MakePostBlock user={user} group={group} />
             <Posts posts={posts} />
         </div>

@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import GroupDetails from './GroupDetails';
+import GroupBanner from './GroupBanner';
 
 
-const GroupHeader = ({ group }) => {
+const GroupHeader = ({ groupId, user }) => {
+    const group = useSelector(state => state.groups[`"${groupId}"`])
+    const users = useSelector(state => state.users)
+
+    if (!group) return null;
 
     return (
-        <div className='group-header__inner' >
-            <a className='group-header__img'>
-                {
-                    group.header_url ? <img src='' /> :
-                    <img src='' />
-                }
-            </a>
+        <div className='group-header'>
+            <GroupBanner group={group} user={user} users={users} />
+            <GroupDetails group={group} user={user} users={users} />
         </div>
     )
 }

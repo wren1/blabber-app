@@ -9,8 +9,10 @@ import Loading from '../Loading';
 import Navbar from '../Navbar/Navbar';
 
 import { loadGroupPosts } from '../../store/ducks/posts';
-import { loadGroupMembers, loadFriends } from '../../store/ducks/users';
 import { loadInvites } from '../../store/ducks/invites';
+import { setCurrentUser, loadCurrentUser } from '../../store/ducks/currentUser';
+import { loadGroupMembers, loadCurrentUserFriends } from '../../store/ducks/users';
+import { loadCurrentUserGroups } from '../../store/ducks/groups';
 
 
 const GroupPage = ({ setAuthenticated }) => {
@@ -23,9 +25,12 @@ const GroupPage = ({ setAuthenticated }) => {
     
     useEffect(() => {
         (async () => {
+            await dispatch(loadCurrentUser())
+            await dispatch(loadInvites())
+            await dispatch(loadCurrentUserFriends())
+            await dispatch(loadCurrentUserGroups())
             await dispatch(loadGroupPosts(groupId))
             await dispatch(loadGroupMembers(groupId))
-            await dispatch(loadFriends(user.id))
             await dispatch(loadInvites())
             setLoaded(true)
         })()

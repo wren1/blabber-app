@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GroupPageHeader from './GroupPageHeader';
+import GroupHeader from './GroupHeader';
 import GroupFeed from './GroupFeed';
 
 
@@ -10,7 +10,7 @@ const GroupContainer = ({ groupId, user }) => {
 
     return (
         <div className='group-container'>
-            <GroupPageHeader groupId={groupId} user={user} />
+            <GroupHeader groupId={groupId} user={user} />
             <GroupFeed groupId={groupId} user={user} />
         </div>
     )
