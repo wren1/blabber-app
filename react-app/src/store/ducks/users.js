@@ -61,7 +61,7 @@ export const loadGroupMembers = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/users`);
     if (res.ok) {
         const { members } = await res.json();
-        dispatch(getSpecificUsers(members))
+        dispatch(getUsers(members))
     } else {
         console.error(res)
     }

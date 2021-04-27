@@ -22,9 +22,11 @@ const InviteUser = ({ openInvite, setOpenInvite, group, user, users, members }) 
         }
     }
 
+    console.log('friendss: ', friends)
+
 
     return (
-        <div className='group-header__invite-backdrop' onClick={() => setOpenInvite(false)} >
+        <div className='backdrop' onClick={() => setOpenInvite(false)} >
             <div className='group-header__invite' onClick={(e) => e.stopPropagation()} >
                 {!friends.length ? null : friends.map(friend => {
                     return <Username currentUser={user} user={friend} key={friend.id} openInvite={openInvite} setOpenInvite={setOpenInvite} group={group} invites={invites} members={members} sentInvites={sentInvites} />

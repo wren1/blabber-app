@@ -20,10 +20,12 @@ const GroupDetails = ({ group, user, users }) => {
     return (
         <div className='group-header__desc'>
             <div className='group-header__title-invite'>
-            <div className='group-header__desc-name'>{group.name}</div>
-            <div className='group-header__invite-button' onClick={() => setOpenInvite(!openInvite)}>
-                    <GroupAddIcon />
-            </div>
+                <div className='group-header__desc-name'>
+                    {group.name}
+                </div>
+                <div className='group-header__invite-button' onClick={() => setOpenInvite(!openInvite)}>
+                        <GroupAddIcon />
+                </div>
             </div>
             <div className='group-header__desc-description'>{group.description}</div>
                 <div className='group-header__desc-members-button' onClick={handleMembersClick}>

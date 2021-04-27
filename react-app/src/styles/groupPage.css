@@ -73,7 +73,7 @@
     display: flex;
     align-content: center;
 }
-.group-header__invite-backdrop {
+.backdrop {
     position: fixed;
     background-color: rgba(0, 0, 0, .5);
     width: 100vw;
