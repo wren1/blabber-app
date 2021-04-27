@@ -13,7 +13,7 @@ const GroupHeader = ({ groupId, user }) => {
 
     return (
         <div className='group-header'>
-            <GroupBanner group={group} user={user} users={users} />
+            {!group.banner_url ? null : <GroupBanner group={group} user={user} users={users} />}
             <GroupDetails group={group} user={user} users={users} />
         </div>
     )

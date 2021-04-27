@@ -11,9 +11,7 @@ import InviteUser from './InviteUser';
 const GroupDetails = ({ group, user, users }) => {
     const [openMembersList, setOpenMemberslist] = useState(false)
     const [openInvite, setOpenInvite] = useState(false)
-    // const users = useSelector(state => state.users);
     const members = group.users.map(user => users[`"${user}"`]);
-    console.log('mems: ', members)
 
     const handleMembersClick = () => {
         setOpenMemberslist(!openMembersList);
