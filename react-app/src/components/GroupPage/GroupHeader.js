@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import GroupDetails from './GroupDetails';
 import GroupBanner from './GroupBanner';
+import Banner from '../Banner';
 
 
 const GroupHeader = ({ groupId, user }) => {
@@ -11,9 +12,12 @@ const GroupHeader = ({ groupId, user }) => {
 
     if (!group) return null;
 
+    group.banner_url = 'https://i.pinimg.com/originals/50/c5/1e/50c51e02a205b44c3449fc128400ff20.jpg';
+
+
     return (
         <div className='group-header'>
-            {!group.banner_url ? null : <GroupBanner group={group} user={user} users={users} />}
+            <Banner group={group} />
             <GroupDetails group={group} user={user} users={users} />
         </div>
     )
