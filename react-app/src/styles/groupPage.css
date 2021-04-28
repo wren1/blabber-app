@@ -17,10 +17,8 @@
 .group-header {
     box-sizing: border-box;
     position: relative;
-    /* margin-left: 200px; */
-    padding: 30px;
     width: 100%;;
-    background-color:rgba(12, 204, 209, .5);
+    background-color: white;
 }
 .group-header__inner {
 }

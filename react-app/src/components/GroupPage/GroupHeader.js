@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import GroupDetails from './GroupDetails';
-import GroupBanner from './GroupBanner';
 import Banner from '../Banner';
 
 
