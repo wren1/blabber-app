@@ -72,7 +72,7 @@ function App() {
       <ProtectedRoute path="/groups/:groupId" exact={true} authenticated={authenticated} setAuthenticated={setAuthenticated}>
         <GroupPage/>
       </ProtectedRoute>
-      <ProtectedRoute path="/new-group" exact={true} authenticated={authenticated}>
+      <ProtectedRoute path="/new-group" exact={true} authenticated={authenticated} setAuthenticated={setAuthenticated}>
         <NewGroupPage/>
       </ProtectedRoute>
       <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>

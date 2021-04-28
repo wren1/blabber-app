@@ -27,7 +27,7 @@ const NewGroupForm = ({ user }) => {
     }
 
     return (
-        <div className='newgroup-formcontainer'>
+        <div className='newgroup__container'>
             <form onSubmit={handleSubmit} className='newgroup-form'>
                 <input className='newgroup-name' 
                 placeholder='Name' 
