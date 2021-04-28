@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import UserInfo from './UserInfo';
+import ProfileBanner from './ProfileBanner';
 
 
 const ProfileHeader = ({ user }) => {
@@ -9,6 +10,8 @@ const ProfileHeader = ({ user }) => {
     const [requested, setRequested] = useState(false)
 
     if (!user) return null;
+
+    user.banner_url = 'https://i.pinimg.com/originals/50/c5/1e/50c51e02a205b44c3449fc128400ff20.jpg';
 
     if (invites) {
         for (let i in invites) {
@@ -20,9 +23,8 @@ const ProfileHeader = ({ user }) => {
 
     return (
         <div className='profile_header' >
-            <div>
-                <UserInfo user={user} requested={requested} setRequested={setRequested}/>
-            </div>
+            <ProfileBanner user={user} />
+            <UserInfo user={user} requested={requested} setRequested={setRequested}/>
         </div>
     )
 }

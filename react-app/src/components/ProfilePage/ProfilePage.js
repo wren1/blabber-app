@@ -6,6 +6,7 @@ import ProfileHeader from './ProfileHeader';
 import ProfileFeed from './ProfileFeed';
 import Sidebar from '../Sidebar/Sidebar';
 import Loading from '../Loading';
+import Navbar from '../Navbar/Navbar';
 
 import { loadUserPosts } from '../../store/ducks/posts';
 import { loadUser } from '../../store/ducks/users';
@@ -34,7 +35,7 @@ const ProfilePage = () => {
     return (
         <div className='profile'>
             {!loaded ? <Loading /> : null}
-            <Sidebar user={currentUser} />
+            <Navbar />
             <ProfileHeader user={user} />
             <ProfileFeed />
         </div>
