@@ -11,7 +11,7 @@ const ProfileHeader = ({ user }) => {
 
     if (!user) return null;
 
-    // user.banner_url = 'https://i.pinimg.com/originals/50/c5/1e/50c51e02a205b44c3449fc128400ff20.jpg';
+    user.banner_url = 'https://i.pinimg.com/originals/50/c5/1e/50c51e02a205b44c3449fc128400ff20.jpg';
 
     if (invites) {
         for (let i in invites) {
