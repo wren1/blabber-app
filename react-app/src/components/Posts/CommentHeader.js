@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import ProfileIcon from '../ProfileIcon';
+import Link from '../Link';
 
 
 const CommentHeader = ({ comment, user }) => {
@@ -9,16 +10,9 @@ const CommentHeader = ({ comment, user }) => {
 
     return (
         <div className='comment-header'>
-            <ProfileIcon user={user} size={'small'} />
-            <div className='comment-header__username' >
-                {user.username}
-            </div>
+            <Link item={user} />
             <div className='comment-header__txt' >
-                posted on
-            </div>
-            <div className='comment-header__date' >
-                {dateCreated.getMonth()}/{dateCreated.getDay()}/{dateCreated.getFullYear()}
-                 at {dateCreated.getHours()}:{dateCreated.getMinutes()}
+                posted on {dateCreated.getMonth()}/{dateCreated.getDay()}/{dateCreated.getFullYear()} at {dateCreated.getHours()}:{dateCreated.getMinutes()}
             </div>
         </div>
     )
