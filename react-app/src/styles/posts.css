@@ -164,11 +164,11 @@
     display: flex;
     align-items: center;
 }
-.comment-header__username {
-    margin-left: 5px;
+.comment-header__txt {
+    color: rgb(118, 138, 139)
 }
 .comment-content {
-    margin-top: 5px;
+    margin: 10px 20px;
 }
 .make-comment__container {
     width: 100%;
@@ -197,7 +197,6 @@
     Helvetica,
     sans-serif;
     font-size: 14px;
-    /* border: 1px solid black; */
 }
 .make-comment__submit {
     cursor: pointer;

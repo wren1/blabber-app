@@ -19,7 +19,6 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     const currentUser = useSelector(state => state.currentUser)
     let commentIds = post.comments
     const [openEditPost, setOpenEditPost] = useState(false)
-    // const [comments, setComments] = useState(commentIds)
     let isLiked = currentUser.likes.includes(post.id);
     const [liked, setLiked] = useState(isLiked)
     const [numLikes, setNumLikes] = useState(post.users_liked.length);
@@ -34,11 +33,9 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
 
     const handleLike = () => {
         if (!liked) {
-            console.log('like')
             setNumLikes(numLikes + 1)
             dispatch(like(post.id))
         } else {
-            console.log('unlike')
             setNumLikes(numLikes - 1)
             dispatch(unlike(post.id))
         }
