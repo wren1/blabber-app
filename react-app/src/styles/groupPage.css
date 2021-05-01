@@ -20,9 +20,7 @@
     width: 100%;;
     background-color: white;
 }
-.group-header__inner {
-}
-.group__header__desc {
+.group__header-info {
     box-sizing: border-box;
     padding: 10px;
     min-height: 100px;
@@ -31,18 +29,13 @@
     display:flex;
     flex-direction: column;
 }
-.group__header-name {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-.group-header__desc-description {
+.group__header-description {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.group-header__invite-button {
+.group__header-invite {
     cursor: pointer;
     display: flex;
     justify-content: center;
