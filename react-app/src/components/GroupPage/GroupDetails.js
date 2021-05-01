@@ -6,33 +6,33 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 
 import MembersList from './MembersList';
 import InviteUser from './InviteUser';
+import IconWithName from '../IconWithName';
 
 
 const GroupDetails = ({ group, user, users }) => {
-    const [openMembersList, setOpenMemberslist] = useState(false)
+    const [openMembersList, setOpenMembersList] = useState(false)
     const [openInvite, setOpenInvite] = useState(false)
     const members = group.users.map(user => users[`"${user}"`]);
 
-    const handleMembersClick = () => {
-        setOpenMemberslist(!openMembersList);
-    }
 
     return (
         <div className='group-header__desc'>
             <div className='group-header__title-invite'>
-                <div className='group-header__desc-name'>
-                    {group.name}
-                </div>
+                <IconWithName item={group} />
                 <div className='group-header__invite-button' onClick={() => setOpenInvite(!openInvite)}>
                         <GroupAddIcon />
                 </div>
             </div>
-            <div className='group-header__desc-description'>{group.description}</div>
-                <div className='group-header__desc-members-button' onClick={handleMembersClick}>
-                        <PersonIcon />
-                <div>{!members.length ? 0 : members.length}</div>
+            <div className='group-header__desc-description'>
+                {group.description}
             </div>
-            {!openMembersList ? null : <MembersList openMembersList={openMembersList} setOpenMemberslist={setOpenMemberslist} members={members} group={group} />}
+            <div className='group-header__desc-members-button' onClick={() => setOpenMembersList(!openMembersList)}>
+                <PersonIcon />
+                <div>
+                    {!members.length ? 0 : members.length}
+                </div>
+            </div>
+            {!openMembersList ? null : <MembersList openMembersList={openMembersList} setOpenMembersList={setOpenMembersList} members={members} group={group} />}
             {!openInvite ? null : <InviteUser openInvite={openInvite} setOpenInvite={setOpenInvite} members={members} group={group} user={user} users={users} />}
         </div>
     )

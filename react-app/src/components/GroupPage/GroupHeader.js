@@ -15,7 +15,7 @@ const GroupHeader = ({ groupId, user }) => {
 
 
     return (
-        <div className='group-header'>
+        <div className='group__header'>
             <Banner group={group} />
             <GroupDetails group={group} user={user} users={users} />
         </div>
