@@ -27,22 +27,28 @@
     margin-bottom: 10px;
     position: relative;
     display: flex;
+    justify-content: space-between;
 }
 .group__header-description {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .group__header-invite {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.group__header-invite-icon {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     width: 30px;
     height: 30px;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .group__invite-username {
     cursor: pointer;
@@ -119,6 +125,12 @@
     border-radius: 50%;
     color: white;
 }
+.group__header-invite-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .group-header__invite-icon {
     padding: 2px;
     background-color: white;
@@ -145,17 +157,16 @@
     display: flex;
     justify-content: center;
 }
-.group-header__desc-members-button {
+.group__header-member-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.group__header-members-button {
     cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
     flex-direction: column;
-    position: absolute;
-    top: 40px;
-    right: 80px;
 }
 .group__members-list {
     box-sizing: border-box;

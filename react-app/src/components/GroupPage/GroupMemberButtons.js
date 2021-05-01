@@ -7,10 +7,13 @@ const GroupMemberButtons = ({ members, openMembersList, setOpenMembersList, open
     
     return (
         <div className='group__header-member-buttons' >
-            <GroupAddIcon className='group__header-invite' onClick={() => setOpenInvite(!openInvite)}/>
-            <div className='group-header__desc-members-button' onClick={() => setOpenMembersList(!openMembersList)}>
-                <PersonIcon />
-                {!members.length ? 0 : members.length}
+            <div className='group__header-members-button' onClick={() => setOpenMembersList(!openMembersList)}>
+                <PersonIcon className='group__header-members-icon'/>
+                {!members.length ? '0 Members' : `${members.length} ${members.length === 1 ? `member` : `members`}`}
+            </div>
+            <div className={'group__header-invite-button'} onClick={() => setOpenInvite(!openInvite)}>
+                <GroupAddIcon className='group__header-invite-icon'/>
+                Invite Friends
             </div>
         </div>
     )

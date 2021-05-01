@@ -15,7 +15,6 @@ const GroupDetails = ({ group, user, users }) => {
     const [openInvite, setOpenInvite] = useState(false)
     const members = group.users.map(user => users[`"${user}"`]);
 
-
     return (
         <div className='group__header-info'>
             <HeaderIcon item={group} />
