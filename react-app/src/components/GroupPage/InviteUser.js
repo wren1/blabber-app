@@ -22,8 +22,6 @@ const InviteUser = ({ openInvite, setOpenInvite, group, user, users, members }) 
         }
     }
 
-    console.log('friendss: ', friends)
-
 
     return (
         <div className='backdrop' onClick={() => setOpenInvite(false)} >

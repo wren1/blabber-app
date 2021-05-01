@@ -7,6 +7,7 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import MembersList from './MembersList';
 import InviteUser from './InviteUser';
 import HeaderIcon from '../HeaderIcon';
+import GroupMemberButtons from './GroupMemberButtons';
 
 
 const GroupDetails = ({ group, user, users }) => {
@@ -18,14 +19,10 @@ const GroupDetails = ({ group, user, users }) => {
     return (
         <div className='group__header-info'>
             <HeaderIcon item={group} />
-            <GroupAddIcon className='group__header-invite' onClick={() => setOpenInvite(!openInvite)}/>
             <div className='group__header-description'>
                 {group.description || null}
             </div>
-            <div className='group-header__desc-members-button' onClick={() => setOpenMembersList(!openMembersList)}>
-                <PersonIcon />
-                {!members.length ? 0 : members.length}
-            </div>
+            <GroupMemberButtons members={members} openInvite={openInvite} setOpenInvite={setOpenInvite} openMembersList={openMembersList} setOpenMembersList={setOpenMembersList} />
             {!openMembersList ? null : <MembersList openMembersList={openMembersList} setOpenMembersList={setOpenMembersList} members={members} group={group} />}
             {!openInvite ? null : <InviteUser openInvite={openInvite} setOpenInvite={setOpenInvite} members={members} group={group} user={user} users={users} />}
         </div>
