@@ -61,6 +61,8 @@
 .profile__username {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    position: absolute;
 }
 .profile__user-desc {
     font-size: 14px;

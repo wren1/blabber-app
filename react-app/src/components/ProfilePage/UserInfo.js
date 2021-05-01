@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import ProfileIcon from '../ProfileIcon';
 import FriendIcon from './FriendIcon';
+import HeaderIcon from '../HeaderIcon';
 
 
 const UserInfo = ({ user, requested, setRequested }) => {
@@ -12,17 +13,15 @@ const UserInfo = ({ user, requested, setRequested }) => {
 
 
     return (
-        <div className='profile__user-info'>
+        // <div className='profile__user-info'>
             <div className='profile__username'>
-                <ProfileIcon user={user} size={'med'} />
-                {!user ? null : user.username}
+                <HeaderIcon item={user} />
                 {user.id === currentUser.id ? null : <FriendIcon currentUser={currentUser} user={user} requested={requested} setRequested={setRequested} />}
-                {!user.name ? null : user.name}
             </div>
-            <div className='profile__user-desc'>
-                {!user.description ? null : user.description}
-            </div>
-        </div>
+            // {/* <div className='profile__user-desc'>
+                // {!user.description ? null : user.description}
+            // </div>
+        // </div> */}
     )
 }
 
