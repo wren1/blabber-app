@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import ProfileIcon from '../ProfileIcon';
 import Link from '../Link';
 
 
