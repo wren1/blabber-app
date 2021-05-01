@@ -18,7 +18,7 @@
     box-sizing: border-box;
     position: relative;
     width: 100%;;
-    background-color: white;
+    /* background-color: white; */
 }
 .group__header-info {
     box-sizing: border-box;
@@ -146,7 +146,7 @@
     outline: none;
     border: none;
     resize: none;
-    background-color: #FAFAFA;
+    /* background-color: #FAFAFA; */
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 10px;
     font-size: 14px;
