@@ -6,7 +6,7 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 
 import MembersList from './MembersList';
 import InviteUser from './InviteUser';
-import IconWithName from '../IconWithName';
+import HeaderIcon from '../HeaderIcon';
 
 
 const GroupDetails = ({ group, user, users }) => {
@@ -17,7 +17,7 @@ const GroupDetails = ({ group, user, users }) => {
 
     return (
         <div className='group__header-info'>
-            <IconWithName item={group} />
+            <HeaderIcon item={group} />
             <GroupAddIcon className='group__header-invite' onClick={() => setOpenInvite(!openInvite)}/>
             <div className='group__header-description'>
                 {group.description || null}
