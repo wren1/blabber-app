@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ff4242;
+    /* background-color: #ff4242; */
     width: 100%;
     box-sizing: border-box;
     position: relative;
@@ -18,18 +18,10 @@
     width: 100%;
     margin-bottom: 30px;
     overflow: hidden;
-    border-bottom: .5px solid rgba(0, 232, 254, .5);
-    box-shadow: 0 0 3px rgba(0, 172, 187, 0.5);
+    /* border-bottom: .5px solid rgba(0, 232, 254, .5);
+    box-shadow: 0 0 3px rgba(0, 172, 187, 0.5); */
+    height: 150px;
 }
-/* .banner {
-    width: 100%;
-    height: 175px;
-    overflow: hidden;
-}
-.banner-img {
-    width: 100%;
-    height: auto;
-} */
 .profile-icon .user-icon {
 
 }
