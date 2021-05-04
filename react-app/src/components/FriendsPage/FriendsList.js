@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 import Friend from './Friend';
 
 
 const FriendsList = ({ userId }) => {
     const users = useSelector(state => state.users)
-    const currentUser = useSelector(state => state.currentUser)
     const friends = [];
     let user = users[`"${userId}"`]
     if (user) {
@@ -17,7 +15,6 @@ const FriendsList = ({ userId }) => {
             }
         }
     }
-    console.log('friuends: ', friends)
 
     return (
         <div className='friendslist-main'>
