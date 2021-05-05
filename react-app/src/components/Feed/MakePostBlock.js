@@ -12,12 +12,11 @@ import NewPostForm from './NewPostForm';
 const MakePostBlock = ({ user, group }) => {
     const [openMakePost, setOpenMakePost] = useState(false)
 
-    // if (!user) return null;
+    if (!user) return null;
 
     const makePostButton = () => {
         return (
             <div className='feed__makepost' onClick={() => setOpenMakePost(!openMakePost)}>
-                {/* <AddIcon className='makepost__icon'></AddIcon> */}
                 <ProfileIcon user={user} size={'med'} />
                 <div className='makepost__des'>Make a new post...</div>
             </div>

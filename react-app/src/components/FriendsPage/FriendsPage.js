@@ -7,7 +7,6 @@ import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
 import Loading from '../Loading';
 
-import { loadInvites } from '../../store/ducks/invites';
 import { loadCurrentUser } from '../../store/ducks/currentUser';
 import { loadFriends } from '../../store/ducks/users';
 
