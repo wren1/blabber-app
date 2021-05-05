@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+import Link from '../Link';
 
 
 const Friend = ({ friend }) => {
 
     return (
         <div className='friends-page__list-item' >
-            {friend.username}
+            <Link item={friend} />
         </div>
     )
 }

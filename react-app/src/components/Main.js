@@ -20,10 +20,7 @@ const Main = ({authenticated, setAuthenticated, currentUser}) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.currentUser)
     const allPosts = useSelector(state => state.posts)
-    // let currentUser = useSelector(state => state.currentUser)
-
-    // const user = useSelector(state => state.currentUser)
-
+    
     useEffect(() => {
         (async () => {
             await dispatch(loadCurrentUser())

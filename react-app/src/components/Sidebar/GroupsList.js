@@ -6,7 +6,6 @@ import GroupsListItem from './GroupsListItem';
 
 
 const GroupsList = ({ groups }) => {
-    // const groups = useSelector(state => state.currentUser.groups.map(groupId => state.groups[`"${groupId}"`]))
 
     
     return (
