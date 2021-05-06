@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import ProfileIcon from '../ProfileIcon';
 import FriendIcon from './FriendIcon';
 import HeaderIcon from '../HeaderIcon';
 

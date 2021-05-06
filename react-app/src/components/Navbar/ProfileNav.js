@@ -10,7 +10,6 @@ const ProfileNav = ({setAuthenticated}) => {
     const user = useSelector(state => state.currentUser)
 
     const handleClick = () => {
-        console.log('boop')
         setOpenDropdown(!openDropdown)
     }
     if (!user) return null;
