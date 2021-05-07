@@ -5,12 +5,9 @@ import { useParams } from 'react-router-dom';
 import PostHeader from './PostHeader';
 import PostContent from './PostContent';
 import PostFooter from './PostFooter';
-import Comments from './Comments';
 
 
 const Post = ({ post, user }) => {
-    const dispatch = useDispatch();
-
     const [openComments, setOpenComments] = useState(false)
 
     if (post === undefined || user === undefined) return null;

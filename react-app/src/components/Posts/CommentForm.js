@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 import { createComment } from '../../store/ducks/comments';
-
-import CommentFormHeader from './CommentFormHeader';
 
 
 const CommentForm = ({ post }) => {
@@ -18,7 +15,6 @@ const CommentForm = ({ post }) => {
 
     return (
         <div className='make-comment__container'>
-            {/* <CommentFormHeader /> */}
             <form className='make-comment-form'>
                 <textarea className='make-comment-input' onChange={(e) => setContent(e.target.value)} placeholder='Make a comment...' />
             </form>

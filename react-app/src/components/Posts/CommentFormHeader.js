@@ -6,7 +6,6 @@ import ProfileIcon from '../ProfileIcon';
 
 
 const CommentFormHeader = ({ post }) => {
-    const dispatch = useDispatch();
     const user = useSelector(state => state.currentUser)
 
 

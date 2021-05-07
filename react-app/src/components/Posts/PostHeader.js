@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory, NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory, NavLink } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 
 import EditPost from './EditPost';
