@@ -7,7 +7,6 @@ import Post from './Post';
 const Posts = ({ posts }) => {
     const users = useSelector(state => state.users)
     if (!posts) return null;
-    console.log('user p: ', posts)
 
     return (
         <div className='posts'>

@@ -12,23 +12,13 @@ const PostHeader = ({ post, user }) => {
     const history = useHistory();
     const groups = useSelector(state => state.groups);
     const currentUser = useSelector(state => state.currentUser)
-    let group;
     const [openEditPost, setOpenEditPost] = useState(false)
+
+    let group;
     if (post.group_id) {
         group = groups[`"${post.group_id}"`]
     }
 
-    const handleEdit = () => {
-        setOpenEditPost(!openEditPost);
-    }
-
-    const handleClick = () => {
-        if (!group) {
-            history.push(`/users/${user.id}`)
-        } else {
-            history.push(`/groups/${group.id}`)
-        }
-    }
     const dateCreated = new Date(post.created_on)
 
     return (
@@ -37,7 +27,7 @@ const PostHeader = ({ post, user }) => {
                 <div className='post-header__info'>
                     <ProfileIcon user={user} size={'med'} group={group} />
                     <div className='post-header__txt'>
-                        <div className='post-header__username' onClick={handleClick}>
+                        <div className='post-header__username' >
                             <NavLink to={group ? `/groups/${group.id}` : `/users/${user.id}`}>{!group ? user.username : group.name}</NavLink>
                         </div>
                         <div className='post-header__date'>
@@ -48,7 +38,7 @@ const PostHeader = ({ post, user }) => {
                     </div>
                 </div>
                 {currentUser.id !== post.user_id ? null :
-                    <EditIcon onClick={handleEdit} className='post__edit-button' />
+                    <EditIcon onClick={() => setOpenEditPost(!openEditPost)} className='post__edit-button' />
                 }
             </div>
             {!openEditPost ? null : 
