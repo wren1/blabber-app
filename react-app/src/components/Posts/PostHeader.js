@@ -9,7 +9,6 @@ import ProfileIcon from '../ProfileIcon';
 
 
 const PostHeader = ({ post, user }) => {
-    const history = useHistory();
     const groups = useSelector(state => state.groups);
     const currentUser = useSelector(state => state.currentUser)
     const [openEditPost, setOpenEditPost] = useState(false)
