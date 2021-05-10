@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 
 import Comments from './Comments';
-import EditPost from './EditPost';
 
 import { loadComments } from '../../store/ducks/comments';
 import { like, unlike } from '../../store/ducks/likes';
@@ -18,7 +14,6 @@ const PostFooter = ({ post, user, setOpenComments, openComments }) => {
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.currentUser)
     let commentIds = post.comments
-    const [openEditPost, setOpenEditPost] = useState(false)
     let isLiked = currentUser.likes.includes(post.id);
     const [liked, setLiked] = useState(isLiked)
     const [numLikes, setNumLikes] = useState(post.users_liked.length);
