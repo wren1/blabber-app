@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-
-import {  } from '../../store/ducks/search';
+import React from 'react';
 
 
 const SearchPageHeader = ({ query, results, searchType, setSearchType }) => {
     
-
     
     return (
         <div className='searchpage__header'>

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
 
 import NavBar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar'
-// import SearchPageHeader from './SearchPageHeader';
-// import SearchResults from './SearchResults';
 import SearchContainer from './SearchContainer';
 import RightSidebar from '../RightSidebar/RightSidebar';
 import Loading from '../Loading';
@@ -17,10 +14,9 @@ import { loadFriends } from '../../store/ducks/users';
 import { loadUserGroups } from '../../store/ducks/groups';
 
 
-const SearchPage = ({ authenticated, setAuthenticated }) => {
+const SearchPage = ({ setAuthenticated }) => {
     const [loaded, setLoaded] = useState(false)
     const dispatch = useDispatch();
-    const history = useHistory();
     
     const [searchType, setSearchType] = useState('posts')
     
@@ -43,7 +39,6 @@ const SearchPage = ({ authenticated, setAuthenticated }) => {
             } else {
                 await dispatch(searchPosts(query))
             }
-            // await dispatch(searchAll(query))
             setLoaded(true)
         })()
     }, [searchType])

@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import ProfileIcon from '../ProfileIcon';
 import Post from '../Posts/Post';
 
 
@@ -11,8 +9,6 @@ const PostSearchResult = ({ post }) => {
 
     return (
         <div className='searchresult-post'>
-            {/* <ProfileIcon user={user} size={'med'} /> */}
-            {/* <div className='searchuser-username'>{user.username}</div> */}
             <Post post={post} user={user} />
         </div>
     )
