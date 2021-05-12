@@ -7,7 +7,7 @@ import SearchContainer from './SearchContainer';
 import RightSidebar from '../RightSidebar/RightSidebar';
 import Loading from '../Loading';
 
-import { searchAll, searchUsers, searchPosts, searchGroups } from '../../store/ducks/search';
+import { searchUsers, searchPosts, searchGroups } from '../../store/ducks/search';
 import { loadCurrentUser } from '../../store/ducks/currentUser';
 import { loadInvites } from '../../store/ducks/invites';
 import { loadFriends } from '../../store/ducks/users';
