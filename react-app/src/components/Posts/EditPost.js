@@ -54,7 +54,6 @@ const EditPost = ({ post, user, setOpenMakePost, openMakePost, group }) => {
                         <button onClick={handleCancel} className='button'>Cancel</button>
                         <button type='submit' className='button'>Submit</button>
                     </div>
-                    
                 </form>
             </div>
         )

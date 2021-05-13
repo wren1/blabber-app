@@ -5,6 +5,7 @@ import ProfileIcon from '../ProfileIcon';
 
 
 const SearchResult = ({ item }) => {
+
     let type;
     if (item.username) {
         type = 'user';
@@ -14,8 +15,8 @@ const SearchResult = ({ item }) => {
 
     return (
         <NavLink to={`/${type}s/${item.id}`} exact={true} activeClassName="active">
-            <div className={`searchresult-user searchresult`}>
-                <ProfileIcon user={user} size={'med'} />
+            <div className={`searchresult-${type} searchresult`}>
+                <ProfileIcon user={type === 'user' ? item : null} group={type === 'group' ? item : null} size={'med'} />
                 <div className='searchuser-username'>{user.username}</div>
             </div>
         </NavLink>

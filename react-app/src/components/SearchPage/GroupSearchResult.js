@@ -6,7 +6,6 @@ import ProfileIcon from '../ProfileIcon';
 
 const GroupSearchResult = ({ group }) => {
 
-
     return (
         <NavLink to={`/groups/${group.id}`} exact={true} activeClassName="active">
             <div className='searchresult-group searchresult'>
