@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import { searchAll } from '../../store/ducks/search';
+import { searchPosts } from '../../store/ducks/search';
 
 
 const SearchBar = () => {
@@ -14,14 +14,14 @@ const SearchBar = () => {
         e.preventDefault();
         let q = encodeURIComponent(query);
         (async () => {
-            await dispatch(searchAll(query))
+            await dispatch(searchPosts(query))
         })()
         history.push(`/search?query=${q}`)
     }
 
     return (
         <form className='search' onSubmit={handleSubmit}>
-            <input className='searchbar' placeholder='Search...' onChange={(e) => setQuery(e.target.value)} />
+            <input value={query} className='searchbar' placeholder='Search...' onChange={(e) => setQuery(e.target.value)} />
         </form>
     )
 }
