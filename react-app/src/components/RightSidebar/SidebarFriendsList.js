@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { loadUserGroups } from '../../store/ducks/groups';
 
@@ -15,7 +14,7 @@ const SidebarFriendsList = ({ friends }) => {
 
     // if (!user) return null;
 
-    let groups = []
+    // let groups = []
     // if (!user) return null;
 
     // if (user) {

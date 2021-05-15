@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import ProfileOption from './ProfileOption';
 import ActivityOption from './ActivityOption';

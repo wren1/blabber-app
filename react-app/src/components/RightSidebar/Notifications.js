@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 
 
 const Notifications = ({ notifs }) => {
-    const dispatch = useDispatch();
 
 
     return (
