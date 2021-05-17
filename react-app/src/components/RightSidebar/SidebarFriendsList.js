@@ -1,38 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-
-import { loadUserGroups } from '../../store/ducks/groups';
 
 import FriendListItem from './FriendListItem';
 
 
 const SidebarFriendsList = ({ friends }) => {
-    const dispatch = useDispatch();
-    // const user = useSelector(state => state.currentUser);
-    // const groups = useSelector(state => state.currentUser.groups.map(groupId => state.groups[`"${groupId}"`]))
-    // const allGroups = useSelector(state => state.groups)
-
-    // if (!user) return null;
-
-    // let groups = []
-    // if (!user) return null;
-
-    // if (user) {
-
-    
-    // user.groups.forEach(groupId => {
-    //     if (allGroups[`"${groupId}"`]) {
-    //         if (allGroups[`"${groupId}"`] !== undefined) groups.push(allGroups[`"${groupId}"`])
-    //     }
-    // })}
-
-    // useEffect(() => {
-    //     (async () => {
-    //         if (user) {
-    //             await dispatch(loadUserGroups(user.id))
-    //         }
-    //     })();
-    // }, []);
 
 
     return (

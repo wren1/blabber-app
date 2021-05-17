@@ -22,16 +22,11 @@ const RightSidebar = ({ user, authenticated, setAuthenticated }) => {
     for (let invite in invites) {
         notifs.push(invites[invite])
     }
-    // const user = useSelector(state => state.currentUser);
-    // const friends = useSelector(state => state.currentUser.friends.map(friendId => state.users[`"${friendId}"`]))
     const allUsers = useSelector(state => state.users)
 
     if (!user) return null;
 
     let friends = []
-    // // if (!user) return null;
-
-    // if (user) {
 
     
     user.friends.forEach(friendId => {
@@ -40,13 +35,6 @@ const RightSidebar = ({ user, authenticated, setAuthenticated }) => {
         }
     })
 
-    // useEffect(() => {
-    //     (async () => {
-    //         if (user) {
-    //             await dispatch(loadUserGroups(user.id))
-    //         }
-    //     })();
-    // }, []);
 
     const handleLogout = async (e) => {
                 await logout();
