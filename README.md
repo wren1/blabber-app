@@ -11,10 +11,10 @@
 
 <br />
 <p align="center">
-<a href="https://hangry-yelp-clone.herokuapp.com/">
-    <img src="readmeImages/hangry-alt-logo.png" alt="Logo" width="120" height="auto"
+<a href="https://blabberapp.herokuapp.com/">
+    <img src="react-app/images/whale.png" alt="Logo" width="120" height="auto"
     ></a>
-<a href="https://hangry-yelp-clone.herokuapp.com/">
+<a href="https://blabberapp.herokuapp.com/">
   <h3 align="center">Blabber</h3></a>
   
 
@@ -85,7 +85,7 @@
 
 ### Introduction
 
-A blogging website where users can make posts and follow others.
+A socail media site where users can join groups and make friends.
 
 
 ### Features
@@ -103,46 +103,42 @@ A blogging website where users can make posts and follow others.
         * delete group
         * delete posts and remove users from group
     * User can join other groups
-        * if private, must join through invite
+        * can join through invites
 2. Posts
     * Make posts in group page
         * edit and delete your own post
         * comment on other user's posts
 3. Friends
     * Friend and unfriend other users
-    * Friend page shows a list of a user's friends
 4. Search
-    * Search feature to find groups or users (filter option on search page)
+    * Search feature to find groups, posts, and users (filter option on search page)
 5. User Profile
     * Shows list of posts by that user
-        * if in private group, only shown to users in that group
     * User profile header:
-        * option to edit info if current user
-        * username, name, profile picture, description
-        * buttons to view friends, groups, and likes
+        * user info
         * button to friend or unfriend
 6. Likes
-    * like and unlike posts
-7. Moderators
+    * like posts
+<!-- 7. Moderators
     * Group owner can set members to be moderators
         * moderator can edit group information, remove regular members, and delete posts
-        * moderators can remove themselves from being moderators
+        * moderators can remove themselves from being moderators -->
 
     
 
 
 <!-- GETTING STARTED -->
-## Getting Started
------------
+<!-- ## Getting Started -->
+<!-- ----------- -->
 
 <!-- To get a local copy up and running follow these simple steps. -->
 
 1. 
 
-### Prerequisites
+<!-- ### Prerequisites
 
 
-### Installation
+### Installation -->
 <!-- 
 
 1. Clone the repo
@@ -163,8 +159,8 @@ A blogging website where users can make posts and follow others.
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
------------
+<!-- ## Usage
+----------- -->
 
 
 
