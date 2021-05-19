@@ -10,7 +10,7 @@ import Navbar from '../Navbar/Navbar';
 
 import { loadGroupPosts } from '../../store/ducks/posts';
 import { loadInvites } from '../../store/ducks/invites';
-import { setCurrentUser, loadCurrentUser } from '../../store/ducks/currentUser';
+import { loadCurrentUser } from '../../store/ducks/currentUser';
 import { loadGroupMembers, loadCurrentUserFriends } from '../../store/ducks/users';
 import { loadCurrentUserGroups } from '../../store/ducks/groups';
 
@@ -47,7 +47,6 @@ const GroupPage = ({ setAuthenticated }) => {
                 <GroupContainer groupId={groupId} user={user}/>
                 <RightSidebar user={user} setAuthenticated={setAuthenticated} />
             </div>
-            {/* <Footer /> */}
         </div>
     )
 }
