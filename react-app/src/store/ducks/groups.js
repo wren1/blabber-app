@@ -116,7 +116,6 @@ export const addMember = (groupId) => async (dispatch) => {
     })
     if (res.ok) {
         const { user, group } = await res.json();
-        // add group to member's list if
         dispatch(joinGroup(group))
     } else {
         console.error(res)

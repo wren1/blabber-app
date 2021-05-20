@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
 
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
