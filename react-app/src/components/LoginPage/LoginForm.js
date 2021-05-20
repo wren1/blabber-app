@@ -1,19 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useParams } from 'react-router-dom';
-
-
-// const LoginForm = () => {
-
-//     return (
-//         <div>
-
-//         </div>
-//     )
-// }
-
-// export default LoginForm;
-
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -34,6 +18,13 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
       setErrors(user.errors);
     }
   };
+
+  const loginDemo = async () => {
+    const user = await login("demo@aa.io", "password");
+    if (!user.errors) {
+      setAuthenticated(true);
+    }
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -74,7 +65,10 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           onChange={updatePassword}
         />
       </div>
-      <button type="submit" className='button'>Login</button>
+      <div className="buttons">
+        <button type="submit" className='button'>Login</button>
+        <button className='button' onClick={loginDemo}>Demo</button>
+      </div>
     </form>
   );
 };
