@@ -13,6 +13,7 @@ const Comments = ({ post, commentIds }) => {
     if (commentIds) {
         commentIds.forEach(id => comments.push(allComments[`"${id}"`]))
     }
+    
     if (commentIds.length !== comments.length) return null;
 
     return (

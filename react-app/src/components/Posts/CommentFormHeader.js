@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileIcon from '../ProfileIcon';
 
 
-const CommentFormHeader = ({ post }) => {
+const CommentFormHeader = () => {
     const user = useSelector(state => state.currentUser)
 
 

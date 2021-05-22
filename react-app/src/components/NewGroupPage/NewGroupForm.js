@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 
 import { createGroup } from '../../store/ducks/groups';
 
@@ -15,14 +12,12 @@ const NewGroupForm = ({ user }) => {
     const [isPrivate, setIsPrivate] = useState(false);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+
     if (!user) return null;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(createGroup(user.id, name, description, isPrivate))
-        history.push('/')
-    }
-    const handleCancel = () => {
         history.push('/')
     }
 
@@ -49,7 +44,7 @@ const NewGroupForm = ({ user }) => {
                 name='description'
                 onChange={(e) => setDescription(e.target.value)}/>
                 <div className='newgroup-buttons'>
-                    <button onClick={handleCancel} className='button'>Cancel</button>
+                    <button onClick={() => history.push('/')} className='button'>Cancel</button>
                     <button type='submit' className='button'>Submit</button>
                 </div>
             </form>
