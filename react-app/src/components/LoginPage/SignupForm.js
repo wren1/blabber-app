@@ -18,22 +18,6 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     }
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
-  };
-
   if (authenticated) {
     return <Redirect to="/" />;
   }
@@ -42,19 +26,19 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
     <form onSubmit={onSignUp} className='signup-form'>
       <div className='login__form-field' >
         <label>Username</label>
-        <input type="text" name="username" onChange={updateUsername} value={username} placeholder="Your username here..."></input>
+        <input type="text" name="username" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Your username here..."></input>
       </div>
       <div className='login__form-field' >
         <label>Email</label>
-        <input type="text" name="email" onChange={updateEmail} value={email} placeholder="example@email.com..." ></input>
+        <input type="text" name="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="example@email.com..." ></input>
       </div>
       <div className='login__form-field' >
         <label>Password</label>
-        <input type="password" name="password" onChange={updatePassword} value={password} placeholder="Your password here..." ></input>
+        <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Your password here..." ></input>
       </div>
       <div className='login__form-field' >
         <label>Confirm Password</label>
-        <input type="password" name="repeat_password" onChange={updateRepeatPassword} value={repeatPassword} placeholder="Confirm your password..."
+        <input type="password" name="repeat_password" onChange={(e) => setRepeatPassword(e.target.value)} value={repeatPassword} placeholder="Confirm your password..."
           required={true} ></input>
       </div>
       <button type="submit" className='button'>Sign Up</button>
