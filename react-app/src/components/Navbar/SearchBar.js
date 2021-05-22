@@ -14,7 +14,7 @@ const SearchBar = () => {
         e.preventDefault();
         let q = encodeURIComponent(query);
         (async () => {
-            await dispatch(searchPosts(query))
+            dispatch(searchPosts(query))
         })()
         history.push(`/search?query=${q}`)
     }

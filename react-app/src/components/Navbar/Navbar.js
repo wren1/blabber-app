@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
 import SearchBar from './SearchBar';
-import ProfileNav from './ProfileNav';
 import Logo from './Logo';
 
 
-const Navbar = ({setAuthenticated}) => {
-    const user = useSelector(state => state.currentUser)
+const Navbar = () => {
     
     return (
         <div className='navbar'>
