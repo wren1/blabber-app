@@ -5,7 +5,6 @@ import { useParams, useHistory } from 'react-router-dom';
 
 const UserIcon = ({ user }) => {
     const history = useHistory();
-    console.log('id: ', user.id)
     const handleClick = () => {
         history.push(`/users/${user.id}`)
     }

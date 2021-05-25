@@ -11,7 +11,6 @@ const SentInvitesList = ({ invites }) => {
     for (let invite in invites) {
         sent.push(invites[invite])
     }
-    console.log('s: ', sent)
 
     return (
         <div className='invites-list'>

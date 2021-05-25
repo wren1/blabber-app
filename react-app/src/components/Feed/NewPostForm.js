@@ -18,7 +18,6 @@ const NewPostForm = ({ openMakePost, setOpenMakePost, user, group }) => {
     const handleSubmit = (e) => {
         e.preventDefault(e);
         if (group) {
-            console.log('grrr oup: ', group)
             dispatch(createGroupPost(user.id, title, content, group.id))
             setOpenMakePost(!openMakePost)
         } else {

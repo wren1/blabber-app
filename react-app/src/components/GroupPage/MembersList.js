@@ -6,7 +6,6 @@ import Member from './Member';
 
 const MembersList = ({ setOpenMembersList, members, group }) => {
     
-    console.log(members)
     return (
         <div className='backdrop' onClick={() => setOpenMembersList(false)} >
             <div className='group__members-list' onClick={(e) => e.stopPropagation()} >

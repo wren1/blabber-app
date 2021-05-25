@@ -14,7 +14,6 @@ import { loadFriends } from '../../store/ducks/users';
 const FriendsPage = () => {
     const [loaded, setLoaded] = useState(false)
     const { userId } = useParams();
-    console.log(userId)
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.currentUser)
     

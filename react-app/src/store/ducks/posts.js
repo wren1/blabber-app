@@ -27,7 +27,6 @@ export const loadPosts = () => async (dispatch, getState) => {
         const res = await fetch(`/api/users/${currentUser.id}/posts`);
         if (res.ok) {
             const { posts, users, groups } = await res.json();
-            console.log('users: ', users)
             dispatch(getPosts(posts))
             dispatch(getUsers(users))
             dispatch(getUserGroups(groups))
@@ -49,11 +48,9 @@ export const loadUserPosts = (userId) => async (dispatch) => {
 }
 
 export const loadGroupPosts = (groupId) => async (dispatch) => {
-    console.log(groupId)
     const res = await fetch(`/api/posts/groups/${groupId}`);
     if (res.ok) {
         const { posts, users, group } = await res.json();
-        console.log(posts, users, group)
         if (posts) dispatch(getPosts(posts))
         if (users) dispatch(getUsers(users))
         if (group) dispatch(getGroup(group))
@@ -63,7 +60,6 @@ export const loadGroupPosts = (groupId) => async (dispatch) => {
 }
 
 export const createPost = (user_id, title, content, group_id) => async (dispatch) => {
-    // console.log('postsss: ', post)
     if (!group_id) group_id = null;
     const res = await fetch(`/api/posts`, {
         method: 'POST',
@@ -97,7 +93,6 @@ export const createGroupPost = (user_id, title, content, group_id) => async (dis
 }
 
 export const updatePost = (id, user_id, title, content, group_id) => async (dispatch) => {
-    // console.log(inpost)
     const res = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         headers: {

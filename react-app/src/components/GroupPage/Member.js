@@ -16,7 +16,6 @@ const Member = ({ member, group }) => {
         history.push(`/users/${member.id}`)
     }
 
-    console.log(member)
 
     return (
         <div className='group__members-list-item' onClick={handleClick}>

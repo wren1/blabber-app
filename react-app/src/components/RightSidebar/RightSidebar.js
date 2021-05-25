@@ -17,7 +17,6 @@ const RightSidebar = ({ user, authenticated, setAuthenticated }) => {
     const history = useHistory()
     const dispatch = useDispatch();
     const invites = useSelector(state => state.invites.received)
-    console.log('rec inv: ', invites)
     let notifs = [];
     for (let invite in invites) {
         notifs.push(invites[invite])

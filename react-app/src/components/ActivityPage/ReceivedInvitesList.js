@@ -11,7 +11,6 @@ const ReceivedInvitesList = ({ invites }) => {
     for (let invite in invites) {
         received.push(invites[invite])
     }
-    console.log(received)
 
     return (
         <div className='invites-list'>

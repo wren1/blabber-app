@@ -19,7 +19,6 @@ export const loadInvites = () => async (dispatch, useState) => {
         const res = await fetch(`/api/users/${currentUser.id}/invites`)
         if (res.ok) {
             const { received_invites, sent_invites, users, groups } = await res.json();
-            console.log('received: ', received_invites, 'sent: ', sent_invites)
             dispatch(getUsers(users));
             dispatch(getUserGroups(groups))
             dispatch(getInvites(sent_invites, received_invites))

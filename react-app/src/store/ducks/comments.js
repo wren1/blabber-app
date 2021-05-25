@@ -35,7 +35,6 @@ export const createComment = (postId, content) => async (dispatch, getState) => 
     })
     if (res.ok) {
         const comment = await res.json();
-        console.log('new comment: ', comment)
         let post = posts[`"${postId}"`];
         post.comments.push(comment.id);
         dispatch(newComment(comment))
