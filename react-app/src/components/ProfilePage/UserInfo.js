@@ -12,15 +12,10 @@ const UserInfo = ({ user, requested, setRequested }) => {
 
 
     return (
-        // <div className='profile__user-info'>
             <div className='profile__username'>
                 <HeaderIcon item={user} />
                 {user.id === currentUser.id ? null : <FriendIcon currentUser={currentUser} user={user} requested={requested} setRequested={setRequested} />}
             </div>
-            // {/* <div className='profile__user-desc'>
-                // {!user.description ? null : user.description}
-            // </div>
-        // </div> */}
     )
 }
 

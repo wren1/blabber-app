@@ -133,10 +133,8 @@ export const like = (postId) => async (dispatch, getState) => {
     })
     if (res.ok) {
         const post = await res.json();
-        // edit likes
         currentUser.likes.append(postId)
         dispatch(updateCurrentUser(currentUser))
-        // dispatch(likePost(postId))
     } else {
         console.error(res)
     }
@@ -152,11 +150,9 @@ export const unlike = (postId) => async (dispatch, getState) => {
     })
     if (res.ok) {
         const post = await res.json();
-        // edit likes
         const idx = currentUser.likes.indexOf(postId)
         currentUser.likes.slice(idx, 1)
         dispatch(updateCurrentUser(currentUser))
-        // dispatch(unlikePost(postId))
     } else {
         console.error(res)
     }
@@ -175,7 +171,6 @@ export default function posts(state = {}, action) {
             let stateArr = Object.entries(newState);
             stateArr.unshift(newPost);
             newState = Object.fromEntries(stateArr)
-            // newState[`"${action.post.id}"`] = action.post;
             return newState;
         case NEW_GROUP_POST:
             newState[`"${action.post.id}"`] = action.post;

@@ -67,7 +67,6 @@ export const createGroup = (owner_id, name, description, isPrivate) => async (di
         dispatch(newGroup(group))
         currentUser.groups.push(group.id);
         let user = users[`"${owner_id}"`];
-        // user.groups.push(group.id);
         dispatch(updateCurrentUser(currentUser));
         dispatch(updateUser(user));
     } else {
@@ -130,7 +129,6 @@ export const removeMember = (groupId, userId) => async (dispatch) => {
     })
     if (res.ok) {
         const { user, group } = await res.json();
-        // edit user so it doesn't show they're in that group
         dispatch(leaveGroup(group.id, user.id))
     } else {
         console.error(res)
