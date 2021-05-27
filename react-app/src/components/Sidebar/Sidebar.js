@@ -6,15 +6,10 @@ import GroupsList from './GroupsList';
 
 
 const Sidebar = ({ user }) => {
-
     const allGroups = useSelector(state => state.groups)
-
-
     let groups = []
 
     if (user) {
-
-    
     user.groups.forEach(groupId => {
         if (allGroups[`"${groupId}"`]) {
             if (allGroups[`"${groupId}"`] !== undefined) groups.push(allGroups[`"${groupId}"`])
