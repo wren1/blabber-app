@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 const Member = ({ member, group }) => {
     const history = useHistory();
     let isMod = group.moderators.includes(member.id);
     let isOwner = (group.user_id === member.id);
-    const [mod, setMod] = useState(isMod);
-    const [owner, setOwner] = useState(isOwner)
+    // const [mod, setMod] = useState(isMod);
+    // const [owner, setOwner] = useState(isOwner)
 
     if (!member) return null;
 

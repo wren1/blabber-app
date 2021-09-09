@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PersonIcon from '@material-ui/icons/Person';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import { sendGroupInvite } from '../../store/ducks/invites';
 
