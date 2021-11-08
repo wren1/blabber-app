@@ -2,8 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="image" property="og:image" content="/blabberimg.png">
-    <meta name="description" property="og:description" content="Blabber is a social media web application where users can make friends, join groups, and make posts.">
+    <!-- <meta name="image" property="og:image" content="/blabberimg.png">
+    <meta name="description" property="og:description" content="Blabber is a social media web application where users can make friends, join groups, and make posts."> -->
+
+    <meta property="og:title" content="Blabber" />
+     <meta property='og:image' content="<%= image_url('/blabberimg.png') %>"/>
+     <meta property="og:description"
+       content="Blabber is a social media web application where users can make friends, join groups, and make posts."
+     />
+     <meta property="og:url"
+       content="https://blabberapp.herokuapp.com/"
+     />
     <title>Blabber</title>
   </head>
   <body>
