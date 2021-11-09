@@ -85,7 +85,7 @@
 
 ### Introduction
 
-A socail media site where users can join groups and make friends.
+A social media site where users can join groups and make friends.
 
 
 ### Features
